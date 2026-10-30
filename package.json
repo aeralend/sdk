@@ -1,0 +1,64 @@
+{
+  "name": "@aera/sdk",
+  "version": "0.5.0",
+  "description": "TypeScript SDK for the Aera lending protocol on Cookie Chain",
+  "license": "Apache-2.0",
+  "homepage": "https://aeralend.app",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aeralend/sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aeralend/sdk/issues"
+  },
+  "keywords": [
+    "aera",
+    "cookie-chain",
+    "svm",
+    "lending",
+    "perps",
+    "sdk"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./idl": "./idl/aera.json",
+    "./receipts": {
+      "types": "./dist/receiptUtilities.d.ts",
+      "default": "./dist/receiptUtilities.js"
+    },
+    "./perps": {
+      "types": "./dist/perps.d.ts",
+      "default": "./dist/perps.js"
+    }
+  },
+  "files": [
+    "dist",
+    "idl"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "prepare": "npm run build",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "smoke": "npm run build && node smoke.mjs",
+    "test": "tsx --test test/decoding.test.ts test/stake-pool.test.ts test/token-program.test.ts test/receipts.test.ts test/yield-escrow.test.ts test/strategy-accounting.test.ts test/strategy-adapters.test.ts test/perps.test.ts test/exchange.test.ts test/exchange-referral.test.ts test/spot-orders.test.ts test/asol-staking.test.ts test/holder-fees.test.ts test/perps-live.test.ts test/perps-bcook.test.ts test/perps-bcook-pool.test.ts test/perps-final.test.ts test/cook-feed.test.ts test/perps-v2-retired.test.ts test/pool-markets.test.ts test/yield-tokens.test.ts test/isolated-markets.test.ts test/isolated-client.test.ts test/bridge.test.ts test/acook-savings.test.ts",
+    "typecheck:test": "tsc --noEmit -p tsconfig.test.json"
+  },
+  "dependencies": {
+    "@coral-xyz/anchor": "^0.31.1",
+    "@solana/spl-token": "^0.4.9",
+    "@solana/web3.js": "^1.98.0",
+    "bn.js": "^5.2.1"
+  },
+  "devDependencies": {
+    "@types/bn.js": "^5.2.0",
+    "tsx": "^4.23.13",
+    "typescript": "^5.6.3"
+  }
+}

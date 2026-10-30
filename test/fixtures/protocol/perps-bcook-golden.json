@@ -1,0 +1,3439 @@
+{
+  "accounts": {
+    "FeedPrice": "2cdf42a727089120",
+    "LinearMarketState": "c20537f1c18b5e48",
+    "LpPoolState": "d671878715987318",
+    "Order": "86addfb94d561c33",
+    "PoolOracle": "59e0dc068ab42c6a",
+    "PriceState": "ca28259d497598fb"
+  },
+  "capacity": {
+    "formula": "oiCap * 1e24 / (bandHi * rateE9), floored",
+    "rows": [
+      {
+        "bandHi": "54180000",
+        "capacity": "86681419922656",
+        "oiCap": "6800000",
+        "rateE9": "1447917760",
+        "spotHi": "54180000",
+        "spotLo": "52700000",
+        "twap": "53070000"
+      },
+      {
+        "bandHi": "54180000",
+        "capacity": "174637566608881",
+        "oiCap": "13700000",
+        "rateE9": "1447917760",
+        "spotHi": "54180000",
+        "spotLo": "52700000",
+        "twap": "53070000"
+      },
+      {
+        "bandHi": "56000000",
+        "capacity": "83864273775170",
+        "oiCap": "6800000",
+        "rateE9": "1447917760",
+        "spotHi": "56000000",
+        "spotLo": "52700000",
+        "twap": "53070000"
+      },
+      {
+        "bandHi": "53070000",
+        "capacity": "88494428705663",
+        "oiCap": "6800000",
+        "rateE9": "1447917760",
+        "spotHi": "45900000",
+        "spotLo": "45100000",
+        "twap": "53070000"
+      },
+      {
+        "bandHi": "53070000",
+        "capacity": "0",
+        "oiCap": "0",
+        "rateE9": "1447917760",
+        "spotHi": "53070000",
+        "spotLo": "53070000",
+        "twap": "53070000"
+      }
+    ]
+  },
+  "constants": {
+    "admin": "GqdCnvFd8ErGTSdz7VdYmMNNh4nvMMmuw7GAA5SQ6gRG",
+    "assetOutageSeconds": 21600,
+    "ataProgram": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+    "bcookDecimals": 9,
+    "bcookMint": "EkPafx58mgwkEnGwo62jXhXDAdJ37Z8G8MFBRPsr9uhz",
+    "cookMint": "So11111111111111111111111111111111111111112",
+    "feeBps": 8,
+    "feeDestination": "22v7PjUXNu8t9JJhZYFhsS1TFgkqqTxJtq3ZQdy85CyR",
+    "feeDestinationBcookAta": "4412FLDXADHccnZW4pcT6PKXXonSfYw5oqkYxmdyzn6A",
+    "maxFillDelaySeconds": 32,
+    "maxPriceAgeSeconds": 35,
+    "maxRateEpochsOld": 1,
+    "maxWithdrawalFeeBps": 1000,
+    "minFillDelaySeconds": 2,
+    "minLpDeposit": "10000000000000",
+    "minNotional": "10000000",
+    "orderSpace": 200,
+    "poolOracleSpace": 1576,
+    "settleOutageGraceSeconds": 237600,
+    "stakePool": "GxbNKNYdtNXQkhDkpHdLDAMX64GxaECgANqdfp6cUGH4",
+    "stakePoolLength": 611,
+    "stakePoolProgram": "GZgs5uREPp6BvDt8eysmhavQPAHBAtjePgV4zfhgd9pH",
+    "tokenProgram": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+  },
+  "conversions": {
+    "quote": "quote.engine",
+    "rows": [
+      {
+        "fee": "106981676878",
+        "maintenance": "13372709609678",
+        "notional": "10000000"
+      },
+      {
+        "fee": "160472515317",
+        "maintenance": "20059064414517",
+        "notional": "15000000"
+      },
+      {
+        "fee": "213963353755",
+        "maintenance": "26745419219355",
+        "notional": "20000000"
+      },
+      {
+        "fee": "1069816768775",
+        "maintenance": "133727096096775",
+        "notional": "100000000"
+      },
+      {
+        "fee": "1069816768774199",
+        "maintenance": "133727096096774787",
+        "notional": "100000000000"
+      }
+    ]
+  },
+  "cook": {
+    "account": "ddbae564e8136103fe012c01c4099600f401002f68590000000000743ba40b00000001002c01c4099600f401002f68590000000000743ba40b00000000754c6b0000000000d2496b0000000000ca9a3b000000000078a6982000000004",
+    "accountBare": "ddbae564e8136103fe002c01c4099600f401002f68590000000000743ba40b0000000000000000000000000000000000000000000000000000000000",
+    "accountDiscriminator": "ddbae564e8136103",
+    "address": "CBQ3Z72VbyUYTuxHqpYC1NmopVgbwCr5Toy6wtKWbT4s",
+    "bounds": {
+      "ceilingUsdMicrosMax": "50000000000",
+      "fenceBps": [
+        500,
+        5000
+      ],
+      "leashBps": [
+        50,
+        1000
+      ],
+      "minDepth": [
+        "10000000000",
+        "100000000000000"
+      ],
+      "shareBps": [
+        1,
+        1000
+      ],
+      "spreadBps": [
+        20,
+        500
+      ]
+    },
+    "data": {
+      "initCookFeed": "b232f7d76b8001b6002c01c4099600f401002f68590000000000743ba40b000000",
+      "postSignedCook": "254ad6c3c13521860400000001ca9a3b000000000078a6982000000000505c18a3010000010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010102ca9a3b000000000078a6982000000000505c18a3010000020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020203ca9a3b000000000078a6982000000000505c18a3010000030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030304ca9a3b000000000078a6982000000000505c18a30100000404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404",
+      "setCookFeed": "2fa001c847b8da27012c01c4099600f401002f68590000000000743ba40b000000"
+    },
+    "feedId": "434f4f4b504f4f4c000000000000000000000000000000000000000000000000",
+    "instructions": {
+      "apply_cook_feed": "4497c86b9a192989",
+      "cancel_cook_feed": "e7dc728f88dae82f",
+      "init_cook_feed": "b232f7d76b8001b6",
+      "post_signed_cook": "254ad6c3c1352186",
+      "set_cook_feed": "2fa001c847b8da27"
+    },
+    "ix": {
+      "applyCookFeed": {
+        "data": "4497c86b9a192989",
+        "keys": [
+          [
+            "CBQ3Z72VbyUYTuxHqpYC1NmopVgbwCr5Toy6wtKWbT4s",
+            false,
+            true
+          ]
+        ]
+      },
+      "cancelCookFeed": {
+        "data": "e7dc728f88dae82f",
+        "keys": [
+          [
+            "GqdCnvFd8ErGTSdz7VdYmMNNh4nvMMmuw7GAA5SQ6gRG",
+            true,
+            false
+          ],
+          [
+            "CBQ3Z72VbyUYTuxHqpYC1NmopVgbwCr5Toy6wtKWbT4s",
+            false,
+            true
+          ]
+        ]
+      },
+      "initCookFeed": {
+        "data": "b232f7d76b8001b6002c01c4099600f401002f68590000000000743ba40b000000",
+        "keys": [
+          [
+            "GqdCnvFd8ErGTSdz7VdYmMNNh4nvMMmuw7GAA5SQ6gRG",
+            true,
+            true
+          ],
+          [
+            "CBQ3Z72VbyUYTuxHqpYC1NmopVgbwCr5Toy6wtKWbT4s",
+            false,
+            true
+          ],
+          [
+            "11111111111111111111111111111111",
+            false,
+            false
+          ]
+        ]
+      },
+      "postSignedCook": {
+        "data": "254ad6c3c13521860400000001ca9a3b000000000078a6982000000000505c18a3010000010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010102ca9a3b000000000078a6982000000000505c18a3010000020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020203ca9a3b000000000078a6982000000000505c18a3010000030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030304ca9a3b000000000078a6982000000000505c18a30100000404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404",
+        "keys": [
+          [
+            "4Ss5JMkXAD9Z7cktFEdrqeMuT6jGMF1pVozTyPHZ6zT4",
+            true,
+            true
+          ],
+          [
+            "CBQ3Z72VbyUYTuxHqpYC1NmopVgbwCr5Toy6wtKWbT4s",
+            false,
+            true
+          ],
+          [
+            "Ae3WdK1scKCuwqBxY7sQTRDdLtqnpxkLuQmCK9Nhy9hD",
+            false,
+            true
+          ],
+          [
+            "5mHqxs7cP8jPKGb92auCbwFMWAZ1qidPBochKVAaB3qg",
+            false,
+            true
+          ],
+          [
+            "EjXuZim1ERjVaWuPMqUd8zv5mQZgymuiL9srjwR9gqvm",
+            false,
+            false
+          ],
+          [
+            "jKSKkyde4vHi49LLQpAtXsbQxAZCCeyeZGbg3BcJr7r",
+            false,
+            false
+          ],
+          [
+            "Bswb3UyeD1pUTaGiE6WvqwFpJZsQSEY1xhJePCDTHdvp",
+            false,
+            false
+          ],
+          [
+            "BwrtBnSeoK7hbfXDfPqr8p2aYj5c7JDqX6yJSaG42yFX",
+            false,
+            false
+          ],
+          [
+            "C1nBL5ufPcQvjkmj6hAmRgoLntHonMuf5WdxVxJenJaE",
+            false,
+            false
+          ],
+          [
+            "C5hUUPNfyui9sr2EXzVgiZa733W1TRbUdvJcZLMFXdtw",
+            false,
+            false
+          ],
+          [
+            "CxeKLJRofna6h2GqCsjdVwc2D7EdDFX8uDy9KGw3Ey68",
+            false,
+            false
+          ],
+          [
+            "D2ZcUbtpG5sKq7XLeB4YnpNnTGSptKCxTddoNeydzJQq",
+            false,
+            false
+          ],
+          [
+            "D6UucuMprPAYyCmr5UPU5h9YhRf2ZNtn23JTS32EjdjY",
+            false,
+            false
+          ],
+          [
+            "DAQCmCpqSgTn7J2MWmiPNZvJwasEESabaSy7VR4qUy4F",
+            false,
+            false
+          ],
+          [
+            "Sysvar1nstructions1111111111111111111111111",
+            false,
+            false
+          ],
+          [
+            "11111111111111111111111111111111",
+            false,
+            false
+          ]
+        ]
+      },
+      "setCookFeed": {
+        "data": "2fa001c847b8da27012c01c4099600f401002f68590000000000743ba40b000000",
+        "keys": [
+          [
+            "GqdCnvFd8ErGTSdz7VdYmMNNh4nvMMmuw7GAA5SQ6gRG",
+            true,
+            false
+          ],
+          [
+            "CBQ3Z72VbyUYTuxHqpYC1NmopVgbwCr5Toy6wtKWbT4s",
+            false,
+            true
+          ],
+          [
+            "jKSKkyde4vHi49LLQpAtXsbQxAZCCeyeZGbg3BcJr7r",
+            false,
+            false
+          ]
+        ]
+      }
+    },
+    "package": "01ca9a3b000000000078a6982000000000505c18a30100000101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101",
+    "settings": "012c01c4099600f401002f68590000000000743ba40b000000",
+    "space": 93
+  },
+  "data": {
+    "createPoolOracle": "dec2ff5285966a36050000004d434f4f4b069b8857feab8184fb687f634618c035dac439dc1aeb3b5598a0f0000000000100a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3b4b17d11f84027ae9b941c465382c8a6654d4fbc65de5c6cc4716df374a62e67a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4d20400000000000001b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b30e3a32c5be395f6fd4a2ba4558d22cef20d3784bc67f6c72e199a9fb941199bdb4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b42e16000000000000100e00007800000064002c0100e1f505000000000f08070000e204",
+    "postFeedPriceBtcSnapshot0": "1d85999bcc8dd51c030000004254430500000039efdd7783070000a0949731a1010000bd39825e3baf308cc5921b55fcb667ae7b980eb26714bcc46fc6621cca337fd2686bed03abca7d492ad8461dac11b423bff06f88682fac83430fc177422e12aa1ba21ae87583070000a0949731a10100004e4bd89cb1f8348bc9dfb2471442f7b375066a5a56f0c80c28587371b6ea65f5368a216ce9a184ad95bde865cbc03a11181facfb90e22591af8dd6d8bbd651bd1ca21ae87583070000a0949731a1010000ee1cee7390e05e8e28d27b738020c9c91b25373a9b5ca756d33ab4f38415efc17b35bb217ba605d5b55b6c39b7977d21db6fe5279dd40586e21568a9166a7c4f1c39efdd7783070000a0949731a10100003f638d6cb3a6fa4588fbfd64f67b14727397d3605d66ea0bbfeb53dc7d90603b6d859d2d4de563813e6e91819c2d42bf151a3474399baa063395958115854cb61c39efdd7783070000a0949731a10100000f568cbe42bf4ce57a2360d5e3560cba2c2014910b230908593fe1d51e07ceae3028dbb384a4af8b6ad50490651b311911259e51413ceb5857cae44e52a332661c",
+    "postPoolPrice": "4aaa7be432f03f30",
+    "setMarketLimits": "7e73b9e57a25763b002d310100000000080002",
+    "submitOrder": "e696c8355cd06d6c2a0000000000000000010060b7986c880000002d3101000000000060b7986c88000028d2496b00000000010000000000000000e8764817000000"
+  },
+  "events": {
+    "MarketPositionOpened": {
+      "discriminator": "2106801953d8abcc",
+      "sample": "2106801953d8abccc85e448564da4fc93c9be099e08a48ddfafede91919652d479320d373f0eab2f1111111111111111111111111111111111111111111111111111111111111111000000000000000001002d31010000000065b181c73a88000000b4941713000000b0c8290300000000",
+      "settlePrice": "53070000"
+    }
+  },
+  "instructions": {
+    "cancel_order": "5f81edf00831df84",
+    "checkpoint_market": "eae7de2fd1ed8a40",
+    "collect_market_bucket_fees": "6e0d604de6ba0965",
+    "collect_market_fees": "5bd2af37337589ee",
+    "create_lp_pool": "5e33e9a52a264fa0",
+    "create_market": "67e261ebc8bcfbfe",
+    "create_pool_oracle": "dec2ff5285966a36",
+    "execute_order": "733db418a820d714",
+    "execute_pool_order": "f30d1b2db70b0bee",
+    "join_lp_pool": "df3d9d92a141a6d0",
+    "liquidate_market": "6fa1e307e555ac3f",
+    "outage_close_market": "ae11233d237df075",
+    "outage_withdraw_market": "60d2a5e0d5e8b409",
+    "outage_withdraw_pool": "47ba5f5b43c6ef61",
+    "post_feed_price": "1d85999bcc8dd51c",
+    "post_pool_price": "4aaa7be432f03f30",
+    "post_price": "82f58a8d72320d30",
+    "set_lp_pool_member_limit": "148ea7bace7e56e6",
+    "set_lp_pool_paused": "f274f03154499efb",
+    "set_market_limits": "7e73b9e57a25763b",
+    "set_market_paused": "e91fa1f8b26f6641",
+    "set_pool_params": "9b39981b9a8ca67e",
+    "set_pool_pins": "628bb90566b21024",
+    "set_wick_config": "7bff08f6dff99a02",
+    "settle_wick": "2cbe0d3f1ae5732b",
+    "submit_order": "e696c8355cd06d6c",
+    "submit_pool_order": "93a145939c8474cb"
+  },
+  "ix": {
+    "cancelOrderCookPerp": {
+      "data": "5f81edf00831df84",
+      "keys": [
+        [
+          "29d2S7vB453rNYFdR5Ycwt7y9haRT5fwVwL9zTmBhfV2",
+          true,
+          true
+        ],
+        [
+          "EnvkrfUKwGFU1X8V39AAs5evpsoQQsEKRZ5zSBkRuymT",
+          false,
+          true
+        ],
+        [
+          "7D2BfnwbWVtZ1x16cYc7AuY4aYGqegR1KAff4hNWnato",
+          false,
+          true
+        ],
+        [
+          "BJVKJVW2cnbPzRppQSCZcfMpUhRZ7iAVoh3yhZdqG8HC",
+          false,
+          true
+        ],
+        [
+          "9CkGU5bpLxzo6iX434uEh9DwCieD5ev7UmZV7emHwuZt",
+          false,
+          true
+        ],
+        [
+          "EkPafx58mgwkEnGwo62jXhXDAdJ37Z8G8MFBRPsr9uhz",
+          false,
+          false
+        ],
+        [
+          "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+          false,
+          false
+        ]
+      ]
+    },
+    "checkpointCookPerp": {
+      "data": "eae7de2fd1ed8a40",
+      "keys": [
+        [
+          "BJVKJVW2cnbPzRppQSCZcfMpUhRZ7iAVoh3yhZdqG8HC",
+          false,
+          true
+        ],
+        [
+          "5mHqxs7cP8jPKGb92auCbwFMWAZ1qidPBochKVAaB3qg",
+          false,
+          false
+        ],
+        [
+          "Ae3WdK1scKCuwqBxY7sQTRDdLtqnpxkLuQmCK9Nhy9hD",
+          false,
+          false
+        ],
+        [
+          "GxbNKNYdtNXQkhDkpHdLDAMX64GxaECgANqdfp6cUGH4",
+          false,
+          false
+        ],
+        [
+          "jKSKkyde4vHi49LLQpAtXsbQxAZCCeyeZGbg3BcJr7r",
+          false,
+          false
+        ]
+      ]
+    },
+    "collectMarketBucketFeesCookPerp": {
+      "data": "6e0d604de6ba0965",
+      "keys": [
+        [
+          "4412FLDXADHccnZW4pcT6PKXXonSfYw5oqkYxmdyzn6A",
+          false,
+          true
+        ],
+        [
+          "BJVKJVW2cnbPzRppQSCZcfMpUhRZ7iAVoh3yhZdqG8HC",
+          false,
+          true
+        ],
+        [
+          "9CkGU5bpLxzo6iX434uEh9DwCieD5ev7UmZV7emHwuZt",
+          false,
+          true
+        ],
+        [
+          "EkPafx58mgwkEnGwo62jXhXDAdJ37Z8G8MFBRPsr9uhz",
+          false,
+          false
+        ],
+        [
+          "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+          false,
+          false
+        ]
+      ]
+    },
+    "collectMarketFeesCookPerp": {
+      "data": "5bd2af37337589ee",
+      "keys": [
+        [
+          "4412FLDXADHccnZW4pcT6PKXXonSfYw5oqkYxmdyzn6A",
+          false,
+          true
+        ],
+        [
+          "BJVKJVW2cnbPzRppQSCZcfMpUhRZ7iAVoh3yhZdqG8HC",
+          false,
+          true
+        ],
+        [
+          "9CkGU5bpLxzo6iX434uEh9DwCieD5ev7UmZV7emHwuZt",
+          false,
+          true
+        ],
+        [
+          "EkPafx58mgwkEnGwo62jXhXDAdJ37Z8G8MFBRPsr9uhz",
+          false,
+          false
+        ],
+        [
+          "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+          false,
+          false
+        ]
+      ]
+    },
+    "createCookPerp": {
+      "data": "67e261ebc8bcfbfe050000004d434f4f4bc0e1e40000000000040002",
+      "keys": [
+        [
+          "GqdCnvFd8ErGTSdz7VdYmMNNh4nvMMmuw7GAA5SQ6gRG",
+          true,
+          true
+        ],
+        [
+          "BJVKJVW2cnbPzRppQSCZcfMpUhRZ7iAVoh3yhZdqG8HC",
+          false,
+          true
+        ],
+        [
+          "9CkGU5bpLxzo6iX434uEh9DwCieD5ev7UmZV7emHwuZt",
+          false,
+          true
+        ],
+        [
+          "EkPafx58mgwkEnGwo62jXhXDAdJ37Z8G8MFBRPsr9uhz",
+          false,
+          false
+        ],
+        [
+          "5mHqxs7cP8jPKGb92auCbwFMWAZ1qidPBochKVAaB3qg",
+          false,
+          false
+        ],
+        [
+          "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+          false,
+          false
+        ],
+        [
+          "11111111111111111111111111111111",
+          false,
+          false
+        ]
+      ]
+    },
+    "createPoolOracleMcook": {
+      "data": "dec2ff5285966a36050000004d434f4f4b069b8857feab8184fb687f634618c035dac439dc1aeb3b5598a0f0000000000100a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3b4b17d11f84027ae9b941c465382c8a6654d4fbc65de5c6cc4716df374a62e67a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4d20400000000000001b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b30e3a32c5be395f6fd4a2ba4558d22cef20d3784bc67f6c72e199a9fb941199bdb4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b42e16000000000000100e00007800000064002c0100e1f505000000000f08070000e204",
+      "keys": [
+        [
+          "GqdCnvFd8ErGTSdz7VdYmMNNh4nvMMmuw7GAA5SQ6gRG",
+          true,
+          true
+        ],
+        [
+          "Ae3WdK1scKCuwqBxY7sQTRDdLtqnpxkLuQmCK9Nhy9hD",
+          false,
+          true
+        ],
+        [
+          "11111111111111111111111111111111",
+          false,
+          false
+        ]
+      ]
+    },
+    "executeOrderCookPerp": {
+      "data": "733db418a820d714",
+      "keys": [
+        [
+          "EnvkrfUKwGFU1X8V39AAs5evpsoQQsEKRZ5zSBkRuymT",
+          false,
+          true
+        ],
+        [
+          "7D2BfnwbWVtZ1x16cYc7AuY4aYGqegR1KAff4hNWnato",
+          false,
+          true
+        ],
+        [
+          "BJVKJVW2cnbPzRppQSCZcfMpUhRZ7iAVoh3yhZdqG8HC",
+          false,
+          true
+        ],
+        [
+          "9CkGU5bpLxzo6iX434uEh9DwCieD5ev7UmZV7emHwuZt",
+          false,
+          true
+        ],
+        [
+          "EkPafx58mgwkEnGwo62jXhXDAdJ37Z8G8MFBRPsr9uhz",
+          false,
+          false
+        ],
+        [
+          "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+          false,
+          false
+        ],
+        [
+          "5mHqxs7cP8jPKGb92auCbwFMWAZ1qidPBochKVAaB3qg",
+          false,
+          false
+        ],
+        [
+          "Ae3WdK1scKCuwqBxY7sQTRDdLtqnpxkLuQmCK9Nhy9hD",
+          false,
+          false
+        ],
+        [
+          "GxbNKNYdtNXQkhDkpHdLDAMX64GxaECgANqdfp6cUGH4",
+          false,
+          false
+        ],
+        [
+          "jKSKkyde4vHi49LLQpAtXsbQxAZCCeyeZGbg3BcJr7r",
+          false,
+          false
+        ],
+        [
+          "29d2S7vB453rNYFdR5Ycwt7y9haRT5fwVwL9zTmBhfV2",
+          false,
+          true
+        ],
+        [
+          "Ae3WdK1scKCuwqBxY7sQTRDdLtqnpxkLuQmCK9Nhy9hD",
+          false,
+          false
+        ]
+      ]
+    },
+    "liquidateCookPerp": {
+      "data": "6fa1e307e555ac3f0300000000000000",
+      "keys": [
+        [
+          "4Ss5JMkXAD9Z7cktFEdrqeMuT6jGMF1pVozTyPHZ6zT4",
+          true,
+          false
+        ],
+        [
+          "5khbxJ66Vyiag6QMi4L8FNJRcEjXiC7nHiQCS3fG7aoz",
+          false,
+          true
+        ],
+        [
+          "7D2BfnwbWVtZ1x16cYc7AuY4aYGqegR1KAff4hNWnato",
+          false,
+          true
+        ],
+        [
+          "BJVKJVW2cnbPzRppQSCZcfMpUhRZ7iAVoh3yhZdqG8HC",
+          false,
+          true
+        ],
+        [
+          "9CkGU5bpLxzo6iX434uEh9DwCieD5ev7UmZV7emHwuZt",
+          false,
+          true
+        ],
+        [
+          "EkPafx58mgwkEnGwo62jXhXDAdJ37Z8G8MFBRPsr9uhz",
+          false,
+          false
+        ],
+        [
+          "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+          false,
+          false
+        ],
+        [
+          "5mHqxs7cP8jPKGb92auCbwFMWAZ1qidPBochKVAaB3qg",
+          false,
+          false
+        ],
+        [
+          "Ae3WdK1scKCuwqBxY7sQTRDdLtqnpxkLuQmCK9Nhy9hD",
+          false,
+          false
+        ],
+        [
+          "GxbNKNYdtNXQkhDkpHdLDAMX64GxaECgANqdfp6cUGH4",
+          false,
+          false
+        ],
+        [
+          "jKSKkyde4vHi49LLQpAtXsbQxAZCCeyeZGbg3BcJr7r",
+          false,
+          false
+        ],
+        [
+          "Ae3WdK1scKCuwqBxY7sQTRDdLtqnpxkLuQmCK9Nhy9hD",
+          false,
+          false
+        ]
+      ]
+    },
+    "outageCloseCookPerp": {
+      "data": "ae11233d237df0750300000000000000",
+      "keys": [
+        [
+          "7D2BfnwbWVtZ1x16cYc7AuY4aYGqegR1KAff4hNWnato",
+          false,
+          true
+        ],
+        [
+          "BJVKJVW2cnbPzRppQSCZcfMpUhRZ7iAVoh3yhZdqG8HC",
+          false,
+          true
+        ],
+        [
+          "9CkGU5bpLxzo6iX434uEh9DwCieD5ev7UmZV7emHwuZt",
+          false,
+          true
+        ],
+        [
+          "EkPafx58mgwkEnGwo62jXhXDAdJ37Z8G8MFBRPsr9uhz",
+          false,
+          false
+        ],
+        [
+          "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+          false,
+          false
+        ],
+        [
+          "5mHqxs7cP8jPKGb92auCbwFMWAZ1qidPBochKVAaB3qg",
+          false,
+          false
+        ],
+        [
+          "Ae3WdK1scKCuwqBxY7sQTRDdLtqnpxkLuQmCK9Nhy9hD",
+          false,
+          false
+        ]
+      ]
+    },
+    "outageWithdrawCookPerp": {
+      "data": "60d2a5e0d5e8b40940e2010000000000",
+      "keys": [
+        [
+          "29d2S7vB453rNYFdR5Ycwt7y9haRT5fwVwL9zTmBhfV2",
+          true,
+          false
+        ],
+        [
+          "7D2BfnwbWVtZ1x16cYc7AuY4aYGqegR1KAff4hNWnato",
+          false,
+          true
+        ],
+        [
+          "BJVKJVW2cnbPzRppQSCZcfMpUhRZ7iAVoh3yhZdqG8HC",
+          false,
+          true
+        ],
+        [
+          "9CkGU5bpLxzo6iX434uEh9DwCieD5ev7UmZV7emHwuZt",
+          false,
+          true
+        ],
+        [
+          "EkPafx58mgwkEnGwo62jXhXDAdJ37Z8G8MFBRPsr9uhz",
+          false,
+          false
+        ],
+        [
+          "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+          false,
+          false
+        ],
+        [
+          "5mHqxs7cP8jPKGb92auCbwFMWAZ1qidPBochKVAaB3qg",
+          false,
+          false
+        ],
+        [
+          "Ae3WdK1scKCuwqBxY7sQTRDdLtqnpxkLuQmCK9Nhy9hD",
+          false,
+          false
+        ]
+      ]
+    },
+    "postPoolPriceMcook": {
+      "data": "4aaa7be432f03f30",
+      "keys": [
+        [
+          "4Ss5JMkXAD9Z7cktFEdrqeMuT6jGMF1pVozTyPHZ6zT4",
+          true,
+          true
+        ],
+        [
+          "Ae3WdK1scKCuwqBxY7sQTRDdLtqnpxkLuQmCK9Nhy9hD",
+          false,
+          true
+        ],
+        [
+          "5mHqxs7cP8jPKGb92auCbwFMWAZ1qidPBochKVAaB3qg",
+          false,
+          true
+        ],
+        [
+          "EjXuZim1ERjVaWuPMqUd8zv5mQZgymuiL9srjwR9gqvm",
+          false,
+          false
+        ],
+        [
+          "jKSKkyde4vHi49LLQpAtXsbQxAZCCeyeZGbg3BcJr7r",
+          false,
+          false
+        ],
+        [
+          "Bswb3UyeD1pUTaGiE6WvqwFpJZsQSEY1xhJePCDTHdvp",
+          false,
+          false
+        ],
+        [
+          "BwrtBnSeoK7hbfXDfPqr8p2aYj5c7JDqX6yJSaG42yFX",
+          false,
+          false
+        ],
+        [
+          "C1nBL5ufPcQvjkmj6hAmRgoLntHonMuf5WdxVxJenJaE",
+          false,
+          false
+        ],
+        [
+          "C5hUUPNfyui9sr2EXzVgiZa733W1TRbUdvJcZLMFXdtw",
+          false,
+          false
+        ],
+        [
+          "CxeKLJRofna6h2GqCsjdVwc2D7EdDFX8uDy9KGw3Ey68",
+          false,
+          false
+        ],
+        [
+          "D2ZcUbtpG5sKq7XLeB4YnpNnTGSptKCxTddoNeydzJQq",
+          false,
+          false
+        ],
+        [
+          "D6UucuMprPAYyCmr5UPU5h9YhRf2ZNtn23JTS32EjdjY",
+          false,
+          false
+        ],
+        [
+          "DAQCmCpqSgTn7J2MWmiPNZvJwasEESabaSy7VR4qUy4F",
+          false,
+          false
+        ],
+        [
+          "Sysvar1nstructions1111111111111111111111111",
+          false,
+          false
+        ],
+        [
+          "11111111111111111111111111111111",
+          false,
+          false
+        ],
+        [
+          "CBQ3Z72VbyUYTuxHqpYC1NmopVgbwCr5Toy6wtKWbT4s",
+          false,
+          false
+        ]
+      ]
+    },
+    "postPoolPriceNote": "standalone: only ComputeBudget may share its transaction",
+    "setPoolParamsMcook": {
+      "data": "9b39981b9a8ca67e100e00007800000064002c0100e1f505000000000f08070000e204",
+      "keys": [
+        [
+          "GqdCnvFd8ErGTSdz7VdYmMNNh4nvMMmuw7GAA5SQ6gRG",
+          true,
+          false
+        ],
+        [
+          "Ae3WdK1scKCuwqBxY7sQTRDdLtqnpxkLuQmCK9Nhy9hD",
+          false,
+          true
+        ],
+        [
+          "jKSKkyde4vHi49LLQpAtXsbQxAZCCeyeZGbg3BcJr7r",
+          false,
+          false
+        ]
+      ]
+    },
+    "setPoolPinsMcook": {
+      "data": "628bb90566b2102400a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3b4b17d11f84027ae9b941c465382c8a6654d4fbc65de5c6cc4716df374a62e67a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4d20400000000000001b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b30e3a32c5be395f6fd4a2ba4558d22cef20d3784bc67f6c72e199a9fb941199bdb4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b42e16000000000000",
+      "keys": [
+        [
+          "GqdCnvFd8ErGTSdz7VdYmMNNh4nvMMmuw7GAA5SQ6gRG",
+          true,
+          false
+        ],
+        [
+          "Ae3WdK1scKCuwqBxY7sQTRDdLtqnpxkLuQmCK9Nhy9hD",
+          false,
+          true
+        ]
+      ]
+    },
+    "submitOrderCookPerp": {
+      "data": "e696c8355cd06d6c2a0000000000000000010060b7986c880000c0e1e400000000000060b7986c88000028d2496b000000000100000000000000ffffffffffffffff",
+      "keys": [
+        [
+          "29d2S7vB453rNYFdR5Ycwt7y9haRT5fwVwL9zTmBhfV2",
+          true,
+          true
+        ],
+        [
+          "EnvkrfUKwGFU1X8V39AAs5evpsoQQsEKRZ5zSBkRuymT",
+          false,
+          true
+        ],
+        [
+          "7D2BfnwbWVtZ1x16cYc7AuY4aYGqegR1KAff4hNWnato",
+          false,
+          true
+        ],
+        [
+          "BJVKJVW2cnbPzRppQSCZcfMpUhRZ7iAVoh3yhZdqG8HC",
+          false,
+          true
+        ],
+        [
+          "9CkGU5bpLxzo6iX434uEh9DwCieD5ev7UmZV7emHwuZt",
+          false,
+          true
+        ],
+        [
+          "EkPafx58mgwkEnGwo62jXhXDAdJ37Z8G8MFBRPsr9uhz",
+          false,
+          false
+        ],
+        [
+          "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+          false,
+          false
+        ],
+        [
+          "11111111111111111111111111111111",
+          false,
+          false
+        ]
+      ]
+    }
+  },
+  "marks": {
+    "cases": [
+      {
+        "mark": {
+          "asset": "90200000000",
+          "atHi": {
+            "liquidatable": false,
+            "payable": "175076615635443",
+            "pnl": "25494535271369"
+          },
+          "atLo": {
+            "liquidatable": false,
+            "payable": "176317492511844",
+            "pnl": "26745419219354"
+          },
+          "closingFee": "213963353755",
+          "liquidatable": false,
+          "maintenance": "26745419219355",
+          "payable": "175066608563859",
+          "pnl": "25494535271369",
+          "profitCapReached": false
+        },
+        "name": "longGain",
+        "position": "long",
+        "quote": "quote.engine"
+      },
+      {
+        "mark": {
+          "asset": "160000000000",
+          "atHi": {
+            "liquidatable": false,
+            "payable": "299368117010319",
+            "pnl": "149786036646245"
+          },
+          "atLo": {
+            "liquidatable": false,
+            "payable": "299358109938735",
+            "pnl": "149786036646245"
+          },
+          "closingFee": "213963353755",
+          "liquidatable": false,
+          "maintenance": "26745419219355",
+          "payable": "299358109938735",
+          "pnl": "149786036646245",
+          "profitCapReached": true
+        },
+        "name": "longCapReached",
+        "position": "long",
+        "quote": "quote.engine"
+      },
+      {
+        "mark": {
+          "asset": "75000000000",
+          "atHi": {
+            "liquidatable": false,
+            "payable": "127818452693392",
+            "pnl": "-21763627670682"
+          },
+          "atLo": {
+            "liquidatable": false,
+            "payable": "126740617861333",
+            "pnl": "-22831455431157"
+          },
+          "closingFee": "213963353755",
+          "liquidatable": false,
+          "maintenance": "26745419219355",
+          "payable": "126740617861333",
+          "pnl": "-22831455431157",
+          "profitCapReached": false
+        },
+        "name": "longLoss",
+        "position": "long",
+        "quote": "quote.engine"
+      },
+      {
+        "mark": {
+          "asset": "43000000000",
+          "atHi": {
+            "liquidatable": false,
+            "payable": "28327583341706",
+            "pnl": "-121254497022368"
+          },
+          "atLo": {
+            "liquidatable": true,
+            "payable": "22368250176045",
+            "pnl": "-127203823116445"
+          },
+          "closingFee": "213963353755",
+          "liquidatable": false,
+          "maintenance": "26745419219355",
+          "payable": "22368250176045",
+          "pnl": "-127203823116445",
+          "profitCapReached": false
+        },
+        "name": "longLoOnly",
+        "position": "long",
+        "quote": "quote.engine"
+      },
+      {
+        "mark": {
+          "asset": "40000000000",
+          "atHi": {
+            "liquidatable": true,
+            "payable": "19000314339985",
+            "pnl": "-130581766024089"
+          },
+          "atLo": {
+            "liquidatable": true,
+            "payable": "12583340705549",
+            "pnl": "-136988732586941"
+          },
+          "closingFee": "213963353755",
+          "liquidatable": true,
+          "maintenance": "26745419219355",
+          "payable": "12583340705549",
+          "pnl": "-136988732586941",
+          "profitCapReached": false
+        },
+        "name": "longLiquidatable",
+        "position": "long",
+        "quote": "quote.engine"
+      },
+      {
+        "mark": {
+          "asset": "46000000000",
+          "atHi": {
+            "liquidatable": false,
+            "payable": "35309542100801",
+            "pnl": "-114268272360254"
+          },
+          "atLo": {
+            "liquidatable": true,
+            "payable": "12330324498032",
+            "pnl": "-137205692885621"
+          },
+          "closingFee": "250019262592",
+          "liquidatable": false,
+          "maintenance": "31252407823947",
+          "payable": "12330324498032",
+          "pnl": "-137205692885621",
+          "profitCapReached": false
+        },
+        "name": "longPushedPool",
+        "position": "long",
+        "quote": "quote.pushed.engine"
+      },
+      {
+        "mark": {
+          "asset": "75000000000",
+          "atHi": {
+            "liquidatable": false,
+            "payable": "171345708034755",
+            "pnl": "21763627670681"
+          },
+          "atLo": {
+            "liquidatable": false,
+            "payable": "172403528723646",
+            "pnl": "22831455431156"
+          },
+          "closingFee": "213963353755",
+          "liquidatable": false,
+          "maintenance": "26745419219355",
+          "payable": "171335700963171",
+          "pnl": "21763627670681",
+          "profitCapReached": false
+        },
+        "name": "shortGain",
+        "position": "short",
+        "quote": "quote.engine"
+      },
+      {
+        "mark": {
+          "asset": "90200000000",
+          "atHi": {
+            "liquidatable": false,
+            "payable": "124087545092704",
+            "pnl": "-25494535271370"
+          },
+          "atLo": {
+            "liquidatable": false,
+            "payable": "122826654073135",
+            "pnl": "-26745419219355"
+          },
+          "closingFee": "213963353755",
+          "liquidatable": false,
+          "maintenance": "26745419219355",
+          "payable": "122826654073135",
+          "pnl": "-26745419219355",
+          "profitCapReached": false
+        },
+        "name": "shortLoss",
+        "position": "short",
+        "quote": "quote.engine"
+      },
+      {
+        "mark": {
+          "asset": "121000000000",
+          "atHi": {
+            "liquidatable": false,
+            "payable": "28327583341706",
+            "pnl": "-121254497022368"
+          },
+          "atLo": {
+            "liquidatable": true,
+            "payable": "22368250176045",
+            "pnl": "-127203823116445"
+          },
+          "closingFee": "213963353755",
+          "liquidatable": false,
+          "maintenance": "26745419219355",
+          "payable": "22368250176045",
+          "pnl": "-127203823116445",
+          "profitCapReached": false
+        },
+        "name": "shortLoOnly",
+        "position": "short",
+        "quote": "quote.engine"
+      },
+      {
+        "mark": {
+          "asset": "124000000000",
+          "atHi": {
+            "liquidatable": true,
+            "payable": "19000314339985",
+            "pnl": "-130581766024089"
+          },
+          "atLo": {
+            "liquidatable": true,
+            "payable": "12583340705549",
+            "pnl": "-136988732586941"
+          },
+          "closingFee": "213963353755",
+          "liquidatable": true,
+          "maintenance": "26745419219355",
+          "payable": "12583340705549",
+          "pnl": "-136988732586941",
+          "profitCapReached": false
+        },
+        "name": "shortLiquidatable",
+        "position": "short",
+        "quote": "quote.engine"
+      }
+    ],
+    "fundingIndex": "0",
+    "now": 1800000002,
+    "positions": {
+      "long": {
+        "entryPrice": "82000000000",
+        "margin": "149786036646245",
+        "notional": "20000000",
+        "profitCap": "149786036646245",
+        "side": "long"
+      },
+      "short": {
+        "entryPrice": "82000000000",
+        "margin": "149786036646245",
+        "notional": "20000000",
+        "profitCap": "149786036646245",
+        "side": "short"
+      }
+    }
+  },
+  "nav": {
+    "belowFloor": {
+      "amount": "9999999999999",
+      "error": "InvalidAmount"
+    },
+    "lp": {
+      "deposit": "400000000000000",
+      "owner": "3JF3sEqM796hk5WFqA6EtmEwJQ9quALszsfJyvXNQKy3",
+      "shares": "400000000000000"
+    },
+    "lpCash": "400171170683006",
+    "market": "open.long and open.short in one market with one LP",
+    "rows": [
+      {
+        "asset": "82000000000",
+        "deposit": {
+          "nav": "400171170683006",
+          "pnl": "0"
+        },
+        "withdraw": {
+          "nav": "400171170683006",
+          "pnl": "0"
+        }
+      },
+      {
+        "asset": "90200000000",
+        "deposit": {
+          "nav": "401422054630992",
+          "pnl": "-1250883947986"
+        },
+        "withdraw": {
+          "nav": "398920286735022",
+          "pnl": "1250883947984"
+        }
+      },
+      {
+        "asset": "75000000000",
+        "deposit": {
+          "nav": "401238998443482",
+          "pnl": "-1067827760476"
+        },
+        "withdraw": {
+          "nav": "399103342922532",
+          "pnl": "1067827760474"
+        }
+      }
+    ],
+    "secondDeposit": {
+      "amount": "50000000000000",
+      "shares": "49978612816771"
+    }
+  },
+  "open": {
+    "fitsCapacity": {
+      "id": 0,
+      "profitCap": "86681419922656",
+      "profitCapRequested": "86681419922656"
+    },
+    "launchCapacity": "86681419922656",
+    "limits": {
+      "maxLeverage": 2,
+      "maxNotionalUsdMicros": "20000000",
+      "maxPositions": 8
+    },
+    "long": {
+      "entryPrice": "82000000000",
+      "margin": "149786036646245",
+      "notional": "20000000",
+      "profitCap": "149786036646245",
+      "side": "long"
+    },
+    "openingFee": "213963353755",
+    "quote": "quote.engine",
+    "refusedCapacity": {
+      "capacity": "86681419922656",
+      "error": "Market",
+      "reservedAfter": "149786036646245"
+    },
+    "refusedLeverage": {
+      "collateral": "120000000000000",
+      "error": "InsufficientCapital"
+    },
+    "request": {
+      "collateral": "150000000000000",
+      "notional": "20000000",
+      "profitCap": "150000000000000"
+    },
+    "short": {
+      "entryPrice": "82000000000",
+      "margin": "149786036646245",
+      "notional": "20000000",
+      "profitCap": "149786036646245",
+      "side": "short"
+    }
+  },
+  "order": {
+    "address": "6q7oakZtm1x8uNivVZKwbZpDSUwN1UgH3o6W1sZyk7m",
+    "market": "EV9uoR1xkQ6nRiEKPwtuRaHd1N2jWbMbru4nTizHQZYr",
+    "nonce": 42,
+    "owner": "29d2S7vB453rNYFdR5Ycwt7y9haRT5fwVwL9zTmBhfV2"
+  },
+  "pdas": {
+    "BTC": {
+      "market": "EV9uoR1xkQ6nRiEKPwtuRaHd1N2jWbMbru4nTizHQZYr",
+      "price": "3Rs73fucKFRKppe42rfrkgU3kiTL488q98RiCUPmVvom",
+      "vault": "2MKhXGPnEyShjrm5UGugUJorfgHMtvEBCt8EGZcGqH4P"
+    },
+    "ETH": {
+      "market": "8C6d9FXQq97dkQsQHGTkAARzGPpVonio2yCb31dwwRYF",
+      "price": "9hmfoNiAhQaGPo5dn3heRLUrtRshPbCAcHreUfJWyfbe",
+      "vault": "FZiX2AYXAgikUqS2aRXEL1w2JayYTSedzYXaywEbHZEH"
+    },
+    "HYPE": {
+      "market": "EHB1cpdwiWCVWbJ3Ga7d1d8LuQ6sddry5y9g1zKz3ykH",
+      "price": "7eWduTYprJnGRpKTSrSckUhYbdNpKiAQeHdsHrVPMaN1",
+      "vault": "9xKAAxfxEBwesd7wYoM1Y9cVHNdJGVwoRcJTzzbtyHUW"
+    },
+    "MCOOK": {
+      "market": "BJVKJVW2cnbPzRppQSCZcfMpUhRZ7iAVoh3yhZdqG8HC",
+      "price": "5mHqxs7cP8jPKGb92auCbwFMWAZ1qidPBochKVAaB3qg",
+      "vault": "9CkGU5bpLxzo6iX434uEh9DwCieD5ev7UmZV7emHwuZt"
+    },
+    "SOL": {
+      "market": "Gp3kPfuDCb5xs3v9ubJgKkJkopdUdWCnKxd32z9rUjo8",
+      "price": "EjXuZim1ERjVaWuPMqUd8zv5mQZgymuiL9srjwR9gqvm",
+      "vault": "FQsW4fsm7mxRrqRS2tAhmYYgMGcz8UHfyS7bcT5APGfP"
+    }
+  },
+  "pool": {
+    "address": "HkQmCLeV3tqYdet3MhfbbVYGnaT3DR2Bh74ZhAAkmmbp",
+    "ix": {
+      "checkpointSol": {
+        "data": "eae7de2fd1ed8a40",
+        "keys": [
+          [
+            "Gp3kPfuDCb5xs3v9ubJgKkJkopdUdWCnKxd32z9rUjo8",
+            false,
+            true
+          ],
+          [
+            "EjXuZim1ERjVaWuPMqUd8zv5mQZgymuiL9srjwR9gqvm",
+            false,
+            false
+          ],
+          [
+            "Ae3WdK1scKCuwqBxY7sQTRDdLtqnpxkLuQmCK9Nhy9hD",
+            false,
+            false
+          ],
+          [
+            "GxbNKNYdtNXQkhDkpHdLDAMX64GxaECgANqdfp6cUGH4",
+            false,
+            false
+          ],
+          [
+            "jKSKkyde4vHi49LLQpAtXsbQxAZCCeyeZGbg3BcJr7r",
+            false,
+            false
+          ]
+        ]
+      },
+      "createLpPool": {
+        "data": "5e33e9a52a264fa000",
+        "keys": [
+          [
+            "GqdCnvFd8ErGTSdz7VdYmMNNh4nvMMmuw7GAA5SQ6gRG",
+            true,
+            true
+          ],
+          [
+            "HkQmCLeV3tqYdet3MhfbbVYGnaT3DR2Bh74ZhAAkmmbp",
+            false,
+            true
+          ],
+          [
+            "EdwGZU5QNQJVD7Mm6XaGec6pBs6u1UefutdNgFgm2hac",
+            false,
+            true
+          ],
+          [
+            "EkPafx58mgwkEnGwo62jXhXDAdJ37Z8G8MFBRPsr9uhz",
+            false,
+            false
+          ],
+          [
+            "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            false,
+            false
+          ],
+          [
+            "11111111111111111111111111111111",
+            false,
+            false
+          ]
+        ]
+      },
+      "createSolMarket": {
+        "data": "67e261ebc8bcfbfe03000000534f4c002d310100000000080002",
+        "keys": [
+          [
+            "GqdCnvFd8ErGTSdz7VdYmMNNh4nvMMmuw7GAA5SQ6gRG",
+            true,
+            true
+          ],
+          [
+            "Gp3kPfuDCb5xs3v9ubJgKkJkopdUdWCnKxd32z9rUjo8",
+            false,
+            true
+          ],
+          [
+            "FQsW4fsm7mxRrqRS2tAhmYYgMGcz8UHfyS7bcT5APGfP",
+            false,
+            true
+          ],
+          [
+            "EkPafx58mgwkEnGwo62jXhXDAdJ37Z8G8MFBRPsr9uhz",
+            false,
+            false
+          ],
+          [
+            "EjXuZim1ERjVaWuPMqUd8zv5mQZgymuiL9srjwR9gqvm",
+            false,
+            false
+          ],
+          [
+            "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            false,
+            false
+          ],
+          [
+            "11111111111111111111111111111111",
+            false,
+            false
+          ]
+        ]
+      },
+      "executePoolOrder": {
+        "data": "f30d1b2db70b0bee",
+        "keys": [
+          [
+            "6dCiU88CD2nfKo15Rao3nXUEhFZb4jeTZaPnmWaKDoug",
+            false,
+            true
+          ],
+          [
+            "7D2BfnwbWVtZ1x16cYc7AuY4aYGqegR1KAff4hNWnato",
+            false,
+            true
+          ],
+          [
+            "HkQmCLeV3tqYdet3MhfbbVYGnaT3DR2Bh74ZhAAkmmbp",
+            false,
+            true
+          ],
+          [
+            "EdwGZU5QNQJVD7Mm6XaGec6pBs6u1UefutdNgFgm2hac",
+            false,
+            true
+          ],
+          [
+            "EkPafx58mgwkEnGwo62jXhXDAdJ37Z8G8MFBRPsr9uhz",
+            false,
+            false
+          ],
+          [
+            "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            false,
+            false
+          ],
+          [
+            "Ae3WdK1scKCuwqBxY7sQTRDdLtqnpxkLuQmCK9Nhy9hD",
+            false,
+            false
+          ],
+          [
+            "GxbNKNYdtNXQkhDkpHdLDAMX64GxaECgANqdfp6cUGH4",
+            false,
+            false
+          ],
+          [
+            "jKSKkyde4vHi49LLQpAtXsbQxAZCCeyeZGbg3BcJr7r",
+            false,
+            false
+          ],
+          [
+            "29d2S7vB453rNYFdR5Ycwt7y9haRT5fwVwL9zTmBhfV2",
+            false,
+            true
+          ],
+          [
+            "EV9uoR1xkQ6nRiEKPwtuRaHd1N2jWbMbru4nTizHQZYr",
+            false,
+            false
+          ],
+          [
+            "3Rs73fucKFRKppe42rfrkgU3kiTL488q98RiCUPmVvom",
+            false,
+            false
+          ],
+          [
+            "8C6d9FXQq97dkQsQHGTkAARzGPpVonio2yCb31dwwRYF",
+            false,
+            false
+          ],
+          [
+            "9hmfoNiAhQaGPo5dn3heRLUrtRshPbCAcHreUfJWyfbe",
+            false,
+            false
+          ],
+          [
+            "Gp3kPfuDCb5xs3v9ubJgKkJkopdUdWCnKxd32z9rUjo8",
+            false,
+            false
+          ],
+          [
+            "EjXuZim1ERjVaWuPMqUd8zv5mQZgymuiL9srjwR9gqvm",
+            false,
+            false
+          ],
+          [
+            "EHB1cpdwiWCVWbJ3Ga7d1d8LuQ6sddry5y9g1zKz3ykH",
+            false,
+            false
+          ],
+          [
+            "7eWduTYprJnGRpKTSrSckUhYbdNpKiAQeHdsHrVPMaN1",
+            false,
+            false
+          ]
+        ]
+      },
+      "joinLpPoolBtc": {
+        "data": "df3d9d92a141a6d0c409",
+        "keys": [
+          [
+            "GqdCnvFd8ErGTSdz7VdYmMNNh4nvMMmuw7GAA5SQ6gRG",
+            true,
+            false
+          ],
+          [
+            "HkQmCLeV3tqYdet3MhfbbVYGnaT3DR2Bh74ZhAAkmmbp",
+            false,
+            true
+          ],
+          [
+            "EdwGZU5QNQJVD7Mm6XaGec6pBs6u1UefutdNgFgm2hac",
+            false,
+            true
+          ],
+          [
+            "EV9uoR1xkQ6nRiEKPwtuRaHd1N2jWbMbru4nTizHQZYr",
+            false,
+            true
+          ],
+          [
+            "2MKhXGPnEyShjrm5UGugUJorfgHMtvEBCt8EGZcGqH4P",
+            false,
+            true
+          ],
+          [
+            "EkPafx58mgwkEnGwo62jXhXDAdJ37Z8G8MFBRPsr9uhz",
+            false,
+            false
+          ],
+          [
+            "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            false,
+            false
+          ]
+        ]
+      },
+      "joinLpPoolSol": {
+        "data": "df3d9d92a141a6d0c409",
+        "keys": [
+          [
+            "GqdCnvFd8ErGTSdz7VdYmMNNh4nvMMmuw7GAA5SQ6gRG",
+            true,
+            false
+          ],
+          [
+            "HkQmCLeV3tqYdet3MhfbbVYGnaT3DR2Bh74ZhAAkmmbp",
+            false,
+            true
+          ],
+          [
+            "EdwGZU5QNQJVD7Mm6XaGec6pBs6u1UefutdNgFgm2hac",
+            false,
+            true
+          ],
+          [
+            "Gp3kPfuDCb5xs3v9ubJgKkJkopdUdWCnKxd32z9rUjo8",
+            false,
+            true
+          ],
+          [
+            "FQsW4fsm7mxRrqRS2tAhmYYgMGcz8UHfyS7bcT5APGfP",
+            false,
+            true
+          ],
+          [
+            "EkPafx58mgwkEnGwo62jXhXDAdJ37Z8G8MFBRPsr9uhz",
+            false,
+            false
+          ],
+          [
+            "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            false,
+            false
+          ]
+        ]
+      },
+      "keeper": "4Ss5JMkXAD9Z7cktFEdrqeMuT6jGMF1pVozTyPHZ6zT4",
+      "memberExecuteOrderBtc": {
+        "data": "733db418a820d714",
+        "keys": [
+          [
+            "6q7oakZtm1x8uNivVZKwbZpDSUwN1UgH3o6W1sZyk7m",
+            false,
+            true
+          ],
+          [
+            "7D2BfnwbWVtZ1x16cYc7AuY4aYGqegR1KAff4hNWnato",
+            false,
+            true
+          ],
+          [
+            "EV9uoR1xkQ6nRiEKPwtuRaHd1N2jWbMbru4nTizHQZYr",
+            false,
+            true
+          ],
+          [
+            "2MKhXGPnEyShjrm5UGugUJorfgHMtvEBCt8EGZcGqH4P",
+            false,
+            true
+          ],
+          [
+            "EkPafx58mgwkEnGwo62jXhXDAdJ37Z8G8MFBRPsr9uhz",
+            false,
+            false
+          ],
+          [
+            "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            false,
+            false
+          ],
+          [
+            "3Rs73fucKFRKppe42rfrkgU3kiTL488q98RiCUPmVvom",
+            false,
+            false
+          ],
+          [
+            "Ae3WdK1scKCuwqBxY7sQTRDdLtqnpxkLuQmCK9Nhy9hD",
+            false,
+            false
+          ],
+          [
+            "GxbNKNYdtNXQkhDkpHdLDAMX64GxaECgANqdfp6cUGH4",
+            false,
+            false
+          ],
+          [
+            "jKSKkyde4vHi49LLQpAtXsbQxAZCCeyeZGbg3BcJr7r",
+            false,
+            false
+          ],
+          [
+            "29d2S7vB453rNYFdR5Ycwt7y9haRT5fwVwL9zTmBhfV2",
+            false,
+            true
+          ],
+          [
+            "HkQmCLeV3tqYdet3MhfbbVYGnaT3DR2Bh74ZhAAkmmbp",
+            false,
+            true
+          ],
+          [
+            "EdwGZU5QNQJVD7Mm6XaGec6pBs6u1UefutdNgFgm2hac",
+            false,
+            true
+          ]
+        ]
+      },
+      "memberExecuteOrderSol": {
+        "data": "733db418a820d714",
+        "keys": [
+          [
+            "3t3aS2nJrv7z13iq35GmRzQwFtNXapdExj89W4Ciy9iR",
+            false,
+            true
+          ],
+          [
+            "7D2BfnwbWVtZ1x16cYc7AuY4aYGqegR1KAff4hNWnato",
+            false,
+            true
+          ],
+          [
+            "Gp3kPfuDCb5xs3v9ubJgKkJkopdUdWCnKxd32z9rUjo8",
+            false,
+            true
+          ],
+          [
+            "FQsW4fsm7mxRrqRS2tAhmYYgMGcz8UHfyS7bcT5APGfP",
+            false,
+            true
+          ],
+          [
+            "EkPafx58mgwkEnGwo62jXhXDAdJ37Z8G8MFBRPsr9uhz",
+            false,
+            false
+          ],
+          [
+            "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            false,
+            false
+          ],
+          [
+            "EjXuZim1ERjVaWuPMqUd8zv5mQZgymuiL9srjwR9gqvm",
+            false,
+            false
+          ],
+          [
+            "Ae3WdK1scKCuwqBxY7sQTRDdLtqnpxkLuQmCK9Nhy9hD",
+            false,
+            false
+          ],
+          [
+            "GxbNKNYdtNXQkhDkpHdLDAMX64GxaECgANqdfp6cUGH4",
+            false,
+            false
+          ],
+          [
+            "jKSKkyde4vHi49LLQpAtXsbQxAZCCeyeZGbg3BcJr7r",
+            false,
+            false
+          ],
+          [
+            "29d2S7vB453rNYFdR5Ycwt7y9haRT5fwVwL9zTmBhfV2",
+            false,
+            true
+          ],
+          [
+            "HkQmCLeV3tqYdet3MhfbbVYGnaT3DR2Bh74ZhAAkmmbp",
+            false,
+            true
+          ],
+          [
+            "EdwGZU5QNQJVD7Mm6XaGec6pBs6u1UefutdNgFgm2hac",
+            false,
+            true
+          ]
+        ]
+      },
+      "memberLiquidateBtc": {
+        "data": "6fa1e307e555ac3f0700000000000000",
+        "keys": [
+          [
+            "4Ss5JMkXAD9Z7cktFEdrqeMuT6jGMF1pVozTyPHZ6zT4",
+            true,
+            false
+          ],
+          [
+            "5khbxJ66Vyiag6QMi4L8FNJRcEjXiC7nHiQCS3fG7aoz",
+            false,
+            true
+          ],
+          [
+            "7D2BfnwbWVtZ1x16cYc7AuY4aYGqegR1KAff4hNWnato",
+            false,
+            true
+          ],
+          [
+            "EV9uoR1xkQ6nRiEKPwtuRaHd1N2jWbMbru4nTizHQZYr",
+            false,
+            true
+          ],
+          [
+            "2MKhXGPnEyShjrm5UGugUJorfgHMtvEBCt8EGZcGqH4P",
+            false,
+            true
+          ],
+          [
+            "EkPafx58mgwkEnGwo62jXhXDAdJ37Z8G8MFBRPsr9uhz",
+            false,
+            false
+          ],
+          [
+            "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            false,
+            false
+          ],
+          [
+            "3Rs73fucKFRKppe42rfrkgU3kiTL488q98RiCUPmVvom",
+            false,
+            false
+          ],
+          [
+            "Ae3WdK1scKCuwqBxY7sQTRDdLtqnpxkLuQmCK9Nhy9hD",
+            false,
+            false
+          ],
+          [
+            "GxbNKNYdtNXQkhDkpHdLDAMX64GxaECgANqdfp6cUGH4",
+            false,
+            false
+          ],
+          [
+            "jKSKkyde4vHi49LLQpAtXsbQxAZCCeyeZGbg3BcJr7r",
+            false,
+            false
+          ],
+          [
+            "HkQmCLeV3tqYdet3MhfbbVYGnaT3DR2Bh74ZhAAkmmbp",
+            false,
+            true
+          ],
+          [
+            "EdwGZU5QNQJVD7Mm6XaGec6pBs6u1UefutdNgFgm2hac",
+            false,
+            true
+          ]
+        ]
+      },
+      "memberLiquidateSol": {
+        "data": "6fa1e307e555ac3f0700000000000000",
+        "keys": [
+          [
+            "4Ss5JMkXAD9Z7cktFEdrqeMuT6jGMF1pVozTyPHZ6zT4",
+            true,
+            false
+          ],
+          [
+            "5khbxJ66Vyiag6QMi4L8FNJRcEjXiC7nHiQCS3fG7aoz",
+            false,
+            true
+          ],
+          [
+            "7D2BfnwbWVtZ1x16cYc7AuY4aYGqegR1KAff4hNWnato",
+            false,
+            true
+          ],
+          [
+            "Gp3kPfuDCb5xs3v9ubJgKkJkopdUdWCnKxd32z9rUjo8",
+            false,
+            true
+          ],
+          [
+            "FQsW4fsm7mxRrqRS2tAhmYYgMGcz8UHfyS7bcT5APGfP",
+            false,
+            true
+          ],
+          [
+            "EkPafx58mgwkEnGwo62jXhXDAdJ37Z8G8MFBRPsr9uhz",
+            false,
+            false
+          ],
+          [
+            "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            false,
+            false
+          ],
+          [
+            "EjXuZim1ERjVaWuPMqUd8zv5mQZgymuiL9srjwR9gqvm",
+            false,
+            false
+          ],
+          [
+            "Ae3WdK1scKCuwqBxY7sQTRDdLtqnpxkLuQmCK9Nhy9hD",
+            false,
+            false
+          ],
+          [
+            "GxbNKNYdtNXQkhDkpHdLDAMX64GxaECgANqdfp6cUGH4",
+            false,
+            false
+          ],
+          [
+            "jKSKkyde4vHi49LLQpAtXsbQxAZCCeyeZGbg3BcJr7r",
+            false,
+            false
+          ],
+          [
+            "HkQmCLeV3tqYdet3MhfbbVYGnaT3DR2Bh74ZhAAkmmbp",
+            false,
+            true
+          ],
+          [
+            "EdwGZU5QNQJVD7Mm6XaGec6pBs6u1UefutdNgFgm2hac",
+            false,
+            true
+          ]
+        ]
+      },
+      "memberOutageCloseBtc": {
+        "data": "ae11233d237df0750700000000000000",
+        "keys": [
+          [
+            "7D2BfnwbWVtZ1x16cYc7AuY4aYGqegR1KAff4hNWnato",
+            false,
+            true
+          ],
+          [
+            "EV9uoR1xkQ6nRiEKPwtuRaHd1N2jWbMbru4nTizHQZYr",
+            false,
+            true
+          ],
+          [
+            "2MKhXGPnEyShjrm5UGugUJorfgHMtvEBCt8EGZcGqH4P",
+            false,
+            true
+          ],
+          [
+            "EkPafx58mgwkEnGwo62jXhXDAdJ37Z8G8MFBRPsr9uhz",
+            false,
+            false
+          ],
+          [
+            "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            false,
+            false
+          ],
+          [
+            "3Rs73fucKFRKppe42rfrkgU3kiTL488q98RiCUPmVvom",
+            false,
+            false
+          ],
+          [
+            "Ae3WdK1scKCuwqBxY7sQTRDdLtqnpxkLuQmCK9Nhy9hD",
+            false,
+            false
+          ],
+          [
+            "HkQmCLeV3tqYdet3MhfbbVYGnaT3DR2Bh74ZhAAkmmbp",
+            false,
+            true
+          ]
+        ]
+      },
+      "memberOutageCloseSol": {
+        "data": "ae11233d237df0750700000000000000",
+        "keys": [
+          [
+            "7D2BfnwbWVtZ1x16cYc7AuY4aYGqegR1KAff4hNWnato",
+            false,
+            true
+          ],
+          [
+            "Gp3kPfuDCb5xs3v9ubJgKkJkopdUdWCnKxd32z9rUjo8",
+            false,
+            true
+          ],
+          [
+            "FQsW4fsm7mxRrqRS2tAhmYYgMGcz8UHfyS7bcT5APGfP",
+            false,
+            true
+          ],
+          [
+            "EkPafx58mgwkEnGwo62jXhXDAdJ37Z8G8MFBRPsr9uhz",
+            false,
+            false
+          ],
+          [
+            "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            false,
+            false
+          ],
+          [
+            "EjXuZim1ERjVaWuPMqUd8zv5mQZgymuiL9srjwR9gqvm",
+            false,
+            false
+          ],
+          [
+            "Ae3WdK1scKCuwqBxY7sQTRDdLtqnpxkLuQmCK9Nhy9hD",
+            false,
+            false
+          ],
+          [
+            "HkQmCLeV3tqYdet3MhfbbVYGnaT3DR2Bh74ZhAAkmmbp",
+            false,
+            true
+          ]
+        ]
+      },
+      "members": [
+        "BTC",
+        "ETH",
+        "SOL",
+        "HYPE"
+      ],
+      "outageWithdrawPool": {
+        "data": "47ba5f5b43c6ef6140e2010000000000",
+        "keys": [
+          [
+            "29d2S7vB453rNYFdR5Ycwt7y9haRT5fwVwL9zTmBhfV2",
+            true,
+            false
+          ],
+          [
+            "7D2BfnwbWVtZ1x16cYc7AuY4aYGqegR1KAff4hNWnato",
+            false,
+            true
+          ],
+          [
+            "HkQmCLeV3tqYdet3MhfbbVYGnaT3DR2Bh74ZhAAkmmbp",
+            false,
+            true
+          ],
+          [
+            "EdwGZU5QNQJVD7Mm6XaGec6pBs6u1UefutdNgFgm2hac",
+            false,
+            true
+          ],
+          [
+            "EkPafx58mgwkEnGwo62jXhXDAdJ37Z8G8MFBRPsr9uhz",
+            false,
+            false
+          ],
+          [
+            "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            false,
+            false
+          ],
+          [
+            "Ae3WdK1scKCuwqBxY7sQTRDdLtqnpxkLuQmCK9Nhy9hD",
+            false,
+            false
+          ],
+          [
+            "EV9uoR1xkQ6nRiEKPwtuRaHd1N2jWbMbru4nTizHQZYr",
+            false,
+            false
+          ],
+          [
+            "3Rs73fucKFRKppe42rfrkgU3kiTL488q98RiCUPmVvom",
+            false,
+            false
+          ],
+          [
+            "8C6d9FXQq97dkQsQHGTkAARzGPpVonio2yCb31dwwRYF",
+            false,
+            false
+          ],
+          [
+            "9hmfoNiAhQaGPo5dn3heRLUrtRshPbCAcHreUfJWyfbe",
+            false,
+            false
+          ],
+          [
+            "Gp3kPfuDCb5xs3v9ubJgKkJkopdUdWCnKxd32z9rUjo8",
+            false,
+            false
+          ],
+          [
+            "EjXuZim1ERjVaWuPMqUd8zv5mQZgymuiL9srjwR9gqvm",
+            false,
+            false
+          ],
+          [
+            "EHB1cpdwiWCVWbJ3Ga7d1d8LuQ6sddry5y9g1zKz3ykH",
+            false,
+            false
+          ],
+          [
+            "7eWduTYprJnGRpKTSrSckUhYbdNpKiAQeHdsHrVPMaN1",
+            false,
+            false
+          ]
+        ]
+      },
+      "owner": "29d2S7vB453rNYFdR5Ycwt7y9haRT5fwVwL9zTmBhfV2",
+      "pauseMarketHype": {
+        "data": "e91fa1f8b26f664101",
+        "keys": [
+          [
+            "GqdCnvFd8ErGTSdz7VdYmMNNh4nvMMmuw7GAA5SQ6gRG",
+            true,
+            false
+          ],
+          [
+            "EHB1cpdwiWCVWbJ3Ga7d1d8LuQ6sddry5y9g1zKz3ykH",
+            false,
+            true
+          ]
+        ]
+      },
+      "setLpPoolMemberLimit": {
+        "data": "148ea7bace7e56e6027017",
+        "keys": [
+          [
+            "GqdCnvFd8ErGTSdz7VdYmMNNh4nvMMmuw7GAA5SQ6gRG",
+            true,
+            false
+          ],
+          [
+            "HkQmCLeV3tqYdet3MhfbbVYGnaT3DR2Bh74ZhAAkmmbp",
+            false,
+            true
+          ]
+        ]
+      },
+      "setLpPoolPaused": {
+        "data": "f274f03154499efb00",
+        "keys": [
+          [
+            "GqdCnvFd8ErGTSdz7VdYmMNNh4nvMMmuw7GAA5SQ6gRG",
+            true,
+            false
+          ],
+          [
+            "HkQmCLeV3tqYdet3MhfbbVYGnaT3DR2Bh74ZhAAkmmbp",
+            false,
+            true
+          ]
+        ]
+      },
+      "submitPoolOrder": {
+        "data": "93a145939c8474cb2a00000000000000020000e941cc6b0100010000000000000028d2496b00000000",
+        "keys": [
+          [
+            "29d2S7vB453rNYFdR5Ycwt7y9haRT5fwVwL9zTmBhfV2",
+            true,
+            true
+          ],
+          [
+            "6dCiU88CD2nfKo15Rao3nXUEhFZb4jeTZaPnmWaKDoug",
+            false,
+            true
+          ],
+          [
+            "7D2BfnwbWVtZ1x16cYc7AuY4aYGqegR1KAff4hNWnato",
+            false,
+            true
+          ],
+          [
+            "HkQmCLeV3tqYdet3MhfbbVYGnaT3DR2Bh74ZhAAkmmbp",
+            false,
+            true
+          ],
+          [
+            "EdwGZU5QNQJVD7Mm6XaGec6pBs6u1UefutdNgFgm2hac",
+            false,
+            true
+          ],
+          [
+            "EkPafx58mgwkEnGwo62jXhXDAdJ37Z8G8MFBRPsr9uhz",
+            false,
+            false
+          ],
+          [
+            "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            false,
+            false
+          ],
+          [
+            "11111111111111111111111111111111",
+            false,
+            false
+          ]
+        ]
+      },
+      "submitPoolWithdraw": {
+        "data": "93a145939c8474cb2a000000000000000300407a10f35a00000030d53b0a5a000037d2496b00000000",
+        "keys": [
+          [
+            "29d2S7vB453rNYFdR5Ycwt7y9haRT5fwVwL9zTmBhfV2",
+            true,
+            true
+          ],
+          [
+            "6dCiU88CD2nfKo15Rao3nXUEhFZb4jeTZaPnmWaKDoug",
+            false,
+            true
+          ],
+          [
+            "7D2BfnwbWVtZ1x16cYc7AuY4aYGqegR1KAff4hNWnato",
+            false,
+            true
+          ],
+          [
+            "HkQmCLeV3tqYdet3MhfbbVYGnaT3DR2Bh74ZhAAkmmbp",
+            false,
+            true
+          ],
+          [
+            "EdwGZU5QNQJVD7Mm6XaGec6pBs6u1UefutdNgFgm2hac",
+            false,
+            true
+          ],
+          [
+            "EkPafx58mgwkEnGwo62jXhXDAdJ37Z8G8MFBRPsr9uhz",
+            false,
+            false
+          ],
+          [
+            "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            false,
+            false
+          ],
+          [
+            "11111111111111111111111111111111",
+            false,
+            false
+          ]
+        ]
+      }
+    },
+    "memberLedgerLength": 379,
+    "memberMarket": "c20537f1c18b5e4842544300000000000000000000000000000000000000000000000000000000002415f7609a4e4160ae1f16223310ecd6415b23c91b36b5f6aa21384abb526b2c1410721c16a1c11d1f3e62695149fa02210a3864b3a04863a944e8af5b895fd4ff0000000000000000007b01000041455241763400ff002d31010000000008000200e87648170000003200000000000000000000000000000000000000000000000000000001e80364000800d007e803b80b01003200ffffffffffffffff00002c010000ffffffffffffffffffffffffffffffff00000000000000000000000000000000000000000000000001000000000000000000000011111111111111111111111111111111111111111111111111111111111111110065b181c73a880000002d31010000000000b49417130000000080ca39612400000000000000000000000000000000000001000000000000001f56a4f6090000000f2b52fb040000002e81f6f10e00000000000000000000000000000000000000ed7e3919784b0405000000000000000002d2496b000000005ad2496b0000000000d2496b0000000001f8d9d558766c83cf4b566326f77a593b969468e95c3a30a367a3907daa1d1f83000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "memberPosition": {
+      "margin": "149786036646245",
+      "profitCap": "40000000000000"
+    },
+    "navAt75000": {
+      "asset": "75000000000",
+      "deposit": {
+        "nav": "422917040772660",
+        "pnl": "-22831455431157"
+      },
+      "withdraw": {
+        "nav": "421849213012185",
+        "pnl": "-21763627670682"
+      }
+    },
+    "navAt90200": {
+      "asset": "90200000000",
+      "deposit": {
+        "nav": "374591050070134",
+        "pnl": "25494535271369"
+      },
+      "withdraw": {
+        "nav": "373340166122149",
+        "pnl": "26745419219354"
+      }
+    },
+    "order": {
+      "address": "6dCiU88CD2nfKo15Rao3nXUEhFZb4jeTZaPnmWaKDoug",
+      "nonce": 42,
+      "owner": "29d2S7vB453rNYFdR5Ycwt7y9haRT5fwVwL9zTmBhfV2"
+    },
+    "sample": "d67187871598731800f9ca9e3353f7b83e97cff98c53c3f7ff5a9569fab8f1fd5e9995eb92e841497385000000000000000000940000003fac312fe06b01000000e941cc6b01000100000022222222222222222222222222222222222222222222222222222222222222220000e941cc6b010002000000c85e448564da4fc93c9be099e08a48ddfafede91919652d479320d373f0eab2f0080ca3961240000c409eaecb5900d9abc8ce817a13a76e80a9852159e373755e9b42274e05e4035f6630000000000000000c409",
+    "sampleCapacity": [
+      {
+        "capacity": "60021396335375",
+        "limit": "100021396335375"
+      },
+      {
+        "capacity": "100021396335375",
+        "limit": "100021396335375"
+      }
+    ],
+    "sampleFreeCash": "360085585341503",
+    "sampleLedgerLength": 148,
+    "sampleLp": "3JF3sEqM796hk5WFqA6EtmEwJQ9quALszsfJyvXNQKy3",
+    "sampleLpCash": "400085585341503",
+    "sampleLpShares": "400000000000000",
+    "sampleMembers": [
+      "EV9uoR1xkQ6nRiEKPwtuRaHd1N2jWbMbru4nTizHQZYr",
+      "Gp3kPfuDCb5xs3v9ubJgKkJkopdUdWCnKxd32z9rUjo8"
+    ],
+    "sampleReserved": [
+      "40000000000000",
+      "0"
+    ],
+    "sampleShareSupply": "400000000000000",
+    "solMarket": {
+      "market": "Gp3kPfuDCb5xs3v9ubJgKkJkopdUdWCnKxd32z9rUjo8",
+      "price": "EjXuZim1ERjVaWuPMqUd8zv5mQZgymuiL9srjwR9gqvm",
+      "vault": "FQsW4fsm7mxRrqRS2tAhmYYgMGcz8UHfyS7bcT5APGfP"
+    },
+    "submitPoolOrder": "93a145939c8474cb2a00000000000000020000e941cc6b0100010000000000000028d2496b00000000",
+    "vault": "EdwGZU5QNQJVD7Mm6XaGec6pBs6u1UefutdNgFgm2hac"
+  },
+  "program": "AE5G6RFSxbyJ5HLCSAiXTb96WUkj9tr9zLxjWwZkp4m2",
+  "quote": {
+    "band": {
+      "hi": "54180000",
+      "lo": "52700000"
+    },
+    "clock": {
+      "epoch": 74,
+      "unixTimestamp": 1800000002
+    },
+    "engine": {
+      "assetPublishedAt": 1800000000,
+      "assetUsdMicros": "82000000000",
+      "settleHi": "54180000",
+      "settleLo": "51646000",
+      "settlePublishedAt": 1800000000,
+      "settleTwap": "53070000",
+      "shareRateE9": "1447917760"
+    },
+    "fold": [
+      {
+        "feeBps": 0,
+        "settleHi": "54180000",
+        "settleLo": "52700000"
+      },
+      {
+        "feeBps": 50,
+        "settleHi": "54180000",
+        "settleLo": "52436500"
+      },
+      {
+        "feeBps": 200,
+        "settleHi": "54180000",
+        "settleLo": "51646000"
+      },
+      {
+        "feeBps": 1000,
+        "settleHi": "54180000",
+        "settleLo": "47430000"
+      },
+      {
+        "feeBps": 1001,
+        "refused": "Oracle"
+      }
+    ],
+    "poolQuote": {
+      "bytes": "4d434f4f4b00000000000000000000000000000000000000000000000000000000d2496b00000000b0c82903000000006023240300000000a0b83a030000000080c2670000000000f6d1496b00000000",
+      "feed": "MCOOK",
+      "oiCapUsdMicros": "6800000",
+      "previousPublishedAt": 1799999990,
+      "publishedAt": 1800000000,
+      "spotHiUsdMicros": "54180000",
+      "spotLoUsdMicros": "52700000",
+      "twapUsdMicros": "53070000"
+    },
+    "pushed": {
+      "engine": {
+        "assetPublishedAt": 1800000000,
+        "assetUsdMicros": "82000000000",
+        "settleHi": "53070000",
+        "settleLo": "44198000",
+        "settlePublishedAt": 1800000000,
+        "settleTwap": "53070000",
+        "shareRateE9": "1447917760"
+      },
+      "poolQuote": {
+        "bytes": "4d434f4f4b00000000000000000000000000000000000000000000000000000000d2496b00000000b0c8290300000000e02bb00200000000e060bc020000000080c2670000000000f6d1496b00000000",
+        "feed": "MCOOK",
+        "oiCapUsdMicros": "6800000",
+        "previousPublishedAt": 1799999990,
+        "publishedAt": 1800000000,
+        "spotHiUsdMicros": "45900000",
+        "spotLoUsdMicros": "45100000",
+        "twapUsdMicros": "53070000"
+      }
+    },
+    "stakePool": {
+      "address": "GxbNKNYdtNXQkhDkpHdLDAMX64GxaECgANqdfp6cUGH4",
+      "epoch": 74,
+      "grossE9": "1447917760",
+      "poolTokenSupply": "119149871437186536",
+      "slot": 32390171,
+      "totalLamports": "172519215053107092",
+      "withdrawalFeeBps": 200
+    }
+  },
+  "referral": {
+    "executeOrderCookPerpReferred": {
+      "data": "733db418a820d714",
+      "keys": [
+        [
+          "EnvkrfUKwGFU1X8V39AAs5evpsoQQsEKRZ5zSBkRuymT",
+          false,
+          true
+        ],
+        [
+          "7D2BfnwbWVtZ1x16cYc7AuY4aYGqegR1KAff4hNWnato",
+          false,
+          true
+        ],
+        [
+          "BJVKJVW2cnbPzRppQSCZcfMpUhRZ7iAVoh3yhZdqG8HC",
+          false,
+          true
+        ],
+        [
+          "9CkGU5bpLxzo6iX434uEh9DwCieD5ev7UmZV7emHwuZt",
+          false,
+          true
+        ],
+        [
+          "EkPafx58mgwkEnGwo62jXhXDAdJ37Z8G8MFBRPsr9uhz",
+          false,
+          false
+        ],
+        [
+          "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+          false,
+          false
+        ],
+        [
+          "5mHqxs7cP8jPKGb92auCbwFMWAZ1qidPBochKVAaB3qg",
+          false,
+          false
+        ],
+        [
+          "Ae3WdK1scKCuwqBxY7sQTRDdLtqnpxkLuQmCK9Nhy9hD",
+          false,
+          false
+        ],
+        [
+          "GxbNKNYdtNXQkhDkpHdLDAMX64GxaECgANqdfp6cUGH4",
+          false,
+          false
+        ],
+        [
+          "jKSKkyde4vHi49LLQpAtXsbQxAZCCeyeZGbg3BcJr7r",
+          false,
+          false
+        ],
+        [
+          "29d2S7vB453rNYFdR5Ycwt7y9haRT5fwVwL9zTmBhfV2",
+          false,
+          true
+        ],
+        [
+          "Ae3WdK1scKCuwqBxY7sQTRDdLtqnpxkLuQmCK9Nhy9hD",
+          false,
+          false
+        ],
+        [
+          "F58Eb9bJiT4neXBkJm2kFEuT1QrQRzfPjtSx22nChrL5",
+          false,
+          true
+        ]
+      ]
+    },
+    "memberExecuteOrderBtcReferred": {
+      "data": "733db418a820d714",
+      "keys": [
+        [
+          "6q7oakZtm1x8uNivVZKwbZpDSUwN1UgH3o6W1sZyk7m",
+          false,
+          true
+        ],
+        [
+          "7D2BfnwbWVtZ1x16cYc7AuY4aYGqegR1KAff4hNWnato",
+          false,
+          true
+        ],
+        [
+          "EV9uoR1xkQ6nRiEKPwtuRaHd1N2jWbMbru4nTizHQZYr",
+          false,
+          true
+        ],
+        [
+          "2MKhXGPnEyShjrm5UGugUJorfgHMtvEBCt8EGZcGqH4P",
+          false,
+          true
+        ],
+        [
+          "EkPafx58mgwkEnGwo62jXhXDAdJ37Z8G8MFBRPsr9uhz",
+          false,
+          false
+        ],
+        [
+          "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+          false,
+          false
+        ],
+        [
+          "3Rs73fucKFRKppe42rfrkgU3kiTL488q98RiCUPmVvom",
+          false,
+          false
+        ],
+        [
+          "Ae3WdK1scKCuwqBxY7sQTRDdLtqnpxkLuQmCK9Nhy9hD",
+          false,
+          false
+        ],
+        [
+          "GxbNKNYdtNXQkhDkpHdLDAMX64GxaECgANqdfp6cUGH4",
+          false,
+          false
+        ],
+        [
+          "jKSKkyde4vHi49LLQpAtXsbQxAZCCeyeZGbg3BcJr7r",
+          false,
+          false
+        ],
+        [
+          "29d2S7vB453rNYFdR5Ycwt7y9haRT5fwVwL9zTmBhfV2",
+          false,
+          true
+        ],
+        [
+          "HkQmCLeV3tqYdet3MhfbbVYGnaT3DR2Bh74ZhAAkmmbp",
+          false,
+          true
+        ],
+        [
+          "EdwGZU5QNQJVD7Mm6XaGec6pBs6u1UefutdNgFgm2hac",
+          false,
+          true
+        ],
+        [
+          "F58Eb9bJiT4neXBkJm2kFEuT1QrQRzfPjtSx22nChrL5",
+          false,
+          true
+        ]
+      ]
+    },
+    "orderLegacy": "86addfb94d561c33c85e448564da4fc93c9be099e08a48ddfafede91919652d479320d373f0eab2f11111111111111111111111111111111111111111111111111111111111111112b0000000000000000000060b7986c880000002d3101000000000060b7986c88000001d2496b000000004e0000000000000038d2496b00000000010000000000000000e8764817000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "orderReferredClosePart": "86addfb94d561c33c85e448564da4fc93c9be099e08a48ddfafede91919652d479320d373f0eab2f11111111111111111111111111111111111111111111111111111111111111112a0000000000000005070000000000000040e2010000000000809698000000000000d2496b000000004d0000000000000037d2496b000000000100000000000000ffffffffffffffff01014444444444444444444444444444444444444444444444444444444444444444",
+    "orderVersion": 1,
+    "referrer": "5bV6jUfhDHCQVA1WfKBUnXUsboJgoKgkzkKcxr3joew5",
+    "referrerAta": "F58Eb9bJiT4neXBkJm2kFEuT1QrQRzfPjtSx22nChrL5",
+    "referrerAtaNote": "classic SPL Token ATA: seeds [wallet, Tokenkeg…, bCOOK mint] under the ATA program; any other account pays no referral",
+    "sampleOpen": {
+      "fee": "213963353755",
+      "protocolAfterOpen": "0",
+      "referral": "42792670751"
+    },
+    "shares": [
+      {
+        "fee": "0",
+        "referral": "0"
+      },
+      {
+        "fee": "4",
+        "referral": "0"
+      },
+      {
+        "fee": "5",
+        "referral": "1"
+      },
+      {
+        "fee": "99",
+        "referral": "19"
+      },
+      {
+        "fee": "211640",
+        "referral": "42328"
+      },
+      {
+        "fee": "2116403",
+        "referral": "423280"
+      },
+      {
+        "fee": "634921",
+        "referral": "126984"
+      },
+      {
+        "fee": "213963353755",
+        "referral": "42792670751"
+      }
+    ],
+    "split50": {
+      "closingHalfAt90200": {
+        "closingFee": "106981676878",
+        "payable": "87533304281928",
+        "pnl": "12747267635684",
+        "referral": "21396335375"
+      },
+      "margin": [
+        "74893018323122",
+        "74893018323123"
+      ],
+      "notional": [
+        "10000000",
+        "10000000"
+      ],
+      "profitCap": [
+        "74893018323122",
+        "74893018323123"
+      ]
+    },
+    "submitOrderClosePart": "e696c8355cd06d6c2a0000000000000005070000000000000040e2010000000000809698000000000037d2496b000000000100000000000000ffffffffffffffff014444444444444444444444444444444444444444444444444444444444444444",
+    "submitOrderOpenNoReferrer": "e696c8355cd06d6c2a0000000000000000010060b7986c880000002d3101000000000060b7986c88000037d2496b000000000100000000000000ffffffffffffffff",
+    "submitOrderOpenReferred": "e696c8355cd06d6c2a0000000000000000010060b7986c880000002d3101000000000060b7986c88000037d2496b000000000100000000000000ffffffffffffffff014444444444444444444444444444444444444444444444444444444444444444"
+  },
+  "samples": {
+    "feedPrice": "2cdf42a7270891204254430000000000000000000000000000000000000000000000000000000000ac23143c130000002435cd6a0000000005fe",
+    "fees": [
+      "42792670751",
+      "21396335375",
+      "64189006126"
+    ],
+    "fundingRate": "361496849287839469",
+    "lpCash": "400085585341503",
+    "market": "c20537f1c18b5e4842544300000000000000000000000000000000000000000000000000000000002415f7609a4e4160ae1f16223310ecd6415b23c91b36b5f6aa21384abb526b2c1410721c16a1c11d1f3e62695149fa02210a3864b3a04863a944e8af5b895fd4ff007b000000000000008201000041455241763400ff002d31010000000008000200e87648170000003200000000000000000000000000000000000000000000000000000001e80364000800d007e803b80b01003200ffffffffffffffff00002c010000ffffffffffffffffffffffffffffffff000000003fac312fe06b01000000e941cc6b01000100000022222222222222222222222222222222222222222222222222222222222222220000e941cc6b010001000000000000000000000011111111111111111111111111111111111111111111111111111111111111110065b181c73a880000002d31010000000000b494171300000065b181c73a8800000000000000000000000000000000000001000000000000001f56a4f6090000000f2b52fb040000002e81f6f10e00000000000000000000000000000000000000ed7e3919784b0405000000000000000002d2496b000000005ad2496b0000000000d2496b00000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "marketLedgerLength": 386,
+    "order": "86addfb94d561c33c85e448564da4fc93c9be099e08a48ddfafede91919652d479320d373f0eab2f11111111111111111111111111111111111111111111111111111111111111112a0000000000000000010060b7986c880000002d3101000000000060b7986c88000000d2496b000000004d0000000000000028d2496b00000000010000000000000000e876481700000001010000000000000000000000000000000000000000000000000000000000000000",
+    "poolOracle": "59e0dc068ab42c6a4d434f4f4b00000000000000000000000000000000000000000000000000000000d2496b00000000b0c82903000000006023240300000000a0b83a030000000080c2670000000000f6d1496b00000000069b8857feab8184fb687f634618c035dac439dc1aeb3b5598a0f0000000000100a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3b4b17d11f84027ae9b941c465382c8a6654d4fbc65de5c6cc4716df374a62e67a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4d20400000000000001b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b30e3a32c5be395f6fd4a2ba4558d22cef20d3784bc67f6c72e199a9fb941199bdb4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b4b42e16000000000000100e00007800000064002c0100e1f505000000000f08070000e204200000000088526a74000000000000000000000010d1496b000000000092fe1e000000000052eda574000000000000000000000088d1496b000000000092fe1e00000000001c88e174000000000000000000000000d2496b000000000092fe1e00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000303ff000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "poolOracleSerializedLength": 1541,
+    "position": {
+      "fundingEntry": "0",
+      "margin": "149786036646245",
+      "profitCap": "149786036646245"
+    }
+  },
+  "settleOracle": "Ae3WdK1scKCuwqBxY7sQTRDdLtqnpxkLuQmCK9Nhy9hD",
+  "solPrice": "EjXuZim1ERjVaWuPMqUd8zv5mQZgymuiL9srjwR9gqvm",
+  "v4": {
+    "accounts": {
+      "ProgramConfig": "c4d25ae790958c3f"
+    },
+    "config": {
+      "address": "jKSKkyde4vHi49LLQpAtXsbQxAZCCeyeZGbg3BcJr7r",
+      "applyOracleSettings": {
+        "data": "09f50dd58e2f85db",
+        "keys": [
+          [
+            "jKSKkyde4vHi49LLQpAtXsbQxAZCCeyeZGbg3BcJr7r",
+            false,
+            true
+          ]
+        ]
+      },
+      "bounds": {
+        "maxAge": [
+          10,
+          60
+        ],
+        "maxFillDelay": [
+          12,
+          60
+        ],
+        "maxPackages": 12,
+        "maxSigners": 20,
+        "minFillDelay": [
+          1,
+          10
+        ],
+        "minThreshold": 3,
+        "timelock": [
+          3600,
+          2592000
+        ]
+      },
+      "cancelOracleSettings": {
+        "data": "074c53541d1c9116",
+        "keys": [
+          [
+            "GqdCnvFd8ErGTSdz7VdYmMNNh4nvMMmuw7GAA5SQ6gRG",
+            true,
+            false
+          ],
+          [
+            "jKSKkyde4vHi49LLQpAtXsbQxAZCCeyeZGbg3BcJr7r",
+            false,
+            true
+          ]
+        ]
+      },
+      "initConfig": {
+        "data": "17eb73e8a86001e772656473746f6e652d7072696d6172792d70726f6400000000000000000000000423022000a302000c0000008cdbf4fe234f106efb28d84ef466bbaf8616f8d98bb8f32df04c8b654987daaed53d6b6091e3b774deb22f54738d54976c4c0fe5ce6d408e40d8849951ce04be4b3e32572c4ec9135221d0691ba7d202dd682daec5a90dd295d14da4b0bec9281017b5be9c5ae89c4af6aa32ce58588dbaf90d18a855b6dee5a346d2eeec95f7b563b6862732b291e7f96c7404d938651ba3e1313c625244cb01f0930afa388b82991bbd3b77de53f9d1cea88f1b8021f27b557fe6540844f0ae3ec499d365de1f594b2a7c2860e7ab4c37fc34e814e61ec09ae9ce8652ce24efe53fd0c9878c72c4b8b062378713801ca7b19117269f",
+        "keys": [
+          [
+            "GqdCnvFd8ErGTSdz7VdYmMNNh4nvMMmuw7GAA5SQ6gRG",
+            true,
+            true
+          ],
+          [
+            "jKSKkyde4vHi49LLQpAtXsbQxAZCCeyeZGbg3BcJr7r",
+            false,
+            true
+          ],
+          [
+            "11111111111111111111111111111111",
+            false,
+            false
+          ]
+        ]
+      },
+      "postFeedPriceKeys": [
+        "4Ss5JMkXAD9Z7cktFEdrqeMuT6jGMF1pVozTyPHZ6zT4",
+        "3Rs73fucKFRKppe42rfrkgU3kiTL488q98RiCUPmVvom",
+        "jKSKkyde4vHi49LLQpAtXsbQxAZCCeyeZGbg3BcJr7r",
+        "11111111111111111111111111111111"
+      ],
+      "postPriceKeys": [
+        "4Ss5JMkXAD9Z7cktFEdrqeMuT6jGMF1pVozTyPHZ6zT4",
+        "EjXuZim1ERjVaWuPMqUd8zv5mQZgymuiL9srjwR9gqvm",
+        "jKSKkyde4vHi49LLQpAtXsbQxAZCCeyeZGbg3BcJr7r",
+        "11111111111111111111111111111111"
+      ],
+      "proposeOracleSettings": {
+        "data": "5821156a12df183872656473746f6e652d7072696d6172792d70726f6400000000000000000000000423022000a302000c0000008cdbf4fe234f106efb28d84ef466bbaf8616f8d98bb8f32df04c8b654987daaed53d6b6091e3b774deb22f54738d54976c4c0fe5ce6d408e40d8849951ce04be4b3e32572c4ec9135221d0691ba7d202dd682daec5a90dd295d14da4b0bec9281017b5be9c5ae89c4af6aa32ce58588dbaf90d18a855b6dee5a346d2eeec95f7b563b6862732b291e7f96c7404d938651ba3e1313c625244cb01f0930afa388b82991bbd3b77de53f9d1cea88f1b8021f27b557fe6540844f0ae3ec499d365de1f594b2a7c2860e7ab4c37fc34e814e61ec09ae9ce8652ce24efe53fd0c9878c72c4b8b062378713801ca7b19117269f",
+        "keys": [
+          [
+            "GqdCnvFd8ErGTSdz7VdYmMNNh4nvMMmuw7GAA5SQ6gRG",
+            true,
+            false
+          ],
+          [
+            "jKSKkyde4vHi49LLQpAtXsbQxAZCCeyeZGbg3BcJr7r",
+            false,
+            true
+          ]
+        ]
+      },
+      "shipped": "72656473746f6e652d7072696d6172792d70726f6400000000000000000000000423022000a302000c0000008cdbf4fe234f106efb28d84ef466bbaf8616f8d98bb8f32df04c8b654987daaed53d6b6091e3b774deb22f54738d54976c4c0fe5ce6d408e40d8849951ce04be4b3e32572c4ec9135221d0691ba7d202dd682daec5a90dd295d14da4b0bec9281017b5be9c5ae89c4af6aa32ce58588dbaf90d18a855b6dee5a346d2eeec95f7b563b6862732b291e7f96c7404d938651ba3e1313c625244cb01f0930afa388b82991bbd3b77de53f9d1cea88f1b8021f27b557fe6540844f0ae3ec499d365de1f594b2a7c2860e7ab4c37fc34e814e61ec09ae9ce8652ce24efe53fd0c9878c72c4b8b062378713801ca7b19117269f",
+      "space": 914
+    },
+    "instructions": {
+      "add_margin": "d3eeee5adfe4e44c",
+      "apply_market_risk": "8f8a0aba86c5fc38",
+      "apply_oracle_settings": "09f50dd58e2f85db",
+      "apply_pool_params": "c51ef6dedc6f2b19",
+      "cancel_market_risk": "83f947634da0f3ac",
+      "cancel_oracle_settings": "074c53541d1c9116",
+      "cancel_pool_params": "3efff9feeae6b8a2",
+      "fund_insurance": "3ad825a2c9321442",
+      "init_config": "17eb73e8a86001e7",
+      "migrate_market": "c971b578d93c6dcb",
+      "migrate_pool_oracle": "c887793562a76b80",
+      "propose_oracle_settings": "5821156a12df1838",
+      "set_market_risk": "68086c22310be1fc",
+      "set_pool_params": "9b39981b9a8ca67e",
+      "settle_claim": "cdcb1542ffe7d19b"
+    },
+    "margin": {
+      "addMargin": {
+        "data": "d3eeee5adfe4e44c000000000000000000f2052a01000000",
+        "keys": [
+          [
+            "29d2S7vB453rNYFdR5Ycwt7y9haRT5fwVwL9zTmBhfV2",
+            true,
+            true
+          ],
+          [
+            "5bV6jUfhDHCQVA1WfKBUnXUsboJgoKgkzkKcxr3joew5",
+            false,
+            true
+          ],
+          [
+            "EV9uoR1xkQ6nRiEKPwtuRaHd1N2jWbMbru4nTizHQZYr",
+            false,
+            true
+          ],
+          [
+            "2MKhXGPnEyShjrm5UGugUJorfgHMtvEBCt8EGZcGqH4P",
+            false,
+            true
+          ],
+          [
+            "EkPafx58mgwkEnGwo62jXhXDAdJ37Z8G8MFBRPsr9uhz",
+            false,
+            false
+          ],
+          [
+            "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            false,
+            false
+          ]
+        ]
+      },
+      "fundInsurance": {
+        "data": "3ad825a2c932144200863ba101000000",
+        "keys": [
+          [
+            "29d2S7vB453rNYFdR5Ycwt7y9haRT5fwVwL9zTmBhfV2",
+            true,
+            true
+          ],
+          [
+            "5bV6jUfhDHCQVA1WfKBUnXUsboJgoKgkzkKcxr3joew5",
+            false,
+            true
+          ],
+          [
+            "EV9uoR1xkQ6nRiEKPwtuRaHd1N2jWbMbru4nTizHQZYr",
+            false,
+            true
+          ],
+          [
+            "2MKhXGPnEyShjrm5UGugUJorfgHMtvEBCt8EGZcGqH4P",
+            false,
+            true
+          ],
+          [
+            "EkPafx58mgwkEnGwo62jXhXDAdJ37Z8G8MFBRPsr9uhz",
+            false,
+            false
+          ],
+          [
+            "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            false,
+            false
+          ]
+        ]
+      },
+      "removeMarginAction": "060300000000000000001a711802000000",
+      "settleClaim": {
+        "data": "cdcb1542ffe7d19b0500000000000000",
+        "keys": [
+          [
+            "5bV6jUfhDHCQVA1WfKBUnXUsboJgoKgkzkKcxr3joew5",
+            false,
+            true
+          ],
+          [
+            "EV9uoR1xkQ6nRiEKPwtuRaHd1N2jWbMbru4nTizHQZYr",
+            false,
+            true
+          ],
+          [
+            "2MKhXGPnEyShjrm5UGugUJorfgHMtvEBCt8EGZcGqH4P",
+            false,
+            true
+          ],
+          [
+            "EkPafx58mgwkEnGwo62jXhXDAdJ37Z8G8MFBRPsr9uhz",
+            false,
+            false
+          ],
+          [
+            "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            false,
+            false
+          ],
+          [
+            "Ae3WdK1scKCuwqBxY7sQTRDdLtqnpxkLuQmCK9Nhy9hD",
+            false,
+            false
+          ]
+        ]
+      }
+    },
+    "migration": {
+      "feedPriceSpace": 74,
+      "marketSpace": 6118,
+      "migrateMarket": {
+        "data": "c971b578d93c6dcb",
+        "keys": [
+          [
+            "GqdCnvFd8ErGTSdz7VdYmMNNh4nvMMmuw7GAA5SQ6gRG",
+            true,
+            true
+          ],
+          [
+            "EV9uoR1xkQ6nRiEKPwtuRaHd1N2jWbMbru4nTizHQZYr",
+            false,
+            true
+          ],
+          [
+            "11111111111111111111111111111111",
+            false,
+            false
+          ]
+        ]
+      },
+      "migratePoolOracle": {
+        "data": "c887793562a76b80",
+        "keys": [
+          [
+            "GqdCnvFd8ErGTSdz7VdYmMNNh4nvMMmuw7GAA5SQ6gRG",
+            true,
+            true
+          ],
+          [
+            "Ae3WdK1scKCuwqBxY7sQTRDdLtqnpxkLuQmCK9Nhy9hD",
+            false,
+            true
+          ],
+          [
+            "11111111111111111111111111111111",
+            false,
+            false
+          ]
+        ]
+      },
+      "poolOracleBase": 1516,
+      "poolOracleSpace": 1576,
+      "priceSpace": 42,
+      "setPoolParams": {
+        "data": "9b39981b9a8ca67e100e00007800000064002c0100e1f505000000000f08070000e204",
+        "keys": [
+          [
+            "GqdCnvFd8ErGTSdz7VdYmMNNh4nvMMmuw7GAA5SQ6gRG",
+            true,
+            false
+          ],
+          [
+            "Ae3WdK1scKCuwqBxY7sQTRDdLtqnpxkLuQmCK9Nhy9hD",
+            false,
+            true
+          ],
+          [
+            "jKSKkyde4vHi49LLQpAtXsbQxAZCCeyeZGbg3BcJr7r",
+            false,
+            false
+          ]
+        ]
+      }
+    },
+    "risk": {
+      "applyMarketRisk": {
+        "data": "8f8a0aba86c5fc38",
+        "keys": [
+          [
+            "EV9uoR1xkQ6nRiEKPwtuRaHd1N2jWbMbru4nTizHQZYr",
+            false,
+            true
+          ]
+        ]
+      },
+      "floors": [
+        {
+          "initialMarginBps": 10000,
+          "leverage": 1,
+          "maintenanceFloorBps": 1000
+        },
+        {
+          "initialMarginBps": 5000,
+          "leverage": 2,
+          "maintenanceFloorBps": 1000
+        },
+        {
+          "initialMarginBps": 3333,
+          "leverage": 3,
+          "maintenanceFloorBps": 1000
+        },
+        {
+          "initialMarginBps": 2000,
+          "leverage": 5,
+          "maintenanceFloorBps": 1000
+        },
+        {
+          "initialMarginBps": 1000,
+          "leverage": 10,
+          "maintenanceFloorBps": 500
+        },
+        {
+          "initialMarginBps": 500,
+          "leverage": 20,
+          "maintenanceFloorBps": 250
+        },
+        {
+          "initialMarginBps": 400,
+          "leverage": 25,
+          "maintenanceFloorBps": 200
+        },
+        {
+          "initialMarginBps": 333,
+          "leverage": 30,
+          "maintenanceFloorBps": 166
+        },
+        {
+          "initialMarginBps": 250,
+          "leverage": 40,
+          "maintenanceFloorBps": 125
+        },
+        {
+          "initialMarginBps": 200,
+          "leverage": 50,
+          "maintenanceFloorBps": 100
+        }
+      ],
+      "hardMaxLeverage": 50,
+      "ledgerMagic": "41455241763400ff",
+      "leverageFor": [
+        {
+          "leverage": 50,
+          "notional": "500000000"
+        },
+        {
+          "leverage": 50,
+          "notional": "2000000000"
+        },
+        {
+          "leverage": 25,
+          "notional": "2000001000"
+        },
+        {
+          "leverage": 25,
+          "notional": "5000000000"
+        },
+        {
+          "leverage": 10,
+          "notional": "10000000000"
+        },
+        {
+          "leverage": null,
+          "notional": "10000000001"
+        }
+      ],
+      "limitsBytes": "00e40b5402000000080032",
+      "marketLedger": "41455241763400ff00e40b540200000008003200943577000000003200f2052a010000001900e40b54020000000a000000000000000000036400f4010800d007e803b80b01000a00ffffffffffffffff64002c010000404b4c0000000000ffffffffffffffff201c00001aa41a9ab06f01000000e941cc6b01000100000022222222222222222222222222222222222222222222222222222222222222220000e941cc6b0100010000000000000000000000111111111111111111111111111111111111111111111111111111111111111100c2a5f2541e07010000ca9a3b0000000000b49417130000000060b7986c8800000000000000000000000000000000000001000000000000000cd2182cf201000006690c16f9000000123b2542eb02000000000000000000000000000000000000ed7e3919784b0405000000000000000002d2496b000000005ad2496b0000000000d2496b00000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "marks": [
+        {
+          "asset": "82000000000",
+          "closingFee": "10698167687742",
+          "liquidatable": false,
+          "maintenance": "133727096096775",
+          "name": "flat",
+          "payable": "189301832312258",
+          "pnl": "0",
+          "rules": {
+            "bankrupt": false,
+            "feeBps": 8,
+            "maintenanceBps": 100
+          },
+          "shortfall": "0"
+        },
+        {
+          "asset": "81180000000",
+          "closingFee": "10698167687742",
+          "liquidatable": true,
+          "maintenance": "133727096096775",
+          "name": "down1pct",
+          "payable": "55574736215483",
+          "pnl": "-133727096096775",
+          "rules": {
+            "bankrupt": false,
+            "feeBps": 8,
+            "maintenanceBps": 100
+          },
+          "shortfall": "0"
+        },
+        {
+          "asset": "79540000000",
+          "closingFee": "0",
+          "liquidatable": true,
+          "maintenance": "133727096096775",
+          "name": "down3pct",
+          "payable": "0",
+          "pnl": "-200000000000000",
+          "rules": {
+            "bankrupt": false,
+            "feeBps": 8,
+            "maintenanceBps": 100
+          },
+          "shortfall": "182418029070545"
+        },
+        {
+          "asset": "73800000000",
+          "closingFee": "0",
+          "liquidatable": true,
+          "maintenance": "133727096096775",
+          "name": "down10pct",
+          "payable": "0",
+          "pnl": "-200000000000000",
+          "rules": {
+            "bankrupt": false,
+            "feeBps": 8,
+            "maintenanceBps": 100
+          },
+          "shortfall": "1074726763568482"
+        },
+        {
+          "asset": "81180000000",
+          "closingFee": "10698167687742",
+          "liquidatable": true,
+          "maintenance": "133727096096775",
+          "name": "down1pctBankrupt",
+          "payable": "55574736215483",
+          "pnl": "-133727096096775",
+          "rules": {
+            "bankrupt": true,
+            "feeBps": 8,
+            "maintenanceBps": 100
+          },
+          "shortfall": "0"
+        }
+      ],
+      "riskBytes": "00943577000000003200f2052a010000001900e40b54020000000a000000000000000000036400f4010800d007e803b80b01000a00ffffffffffffffff64002c010000404b4c0000000000ffffffffffffffff201c0000",
+      "riskLen": 87,
+      "setMarketRisk": {
+        "data": "68086c22310be1fc00e40b540200000008003200943577000000003200f2052a010000001900e40b54020000000a000000000000000000036400f4010800d007e803b80b01000a00ffffffffffffffff64002c010000404b4c0000000000ffffffffffffffff201c0000",
+        "keys": [
+          [
+            "GqdCnvFd8ErGTSdz7VdYmMNNh4nvMMmuw7GAA5SQ6gRG",
+            true,
+            false
+          ],
+          [
+            "EV9uoR1xkQ6nRiEKPwtuRaHd1N2jWbMbru4nTizHQZYr",
+            false,
+            true
+          ],
+          [
+            "jKSKkyde4vHi49LLQpAtXsbQxAZCCeyeZGbg3BcJr7r",
+            false,
+            false
+          ]
+        ]
+      },
+      "shocks": [
+        {
+          "asset": "82000000000",
+          "prev": "81180000000",
+          "shock": true
+        },
+        {
+          "asset": "82000000000",
+          "prev": "80360000000",
+          "shock": true
+        },
+        {
+          "asset": "80360000000",
+          "prev": "82000000000",
+          "shock": true
+        },
+        {
+          "asset": "82000000000",
+          "prev": "0",
+          "shock": false
+        }
+      ]
+    }
+  },
+  "wick": {
+    "fees": [
+      {
+        "notional": "20000000",
+        "prepaid": "48141754595",
+        "rate": 180,
+        "seconds": 3600
+      },
+      {
+        "notional": "20000000",
+        "prepaid": "1155402110277",
+        "rate": 180,
+        "seconds": 86400
+      },
+      {
+        "notional": "20000000",
+        "prepaid": "8087814771933",
+        "rate": 180,
+        "seconds": 604800
+      },
+      {
+        "notional": "20000000",
+        "prepaid": "299548695257",
+        "rate": 280,
+        "seconds": 14400
+      },
+      {
+        "notional": "20000000",
+        "prepaid": "5391876514622",
+        "rate": 280,
+        "seconds": 259200
+      }
+    ],
+    "ix": {
+      "expireBtc": {
+        "data": "2cbe0d3f1ae5732b070000000000000000",
+        "keys": [
+          [
+            "7D2BfnwbWVtZ1x16cYc7AuY4aYGqegR1KAff4hNWnato",
+            false,
+            true
+          ],
+          [
+            "EV9uoR1xkQ6nRiEKPwtuRaHd1N2jWbMbru4nTizHQZYr",
+            false,
+            true
+          ],
+          [
+            "2MKhXGPnEyShjrm5UGugUJorfgHMtvEBCt8EGZcGqH4P",
+            false,
+            true
+          ],
+          [
+            "EkPafx58mgwkEnGwo62jXhXDAdJ37Z8G8MFBRPsr9uhz",
+            false,
+            false
+          ],
+          [
+            "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            false,
+            false
+          ],
+          [
+            "3Rs73fucKFRKppe42rfrkgU3kiTL488q98RiCUPmVvom",
+            false,
+            false
+          ],
+          [
+            "Ae3WdK1scKCuwqBxY7sQTRDdLtqnpxkLuQmCK9Nhy9hD",
+            false,
+            false
+          ],
+          [
+            "GxbNKNYdtNXQkhDkpHdLDAMX64GxaECgANqdfp6cUGH4",
+            false,
+            false
+          ],
+          [
+            "jKSKkyde4vHi49LLQpAtXsbQxAZCCeyeZGbg3BcJr7r",
+            false,
+            false
+          ],
+          [
+            "HkQmCLeV3tqYdet3MhfbbVYGnaT3DR2Bh74ZhAAkmmbp",
+            false,
+            true
+          ],
+          [
+            "EdwGZU5QNQJVD7Mm6XaGec6pBs6u1UefutdNgFgm2hac",
+            false,
+            true
+          ]
+        ]
+      },
+      "expireSol": {
+        "data": "2cbe0d3f1ae5732b070000000000000000",
+        "keys": [
+          [
+            "7D2BfnwbWVtZ1x16cYc7AuY4aYGqegR1KAff4hNWnato",
+            false,
+            true
+          ],
+          [
+            "Gp3kPfuDCb5xs3v9ubJgKkJkopdUdWCnKxd32z9rUjo8",
+            false,
+            true
+          ],
+          [
+            "FQsW4fsm7mxRrqRS2tAhmYYgMGcz8UHfyS7bcT5APGfP",
+            false,
+            true
+          ],
+          [
+            "EkPafx58mgwkEnGwo62jXhXDAdJ37Z8G8MFBRPsr9uhz",
+            false,
+            false
+          ],
+          [
+            "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            false,
+            false
+          ],
+          [
+            "EjXuZim1ERjVaWuPMqUd8zv5mQZgymuiL9srjwR9gqvm",
+            false,
+            false
+          ],
+          [
+            "Ae3WdK1scKCuwqBxY7sQTRDdLtqnpxkLuQmCK9Nhy9hD",
+            false,
+            false
+          ],
+          [
+            "GxbNKNYdtNXQkhDkpHdLDAMX64GxaECgANqdfp6cUGH4",
+            false,
+            false
+          ],
+          [
+            "jKSKkyde4vHi49LLQpAtXsbQxAZCCeyeZGbg3BcJr7r",
+            false,
+            false
+          ],
+          [
+            "HkQmCLeV3tqYdet3MhfbbVYGnaT3DR2Bh74ZhAAkmmbp",
+            false,
+            true
+          ],
+          [
+            "EdwGZU5QNQJVD7Mm6XaGec6pBs6u1UefutdNgFgm2hac",
+            false,
+            true
+          ]
+        ]
+      },
+      "outageCloseWickBtc": {
+        "data": "ae11233d237df0750700000000000000",
+        "keys": [
+          [
+            "7D2BfnwbWVtZ1x16cYc7AuY4aYGqegR1KAff4hNWnato",
+            false,
+            true
+          ],
+          [
+            "EV9uoR1xkQ6nRiEKPwtuRaHd1N2jWbMbru4nTizHQZYr",
+            false,
+            true
+          ],
+          [
+            "2MKhXGPnEyShjrm5UGugUJorfgHMtvEBCt8EGZcGqH4P",
+            false,
+            true
+          ],
+          [
+            "EkPafx58mgwkEnGwo62jXhXDAdJ37Z8G8MFBRPsr9uhz",
+            false,
+            false
+          ],
+          [
+            "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            false,
+            false
+          ],
+          [
+            "3Rs73fucKFRKppe42rfrkgU3kiTL488q98RiCUPmVvom",
+            false,
+            false
+          ],
+          [
+            "Ae3WdK1scKCuwqBxY7sQTRDdLtqnpxkLuQmCK9Nhy9hD",
+            false,
+            false
+          ],
+          [
+            "HkQmCLeV3tqYdet3MhfbbVYGnaT3DR2Bh74ZhAAkmmbp",
+            false,
+            true
+          ],
+          [
+            "EdwGZU5QNQJVD7Mm6XaGec6pBs6u1UefutdNgFgm2hac",
+            false,
+            true
+          ]
+        ]
+      },
+      "setWickConfigHype": {
+        "data": "7bff08f6dff99a02180105803a0900008813",
+        "keys": [
+          [
+            "GqdCnvFd8ErGTSdz7VdYmMNNh4nvMMmuw7GAA5SQ6gRG",
+            true,
+            false
+          ],
+          [
+            "EHB1cpdwiWCVWbJ3Ga7d1d8LuQ6sddry5y9g1zKz3ykH",
+            false,
+            true
+          ]
+        ]
+      },
+      "takeProfitBtc": {
+        "data": "2cbe0d3f1ae5732b070000000000000001",
+        "keys": [
+          [
+            "7D2BfnwbWVtZ1x16cYc7AuY4aYGqegR1KAff4hNWnato",
+            false,
+            true
+          ],
+          [
+            "EV9uoR1xkQ6nRiEKPwtuRaHd1N2jWbMbru4nTizHQZYr",
+            false,
+            true
+          ],
+          [
+            "2MKhXGPnEyShjrm5UGugUJorfgHMtvEBCt8EGZcGqH4P",
+            false,
+            true
+          ],
+          [
+            "EkPafx58mgwkEnGwo62jXhXDAdJ37Z8G8MFBRPsr9uhz",
+            false,
+            false
+          ],
+          [
+            "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            false,
+            false
+          ],
+          [
+            "3Rs73fucKFRKppe42rfrkgU3kiTL488q98RiCUPmVvom",
+            false,
+            false
+          ],
+          [
+            "Ae3WdK1scKCuwqBxY7sQTRDdLtqnpxkLuQmCK9Nhy9hD",
+            false,
+            false
+          ],
+          [
+            "GxbNKNYdtNXQkhDkpHdLDAMX64GxaECgANqdfp6cUGH4",
+            false,
+            false
+          ],
+          [
+            "jKSKkyde4vHi49LLQpAtXsbQxAZCCeyeZGbg3BcJr7r",
+            false,
+            false
+          ],
+          [
+            "HkQmCLeV3tqYdet3MhfbbVYGnaT3DR2Bh74ZhAAkmmbp",
+            false,
+            true
+          ],
+          [
+            "EdwGZU5QNQJVD7Mm6XaGec6pBs6u1UefutdNgFgm2hac",
+            false,
+            true
+          ]
+        ]
+      }
+    },
+    "markAt72000": {
+      "liquidatable": false,
+      "payable": "45800306280560",
+      "pnl": "-32616364901653"
+    },
+    "memberLedgerLength": 428,
+    "memberMarket": "c20537f1c18b5e4842544300000000000000000000000000000000000000000000000000000000002415f7609a4e4160ae1f16223310ecd6415b23c91b36b5f6aa21384abb526b2c1410721c16a1c11d1f3e62695149fa02210a3864b3a04863a944e8af5b895fd4ff000000000000000000ac01000041455241763400ff002d31010000000008000200e87648170000003200000000000000000000000000000000000000000000000000000001e80364000800d007e803b80b01003200ffffffffffffffff00002c010000ffffffffffffffffffffffffffffffff000000000000000000000000000000000000000000000000010000000000000000000000111111111111111111111111111111111111111111111111111111111111111100203c0a9f83470000002d31010000000000b494171300000000c0afd6913600000000000000000000000000000000000001000000000000001f56a4f6090000000f2b52fb040000002e81f6f10e00000000000000000000000000000000000000ed7e3919784b0405000000000000000002d2496b000000005ad2496b0000000000d2496b0000000001f8d9d558766c83cf4b566326f77a593b969468e95c3a30a367a3907daa1d1f830001b40005803a090010881301000000000000000000000002d2496b0000000082234b6b00000000451555030d010000b4000100000000000000000000000000000000000000000000000000000000000000000000000000",
+    "openQuote": {
+      "margin": "78630634535968",
+      "openingFee": "213963353755",
+      "prepaid": "1155402110277",
+      "profitCap": "60000000000000"
+    },
+    "order": "86addfb94d561c33c85e448564da4fc93c9be099e08a48ddfafede91919652d479320d373f0eab2f11111111111111111111111111111111111111111111111111111111111111112a00000000000000040100009573c2480000002d31010000000000c0afd691360000805101000100d2496b000000004d0000000000000037d2496b00000000010000000000000000e876481700000001010000000000000000000000000000000000000000000000000000000000000000",
+    "position": {
+      "expiresAt": 1800086402,
+      "id": 0,
+      "margin": "78630634535968",
+      "openedAt": 1800000002,
+      "prepaid": "1155402110277",
+      "profitCap": "60000000000000",
+      "rate": 180,
+      "takeProfit": true
+    },
+    "splits": [
+      {
+        "earned": "0",
+        "elapsed": 0,
+        "refund": "1155402110277"
+      },
+      {
+        "earned": "13372710",
+        "elapsed": 1,
+        "refund": "1155388737567"
+      },
+      {
+        "earned": "48141754595",
+        "elapsed": 3600,
+        "refund": "1107260355682"
+      },
+      {
+        "earned": "577701055139",
+        "elapsed": 43200,
+        "refund": "577701055138"
+      },
+      {
+        "earned": "1155402110277",
+        "elapsed": 86400,
+        "refund": "0"
+      },
+      {
+        "earned": "1155402110277",
+        "elapsed": 90000,
+        "refund": "0"
+      }
+    ],
+    "submitOrderOpenWick": "e696c8355cd06d6c2a00000000000000040100009573c2480000002d31010000000000c0afd691360000805101000137d2496b00000000010000000000000000e8764817000000",
+    "terms": {
+      "maxDurationSeconds": 604800,
+      "maxLeverage": 5,
+      "maxPositions": 16,
+      "maxReserveBps": 5000,
+      "rate": 180
+    }
+  }
+}

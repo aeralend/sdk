@@ -1,0 +1,26 @@
+{
+  "_": "The final upgrade's launch settings, per market (docs/BCOOK_SETTLEMENT.md, 'Final upgrade'). USD amounts are whole dollars. tests/final.rs pushes every row through the compiled program's set_market_risk; sdk/test/perps-final.test.ts checks sdk launchMarketSettings() against it; scripts/perps-bcook/final-upgrade.mjs sends it. Sizing: tools/research/perps-final (bad debt, insurance 20%, breaker = 99.99th percentile 10 s move, delay window 2 h).",
+  "pool": { "oiShareBps": 1000 },
+  "common": {
+    "maxNotionalUsd": 20,
+    "maxPositions": 8,
+    "liquidationFeeBps": 500,
+    "feeBps": 8,
+    "protocolBps": 2000,
+    "insuranceBps": 2000,
+    "holderBps": 2000,
+    "fundingBpsPerHour": 1,
+    "liquidateBankrupt": true,
+    "breakerSeconds": 300,
+    "deferGainUsd": 0,
+    "deferLossUsd": 5,
+    "deferWindowSeconds": 7200
+  },
+  "markets": {
+    "BTC":  { "maxLeverage": 50, "tiers": [[2000, 50], [10000, 25], [50000, 10], [100000, 5]], "maintenanceBps": 100, "breakerMoveBps": 40, "breakerMaxLeverage": 25 },
+    "ETH":  { "maxLeverage": 50, "tiers": [[2000, 50], [10000, 25], [50000, 10], [100000, 5]], "maintenanceBps": 100, "breakerMoveBps": 65, "breakerMaxLeverage": 25 },
+    "SOL":  { "maxLeverage": 30, "tiers": [[2000, 30], [10000, 15], [50000, 8], [100000, 4]], "maintenanceBps": 166, "breakerMoveBps": 70, "breakerMaxLeverage": 15 },
+    "HYPE": { "maxLeverage": 20, "tiers": [[2000, 20], [10000, 10], [50000, 5], [100000, 3]], "maintenanceBps": 250, "breakerMoveBps": 80, "breakerMaxLeverage": 10 },
+    "MCOOK": { "maxLeverage": 2, "tiers": [[100000, 2]], "maintenanceBps": 1000, "breakerMoveBps": 0, "breakerMaxLeverage": 2 }
+  }
+}

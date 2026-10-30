@@ -1,0 +1,819 @@
+{
+  "address": "BKyWccGif1eiwo6hBxQdcaL2cc9hmZNthz3FuJ7w75Ap",
+  "metadata": {
+    "name": "aera_yield_escrow",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Isolated, cancellable receipt escrow paying capped realized reserve yield"
+  },
+  "instructions": [
+    {
+      "name": "open",
+      "discriminator": [
+        228,
+        220,
+        155,
+        71,
+        199,
+        189,
+        60,
+        45
+      ],
+      "accounts": [
+        {
+          "name": "owner",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "merchant"
+        },
+        {
+          "name": "global"
+        },
+        {
+          "name": "reserve"
+        },
+        {
+          "name": "share_mint"
+        },
+        {
+          "name": "owner_shares",
+          "writable": true
+        },
+        {
+          "name": "escrow",
+          "writable": true
+        },
+        {
+          "name": "escrow_shares",
+          "writable": true
+        },
+        {
+          "name": "supply_position",
+          "writable": true
+        },
+        {
+          "name": "share_token_program"
+        },
+        {
+          "name": "associated_token_program"
+        },
+        {
+          "name": "system_program"
+        }
+      ],
+      "args": [
+        {
+          "name": "nonce",
+          "type": "u64"
+        },
+        {
+          "name": "shares",
+          "type": "u64"
+        },
+        {
+          "name": "expiry",
+          "type": "i64"
+        },
+        {
+          "name": "max_payment",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "settle",
+      "discriminator": [
+        175,
+        42,
+        185,
+        87,
+        144,
+        131,
+        102,
+        212
+      ],
+      "accounts": [
+        {
+          "name": "escrow",
+          "writable": true
+        },
+        {
+          "name": "global"
+        },
+        {
+          "name": "reserve",
+          "writable": true
+        },
+        {
+          "name": "share_mint",
+          "writable": true
+        },
+        {
+          "name": "liquidity_mint"
+        },
+        {
+          "name": "liquidity_vault",
+          "writable": true
+        },
+        {
+          "name": "escrow_shares",
+          "writable": true
+        },
+        {
+          "name": "escrow_liquidity",
+          "writable": true
+        },
+        {
+          "name": "merchant_liquidity",
+          "writable": true
+        },
+        {
+          "name": "supply_position",
+          "writable": true
+        },
+        {
+          "name": "aera_program"
+        },
+        {
+          "name": "liquidity_token_program"
+        },
+        {
+          "name": "share_token_program"
+        },
+        {
+          "name": "system_program"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "cancel",
+      "docs": [
+        "Owner may cancel at any time, including during a reserve pause/loss.",
+        "Merchant keeps payments already realized; services can cease on cancel.",
+        "Receipt donations belong to the depositor and are returned, not skimmed."
+      ],
+      "discriminator": [
+        232,
+        219,
+        223,
+        41,
+        219,
+        236,
+        220,
+        190
+      ],
+      "accounts": [
+        {
+          "name": "owner",
+          "signer": true
+        },
+        {
+          "name": "escrow",
+          "writable": true
+        },
+        {
+          "name": "share_mint"
+        },
+        {
+          "name": "escrow_shares",
+          "writable": true
+        },
+        {
+          "name": "owner_shares",
+          "writable": true
+        },
+        {
+          "name": "share_token_program"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "recover_liquidity",
+      "docs": [
+        "Underlying sent directly to the escrow is not merchant yield. The owner",
+        "can recover it even after cancellation. Settlement pays only its CPI's",
+        "measured balance increase, so there is no pending merchant cash here."
+      ],
+      "discriminator": [
+        17,
+        89,
+        232,
+        34,
+        73,
+        66,
+        51,
+        177
+      ],
+      "accounts": [
+        {
+          "name": "owner",
+          "signer": true
+        },
+        {
+          "name": "escrow"
+        },
+        {
+          "name": "reserve"
+        },
+        {
+          "name": "liquidity_mint"
+        },
+        {
+          "name": "escrow_liquidity",
+          "writable": true
+        },
+        {
+          "name": "owner_liquidity",
+          "writable": true
+        },
+        {
+          "name": "liquidity_token_program"
+        }
+      ],
+      "args": []
+    }
+  ],
+  "accounts": [
+    {
+      "name": "YieldEscrow",
+      "discriminator": [
+        242,
+        61,
+        207,
+        204,
+        243,
+        42,
+        218,
+        12
+      ]
+    }
+  ],
+  "types": [
+    {
+      "name": "Global",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "admin",
+            "docs": [
+              "The only key that may create markets/reserves, change parameters, or",
+              "pause. Rotating it is a deliberate, separate instruction."
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "fee_destination",
+            "docs": [
+              "Where the protocol's whole cut of interest is paid.",
+              "",
+              "One destination, not two: the reserve factor accrues 100% here. A split",
+              "would have to be reconciled at every accrual and every payout, and there",
+              "is no second beneficiary to reconcile it for."
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "paused",
+            "docs": [
+              "Blocks every state-changing user instruction except `repay`. Repay is",
+              "never blocked: refusing repayment while prices move would manufacture",
+              "liquidations the borrower could have avoided."
+            ],
+            "type": "bool"
+          },
+          {
+            "name": "borrow_paused",
+            "docs": [
+              "Blocks new borrows only. Supply, withdraw, repay and liquidate continue.",
+              "Set by the admin, and independently by the oracle circuit breaker."
+            ],
+            "type": "bool"
+          },
+          {
+            "name": "param_timelock_seconds",
+            "docs": [
+              "Delay applied to *loosening* parameter changes. Tightening changes and",
+              "pauses bypass it entirely."
+            ],
+            "type": "i64"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "version",
+            "docs": [
+              "Schema version. Absent in v0.1, so a v0.1 account is exactly one byte",
+              "shorter than this struct and reads as [`GLOBAL_VERSION_V1`] once",
+              "realloc'd and zero-filled.",
+              "",
+              "Declared last on purpose: appending keeps every preceding field at the",
+              "offset it already occupies, so the realloc adds a byte rather than",
+              "moving anything."
+            ],
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "PendingConfig",
+      "docs": [
+        "A queued loosening change. `eta == 0` means \"nothing pending\"."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "config",
+            "type": {
+              "defined": {
+                "name": "ReserveConfig"
+              }
+            }
+          },
+          {
+            "name": "eta",
+            "docs": [
+              "Unix timestamp from which `apply_pending_params` may execute."
+            ],
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Reserve",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "market",
+            "type": "pubkey"
+          },
+          {
+            "name": "liquidity_mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "liquidity_vault",
+            "docs": [
+              "Program-owned token account holding un-borrowed liquidity. Its authority",
+              "is this reserve PDA."
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "share_mint",
+            "docs": [
+              "Share-token mint (aCOOK / abCOOK). Mint authority is this reserve PDA."
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "oracle",
+            "docs": [
+              "The [`OracleState`] this reserve prices from.",
+              "",
+              "Renamed from `price_feed` in v0.2. Same offset, same width, so the",
+              "account layout is unchanged and existing reserves need no realloc --",
+              "migration repoints this at the new oracle account and closes the old",
+              "guardian feed."
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "liquidity_decimals",
+            "type": "u8"
+          },
+          {
+            "name": "available_liquidity",
+            "docs": [
+              "Base units sitting in `liquidity_vault`. This is the source of truth for",
+              "the pool size, not the vault's token balance, so a raw token donation",
+              "cannot move the exchange rate."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "share_mint_supply",
+            "docs": [
+              "Outstanding share supply, mirrored here so valuations need only the",
+              "reserve account. A holder burning shares directly via the token program",
+              "makes the real supply drift below this mirror; that drift only lowers",
+              "what the burner could redeem, so the pool never pays out more than it",
+              "holds."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "borrowed_principal",
+            "docs": [
+              "Total borrowed principal, scaled by the index at borrow time. Live debt",
+              "is `borrowed_principal * borrow_index / FIXED_POINT_SCALE`."
+            ],
+            "type": "u128"
+          },
+          {
+            "name": "borrow_index",
+            "docs": [
+              "Monotonically increasing borrow index, FIXED_POINT_SCALE-scaled. Starts",
+              "at 1.0 and only ever multiplies by factors >= 1. This is the spec's",
+              "`variableBorrowIndex`."
+            ],
+            "type": "u128"
+          },
+          {
+            "name": "last_update_slot",
+            "type": "u64"
+          },
+          {
+            "name": "accrued_fees",
+            "docs": [
+              "Interest owed to `Global::fee_destination`. Carved out of",
+              "`total_liquidity` so it never inflates the supplier exchange rate."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "config",
+            "type": {
+              "defined": {
+                "name": "ReserveConfig"
+              }
+            }
+          },
+          {
+            "name": "pending",
+            "docs": [
+              "A queued *loosening* config change, applied only after its timelock."
+            ],
+            "type": {
+              "defined": {
+                "name": "PendingConfig"
+              }
+            }
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ReserveConfig",
+      "docs": [
+        "Risk, interest and cap parameters. All ratios are basis points."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "loan_to_value_bps",
+            "docs": [
+              "Fraction of (post-haircut) collateral value a borrower may draw."
+            ],
+            "type": "u16"
+          },
+          {
+            "name": "liquidation_threshold_bps",
+            "docs": [
+              "Above this fraction the obligation may be liquidated."
+            ],
+            "type": "u16"
+          },
+          {
+            "name": "liquidation_bonus_bps",
+            "docs": [
+              "Extra collateral a liquidator receives, as a fraction of value repaid."
+            ],
+            "type": "u16"
+          },
+          {
+            "name": "close_factor_bps",
+            "docs": [
+              "Fraction of a borrow one liquidation may close while HF >= 0.95."
+            ],
+            "type": "u16"
+          },
+          {
+            "name": "collateral_haircut_bps",
+            "docs": [
+              "Discount applied to this asset's collateral value before LTV and LT.",
+              "500 (5%) for bCOOK; 0 for an asset marked at face value."
+            ],
+            "type": "u16"
+          },
+          {
+            "name": "optimal_utilization_bps",
+            "docs": [
+              "Utilization at which the borrow rate reaches `optimal_borrow_rate_bps`."
+            ],
+            "type": "u16"
+          },
+          {
+            "name": "min_borrow_rate_bps",
+            "docs": [
+              "Borrow APR at 0% utilization."
+            ],
+            "type": "u16"
+          },
+          {
+            "name": "optimal_borrow_rate_bps",
+            "docs": [
+              "Borrow APR at the kink."
+            ],
+            "type": "u16"
+          },
+          {
+            "name": "max_borrow_rate_bps",
+            "docs": [
+              "Borrow APR at 100% utilization."
+            ],
+            "type": "u16"
+          },
+          {
+            "name": "reserve_factor_bps",
+            "docs": [
+              "Share of interest kept by the protocol, all of it accruing to",
+              "`Global::fee_destination`. The rest lifts the supplier exchange rate."
+            ],
+            "type": "u16"
+          },
+          {
+            "name": "origination_fee_bps",
+            "docs": [
+              "One-off fee charged when liquidity is drawn, in basis points of the",
+              "amount borrowed. Ships at 0 and is capped at",
+              "`MAX_ADMIN_ORIGINATION_FEE_BPS`.",
+              "",
+              "The borrower owes the full amount and receives the amount minus this",
+              "fee, which is retained in the vault and recognised immediately as",
+              "protocol revenue. Suppliers' claim on the pool is unchanged by it — the",
+              "fee comes from the borrower, not from them."
+            ],
+            "type": "u16"
+          },
+          {
+            "name": "supply_cap",
+            "docs": [
+              "Maximum liquidity the reserve will hold. 0 means \"no cap\"."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "borrow_cap",
+            "docs": [
+              "Maximum liquidity that may be borrowed out. 0 means \"no cap\"."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "per_wallet_supply_cap",
+            "docs": [
+              "Maximum a single wallet may supply. 0 means \"no cap\"."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "borrow_enabled",
+            "docs": [
+              "May liquidity be borrowed from this reserve?"
+            ],
+            "type": "bool"
+          },
+          {
+            "name": "collateral_enabled",
+            "docs": [
+              "May this reserve's share token be posted as collateral?"
+            ],
+            "type": "bool"
+          },
+          {
+            "name": "isolated",
+            "docs": [
+              "Isolated assets may only be paired with other isolated-compatible",
+              "collateral. Reserved for a second collateral listing; enforced in",
+              "`risk::check_isolation`."
+            ],
+            "type": "bool"
+          },
+          {
+            "name": "slots_per_year",
+            "docs": [
+              "Slots in a year: the divisor turning the APR fields into a per-slot",
+              "rate. This is the cluster's slot time expressed as a count, so it is",
+              "configuration, not a constant — Cookie Chain's slot time can change, and",
+              "a stale value here charges borrowers at the wrong wall-clock rate while",
+              "every other number still reads correctly."
+            ],
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "YieldEscrow",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "merchant",
+            "type": "pubkey"
+          },
+          {
+            "name": "reserve",
+            "type": "pubkey"
+          },
+          {
+            "name": "share_mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "principal",
+            "type": "u64"
+          },
+          {
+            "name": "max_payment",
+            "type": "u64"
+          },
+          {
+            "name": "paid",
+            "type": "u64"
+          },
+          {
+            "name": "entitled_shares",
+            "type": "u64"
+          },
+          {
+            "name": "expiry",
+            "type": "i64"
+          },
+          {
+            "name": "nonce",
+            "type": "u64"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "closed",
+            "type": "bool"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Cancelled",
+      "type": {
+        "fields": [
+          {
+            "name": "escrow",
+            "type": "pubkey"
+          },
+          {
+            "name": "returned_shares",
+            "type": "u64"
+          }
+        ],
+        "kind": "struct"
+      }
+    },
+    {
+      "name": "Opened",
+      "type": {
+        "fields": [
+          {
+            "name": "escrow",
+            "type": "pubkey"
+          },
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "merchant",
+            "type": "pubkey"
+          },
+          {
+            "name": "shares",
+            "type": "u64"
+          },
+          {
+            "name": "principal",
+            "type": "u64"
+          },
+          {
+            "name": "expiry",
+            "type": "i64"
+          },
+          {
+            "name": "max_payment",
+            "type": "u64"
+          }
+        ],
+        "kind": "struct"
+      }
+    },
+    {
+      "name": "Paid",
+      "type": {
+        "fields": [
+          {
+            "name": "escrow",
+            "type": "pubkey"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          },
+          {
+            "name": "burned_shares",
+            "type": "u64"
+          }
+        ],
+        "kind": "struct"
+      }
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "Terms",
+      "msg": "Invalid escrow terms"
+    },
+    {
+      "code": 6001,
+      "name": "Math",
+      "msg": "Arithmetic or reserve accounting is invalid"
+    },
+    {
+      "code": 6002,
+      "name": "Expired",
+      "msg": "Escrow expired"
+    },
+    {
+      "code": 6003,
+      "name": "Closed",
+      "msg": "Escrow was cancelled"
+    },
+    {
+      "code": 6004,
+      "name": "NoRealizableYield",
+      "msg": "No cash-backed positive return is available"
+    }
+  ],
+  "events": [
+    {
+      "discriminator": [
+        136,
+        23,
+        42,
+        65,
+        143,
+        233,
+        234,
+        46
+      ],
+      "name": "Cancelled"
+    },
+    {
+      "discriminator": [
+        166,
+        172,
+        97,
+        9,
+        77,
+        76,
+        189,
+        109
+      ],
+      "name": "Opened"
+    },
+    {
+      "discriminator": [
+        240,
+        193,
+        17,
+        238,
+        238,
+        210,
+        129,
+        235
+      ],
+      "name": "Paid"
+    }
+  ]
+}

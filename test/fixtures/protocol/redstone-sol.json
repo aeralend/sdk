@@ -1,0 +1,36 @@
+{
+ "source": "oracle-gateway-1.a.redstone.finance, redstone-primary-prod, captured 2026-10-12T14:38:18.198Z",
+ "feed": "SOL",
+ "packages": [
+  {
+   "signer": "0x51ce04be4b3e32572c4ec9135221d0691ba7d202",
+   "value": "10943564782",
+   "timestampMs": 1791815880000,
+   "signature": "34eac6884773831e374e4fb0aebafea96abe0f8c0707a05ea389949cd7f418dc42e6d9624af0ab634c1caa455a133cda70ee1947a212d536fa00ff435f62da571c"
+  },
+  {
+   "signer": "0xdeb22f54738d54976c4c0fe5ce6d408e40d88499",
+   "value": "10943564782",
+   "timestampMs": 1791815880000,
+   "signature": "9e1f1d7daf836f888b4fded179ef9b892c2852187dcb12643a227c35fcf5d7ab1624d015aeb120b8c9ef73f9303ca72ee6f9ed2e6ef93c91b3ed572212f730321c"
+  },
+  {
+   "signer": "0xdd682daec5a90dd295d14da4b0bec9281017b5be",
+   "value": "10943564782",
+   "timestampMs": 1791815880000,
+   "signature": "c6ff4c4871a08b107103052960e17df7e43a542d56c53de47fdaf0d67d2d2dfa5b71d32570fc7053a49501ed410d0d9cdb0efd5ebc790e3a5ac8c935ddf8ae1a1b"
+  },
+  {
+   "signer": "0x9c5ae89c4af6aa32ce58588dbaf90d18a855b6de",
+   "value": "10943564782",
+   "timestampMs": 1791815880000,
+   "signature": "f8030c883fdbdf55ea6f15a997b543685329f80931e6ddc341f06eff497e7b0b4fa9076590c08e5da5ac11b433ba00bb89eb7a3a86a146b403df20f481b0724c1c"
+  },
+  {
+   "signer": "0x8bb8f32df04c8b654987daaed53d6b6091e3b774",
+   "value": "10943455223",
+   "timestampMs": 1791815880000,
+   "signature": "3b2bedb52230dd1c50b3af467556fe56150ca8ab2e31bcc34960bc709f6940955e0f5dffd8a671ad2c3cf0b86bb58d9f3072d9f4256a874b3fc645695769b1dd1b"
+  }
+ ]
+}

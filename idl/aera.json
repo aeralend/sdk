@@ -1,0 +1,5499 @@
+{
+  "address": "AerafpFHsY4N16i4KufPJQyURryxKtYgCr6oZMwbp76q",
+  "metadata": {
+    "name": "aera",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Aera - overcollateralized COOK bank on Cookie Chain"
+  },
+  "instructions": [
+    {
+      "name": "init_global",
+      "discriminator": [
+        44,
+        238,
+        77,
+        253,
+        76,
+        182,
+        192,
+        162
+      ],
+      "accounts": [
+        {
+          "name": "global",
+          "writable": true
+        },
+        {
+          "name": "admin",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program"
+        }
+      ],
+      "args": [
+        {
+          "name": "fee_destination",
+          "type": "pubkey"
+        }
+      ]
+    },
+    {
+      "name": "set_admin",
+      "discriminator": [
+        251,
+        163,
+        0,
+        52,
+        91,
+        194,
+        187,
+        92
+      ],
+      "accounts": [
+        {
+          "name": "global",
+          "writable": true
+        },
+        {
+          "name": "admin",
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "new_admin",
+          "type": "pubkey"
+        }
+      ]
+    },
+    {
+      "name": "set_fee_destination",
+      "discriminator": [
+        73,
+        250,
+        134,
+        131,
+        222,
+        211,
+        154,
+        78
+      ],
+      "accounts": [
+        {
+          "name": "global",
+          "writable": true
+        },
+        {
+          "name": "admin",
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "fee_destination",
+          "type": "pubkey"
+        }
+      ]
+    },
+    {
+      "name": "pause_borrow",
+      "discriminator": [
+        164,
+        28,
+        89,
+        212,
+        15,
+        23,
+        93,
+        73
+      ],
+      "accounts": [
+        {
+          "name": "global",
+          "writable": true
+        },
+        {
+          "name": "admin",
+          "signer": true
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "pause_all",
+      "discriminator": [
+        166,
+        26,
+        112,
+        43,
+        126,
+        10,
+        31,
+        83
+      ],
+      "accounts": [
+        {
+          "name": "global",
+          "writable": true
+        },
+        {
+          "name": "admin",
+          "signer": true
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "unpause",
+      "discriminator": [
+        169,
+        144,
+        4,
+        38,
+        10,
+        141,
+        188,
+        255
+      ],
+      "accounts": [
+        {
+          "name": "global",
+          "writable": true
+        },
+        {
+          "name": "admin",
+          "signer": true
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "set_timelock",
+      "discriminator": [
+        131,
+        159,
+        222,
+        21,
+        225,
+        226,
+        54,
+        214
+      ],
+      "accounts": [
+        {
+          "name": "global",
+          "writable": true
+        },
+        {
+          "name": "admin",
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "seconds",
+          "type": "i64"
+        }
+      ]
+    },
+    {
+      "name": "init_market",
+      "discriminator": [
+        33,
+        253,
+        15,
+        116,
+        89,
+        25,
+        127,
+        236
+      ],
+      "accounts": [
+        {
+          "name": "global"
+        },
+        {
+          "name": "admin",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "market",
+          "writable": true
+        },
+        {
+          "name": "quote_currency_mint"
+        },
+        {
+          "name": "system_program"
+        }
+      ],
+      "args": [
+        {
+          "name": "market_id",
+          "type": "u64"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "init_reserve",
+      "discriminator": [
+        138,
+        245,
+        71,
+        225,
+        153,
+        4,
+        3,
+        43
+      ],
+      "accounts": [
+        {
+          "name": "global"
+        },
+        {
+          "name": "admin",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "market"
+        },
+        {
+          "name": "reserve",
+          "writable": true
+        },
+        {
+          "name": "liquidity_mint"
+        },
+        {
+          "name": "liquidity_vault",
+          "writable": true
+        },
+        {
+          "name": "share_mint",
+          "docs": [
+            "The share token: aCOOK for the COOK reserve.",
+            "",
+            "Unchecked and uninitialised here because Anchor's `init` for a mint",
+            "allocates exactly a bare mint, with no room for extensions. The handler",
+            "creates it, sizes it for MetadataPointer + TokenMetadata, and",
+            "initialises all three in order.",
+            "",
+            "Token-2022 to initialise. It is never read as an account of any type."
+          ],
+          "writable": true
+        },
+        {
+          "name": "oracle"
+        },
+        {
+          "name": "liquidity_token_program",
+          "docs": [
+            "Whatever program owns the liquidity mint. wCOOK and bCOOK are both",
+            "legacy SPL Token on Cookie; this does not assume it."
+          ]
+        },
+        {
+          "name": "share_token_program",
+          "docs": [
+            "Always Token-2022: the share mint carries extensions that legacy SPL",
+            "Token cannot hold."
+          ]
+        },
+        {
+          "name": "system_program"
+        }
+      ],
+      "args": [
+        {
+          "name": "config",
+          "type": {
+            "defined": {
+              "name": "ReserveConfig"
+            }
+          }
+        },
+        {
+          "name": "metadata",
+          "type": {
+            "defined": {
+              "name": "ShareMetadata"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "set_params",
+      "docs": [
+        "Tightening changes apply immediately; loosening changes queue behind the",
+        "timelock. `set_caps` is not a separate instruction — caps are part of",
+        "`ReserveConfig`, and cutting them is a tightening, so it lands instantly",
+        "through this same path."
+      ],
+      "discriminator": [
+        27,
+        234,
+        178,
+        52,
+        147,
+        2,
+        187,
+        141
+      ],
+      "accounts": [
+        {
+          "name": "global"
+        },
+        {
+          "name": "admin",
+          "signer": true
+        },
+        {
+          "name": "reserve",
+          "writable": true
+        },
+        {
+          "name": "market"
+        }
+      ],
+      "args": [
+        {
+          "name": "config",
+          "type": {
+            "defined": {
+              "name": "ReserveConfig"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "apply_pending_params",
+      "discriminator": [
+        11,
+        15,
+        47,
+        58,
+        28,
+        220,
+        231,
+        123
+      ],
+      "accounts": [
+        {
+          "name": "reserve",
+          "writable": true
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "init_market_oracle",
+      "docs": [
+        "Create or change a reserve's per-wallet borrow cap.",
+        "",
+        "Lives in its own account rather than on `ReserveConfig`: growing",
+        "`Reserve` would leave older reserves undeserialisable to this program,",
+        "which breaks `accrue`, which breaks repayment for a whole migration.",
+        "`migrate.rs:145` records that being tried and caught.",
+        "Attach pools and thresholds to a `MarketTwap` oracle."
+      ],
+      "discriminator": [
+        38,
+        109,
+        232,
+        234,
+        150,
+        184,
+        68,
+        246
+      ],
+      "accounts": [
+        {
+          "name": "global"
+        },
+        {
+          "name": "admin",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "oracle"
+        },
+        {
+          "name": "market_oracle",
+          "writable": true
+        },
+        {
+          "name": "system_program"
+        }
+      ],
+      "args": [
+        {
+          "name": "collateral_mint",
+          "type": "pubkey"
+        },
+        {
+          "name": "quote_mint",
+          "type": "pubkey"
+        },
+        {
+          "name": "collateral_decimals",
+          "type": "u8"
+        },
+        {
+          "name": "quote_decimals",
+          "type": "u8"
+        },
+        {
+          "name": "pools",
+          "type": {
+            "array": [
+              {
+                "defined": {
+                  "name": "PoolRef"
+                }
+              },
+              2
+            ]
+          }
+        },
+        {
+          "name": "config",
+          "type": {
+            "defined": {
+              "name": "MarketOracleConfig"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "set_market_oracle_config",
+      "discriminator": [
+        225,
+        55,
+        17,
+        50,
+        253,
+        17,
+        161,
+        204
+      ],
+      "accounts": [
+        {
+          "name": "global"
+        },
+        {
+          "name": "admin",
+          "signer": true
+        },
+        {
+          "name": "market_oracle",
+          "writable": true
+        }
+      ],
+      "args": [
+        {
+          "name": "config",
+          "type": {
+            "defined": {
+              "name": "MarketOracleConfig"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "apply_pending_market_oracle_config",
+      "discriminator": [
+        156,
+        205,
+        74,
+        13,
+        173,
+        253,
+        140,
+        25
+      ],
+      "accounts": [
+        {
+          "name": "global"
+        },
+        {
+          "name": "market_oracle",
+          "docs": [
+            "Permissionless, like every other `apply_pending_*`: the delay is the",
+            "control, and the change was authorised when it was queued."
+          ],
+          "writable": true
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "refresh_market_oracle",
+      "docs": [
+        "Derive a market price from two AMM pools and append it to the history.",
+        "",
+        "**Permissionless.** The caller supplies no price -- they hand over pool",
+        "accounts and the program reads the reserves itself. There is nothing to",
+        "lie about, so there is no privilege to hold, and Aera does not become a",
+        "liveness monopoly for the markets that use it."
+      ],
+      "discriminator": [
+        181,
+        173,
+        231,
+        155,
+        231,
+        78,
+        37,
+        195
+      ],
+      "accounts": [
+        {
+          "name": "oracle",
+          "writable": true
+        },
+        {
+          "name": "market_oracle",
+          "writable": true
+        },
+        {
+          "name": "pool_a"
+        },
+        {
+          "name": "pool_a_collateral_vault"
+        },
+        {
+          "name": "pool_a_quote_vault"
+        },
+        {
+          "name": "pool_b"
+        },
+        {
+          "name": "pool_b_collateral_vault"
+        },
+        {
+          "name": "pool_b_quote_vault"
+        },
+        {
+          "name": "pool_a_amm_program_data"
+        },
+        {
+          "name": "pool_b_amm_program_data",
+          "docs": [
+            "both pools are on one AMM, which a read-only account may be."
+          ]
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "set_risk_config",
+      "docs": [
+        "Set the reserve's per-wallet borrow cap and Aera's share of its",
+        "liquidation bonus.",
+        "",
+        "Both in one instruction because both live in one account and both follow",
+        "the same tightening/loosening rule. `protocol_liquidation_share_bps` is",
+        "carved out of the reserve's existing `liquidation_bonus_bps` and never",
+        "added to it, so raising it cannot increase a borrower's penalty."
+      ],
+      "discriminator": [
+        119,
+        66,
+        177,
+        45,
+        121,
+        221,
+        30,
+        45
+      ],
+      "accounts": [
+        {
+          "name": "global"
+        },
+        {
+          "name": "admin",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "reserve"
+        },
+        {
+          "name": "risk_config",
+          "writable": true
+        },
+        {
+          "name": "system_program"
+        }
+      ],
+      "args": [
+        {
+          "name": "per_wallet_borrow_cap",
+          "type": "u64"
+        },
+        {
+          "name": "protocol_liquidation_share_bps",
+          "type": "u16"
+        }
+      ]
+    },
+    {
+      "name": "apply_pending_risk_config",
+      "discriminator": [
+        122,
+        55,
+        41,
+        176,
+        0,
+        196,
+        249,
+        151
+      ],
+      "accounts": [
+        {
+          "name": "global"
+        },
+        {
+          "name": "reserve"
+        },
+        {
+          "name": "risk_config",
+          "writable": true
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "set_share_metadata",
+      "docs": [
+        "Rewrite a share token's name, symbol and URI.",
+        "",
+        "Not timelocked, and deliberately so: these three fields decide what a",
+        "wallet draws beside a balance and nothing about what the protocol",
+        "enforces. There is no position whose value this can move. The URI is also",
+        "the one field certain to rot -- it names a host, and hosts move -- which",
+        "is why leaving it immutable was a mistake worth an upgrade to correct."
+      ],
+      "discriminator": [
+        106,
+        202,
+        192,
+        212,
+        13,
+        208,
+        211,
+        35
+      ],
+      "accounts": [
+        {
+          "name": "global"
+        },
+        {
+          "name": "admin",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "market"
+        },
+        {
+          "name": "reserve"
+        },
+        {
+          "name": "share_mint",
+          "writable": true
+        },
+        {
+          "name": "share_token_program"
+        },
+        {
+          "name": "system_program"
+        }
+      ],
+      "args": [
+        {
+          "name": "metadata",
+          "type": {
+            "defined": {
+              "name": "ShareMetadata"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "cancel_pending_params",
+      "discriminator": [
+        86,
+        110,
+        207,
+        152,
+        11,
+        166,
+        48,
+        1
+      ],
+      "accounts": [
+        {
+          "name": "global"
+        },
+        {
+          "name": "admin",
+          "signer": true
+        },
+        {
+          "name": "reserve",
+          "writable": true
+        },
+        {
+          "name": "market"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "collect_fees",
+      "discriminator": [
+        164,
+        152,
+        207,
+        99,
+        30,
+        186,
+        19,
+        182
+      ],
+      "accounts": [
+        {
+          "name": "global"
+        },
+        {
+          "name": "reserve",
+          "writable": true
+        },
+        {
+          "name": "liquidity_mint"
+        },
+        {
+          "name": "liquidity_vault",
+          "writable": true
+        },
+        {
+          "name": "fee_token",
+          "writable": true
+        },
+        {
+          "name": "liquidity_token_program"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "set_oracle",
+      "docs": [
+        "Configure where an asset's rate is derived from, and the bounds it must",
+        "stay inside. Never the rate itself -- there is no instruction in this",
+        "program that accepts one."
+      ],
+      "discriminator": [
+        186,
+        128,
+        81,
+        104,
+        74,
+        79,
+        18,
+        224
+      ],
+      "accounts": [
+        {
+          "name": "global"
+        },
+        {
+          "name": "market"
+        },
+        {
+          "name": "mint",
+          "docs": [
+            "as the mint the source must issue; it is never deserialized here."
+          ]
+        },
+        {
+          "name": "oracle",
+          "writable": true
+        },
+        {
+          "name": "admin",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program"
+        }
+      ],
+      "args": [
+        {
+          "name": "config",
+          "type": {
+            "defined": {
+              "name": "OracleConfig"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "refresh_oracle",
+      "docs": [
+        "Re-derive the rate from its source and judge it against the breaker.",
+        "Permissionless: the caller supplies nothing and cannot influence the",
+        "result."
+      ],
+      "discriminator": [
+        110,
+        168,
+        158,
+        3,
+        43,
+        46,
+        41,
+        91
+      ],
+      "accounts": [
+        {
+          "name": "oracle",
+          "writable": true
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "reset_oracle_breaker",
+      "docs": [
+        "Clear a breaker freeze by re-anchoring to whatever the source currently",
+        "reports. The admin chooses when, never what."
+      ],
+      "discriminator": [
+        187,
+        242,
+        231,
+        33,
+        77,
+        84,
+        29,
+        237
+      ],
+      "accounts": [
+        {
+          "name": "global"
+        },
+        {
+          "name": "oracle",
+          "writable": true
+        },
+        {
+          "name": "market"
+        },
+        {
+          "name": "admin",
+          "signer": true
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "migrate_reserve_to_v2",
+      "docs": [
+        "Move one reserve off the guardian feed and onto the derived oracle.",
+        "",
+        "Send one per reserve in a single transaction. Atomic per reserve, and",
+        "it asserts on chain that no economic field moved."
+      ],
+      "discriminator": [
+        162,
+        134,
+        81,
+        215,
+        236,
+        58,
+        68,
+        1
+      ],
+      "accounts": [
+        {
+          "name": "global",
+          "docs": [
+            "a v0.1 `Global` is one byte short of the v0.2 struct, so",
+            "`Account<Global>` cannot deserialize the very state being migrated. The",
+            "discriminator and the admin are checked by hand in the handler.",
+            "",
+            "This is why the version stamp is a separate instruction and goes last:",
+            "if `Global` were migrated first, every reserve migration would need to",
+            "handle both shapes instead of only the old one."
+          ]
+        },
+        {
+          "name": "market"
+        },
+        {
+          "name": "reserve",
+          "writable": true
+        },
+        {
+          "name": "legacy_price_feed",
+          "docs": [
+            "it is validated by address, owner and discriminator in the handler and",
+            "closed by hand there -- Anchor's `close` needs a typed account, and",
+            "there is no type left to give it. Its contents are guardian submissions",
+            "and are deliberately not read; see the module docs."
+          ],
+          "writable": true
+        },
+        {
+          "name": "liquidity_mint",
+          "docs": [
+            "must issue."
+          ]
+        },
+        {
+          "name": "oracle",
+          "writable": true
+        },
+        {
+          "name": "admin",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program"
+        }
+      ],
+      "args": [
+        {
+          "name": "config",
+          "type": {
+            "defined": {
+              "name": "OracleConfig"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "migrate_global_to_v2",
+      "docs": [
+        "Stamp the protocol version. Last, after every reserve has migrated."
+      ],
+      "discriminator": [
+        164,
+        197,
+        79,
+        98,
+        129,
+        111,
+        182,
+        133
+      ],
+      "accounts": [
+        {
+          "name": "global",
+          "docs": [
+            "deserialize, which is precisely the state being migrated. Discriminator,",
+            "admin and length are all checked by hand in the handler."
+          ],
+          "writable": true
+        },
+        {
+          "name": "admin",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "accrue",
+      "discriminator": [
+        23,
+        76,
+        128,
+        149,
+        229,
+        247,
+        72,
+        228
+      ],
+      "accounts": [
+        {
+          "name": "reserve",
+          "writable": true
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "refresh_obligation",
+      "discriminator": [
+        33,
+        132,
+        147,
+        228,
+        151,
+        192,
+        72,
+        89
+      ],
+      "accounts": [
+        {
+          "name": "obligation",
+          "writable": true
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "supply",
+      "discriminator": [
+        81,
+        67,
+        116,
+        61,
+        250,
+        209,
+        5,
+        198
+      ],
+      "accounts": [
+        {
+          "name": "global"
+        },
+        {
+          "name": "reserve",
+          "writable": true
+        },
+        {
+          "name": "liquidity_mint"
+        },
+        {
+          "name": "liquidity_vault",
+          "writable": true
+        },
+        {
+          "name": "share_mint",
+          "writable": true
+        },
+        {
+          "name": "user_liquidity",
+          "writable": true
+        },
+        {
+          "name": "user_share",
+          "writable": true
+        },
+        {
+          "name": "supply_position",
+          "docs": [
+            "Created on first supply. Exists only to make the per-wallet cap a",
+            "program rule."
+          ],
+          "writable": true
+        },
+        {
+          "name": "owner",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "liquidity_token_program"
+        },
+        {
+          "name": "share_token_program",
+          "docs": [
+            "Always Token-2022: the share mint carries metadata extensions."
+          ]
+        },
+        {
+          "name": "system_program"
+        }
+      ],
+      "args": [
+        {
+          "name": "liquidity_amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "withdraw",
+      "discriminator": [
+        183,
+        18,
+        70,
+        156,
+        148,
+        109,
+        161,
+        34
+      ],
+      "accounts": [
+        {
+          "name": "global"
+        },
+        {
+          "name": "reserve",
+          "writable": true
+        },
+        {
+          "name": "liquidity_mint"
+        },
+        {
+          "name": "liquidity_vault",
+          "writable": true
+        },
+        {
+          "name": "share_mint",
+          "writable": true
+        },
+        {
+          "name": "user_liquidity",
+          "writable": true
+        },
+        {
+          "name": "user_share",
+          "writable": true
+        },
+        {
+          "name": "supply_position",
+          "writable": true
+        },
+        {
+          "name": "owner",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "liquidity_token_program"
+        },
+        {
+          "name": "share_token_program",
+          "docs": [
+            "Always Token-2022: the share mint carries metadata extensions."
+          ]
+        },
+        {
+          "name": "system_program"
+        }
+      ],
+      "args": [
+        {
+          "name": "share_amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "init_obligation",
+      "discriminator": [
+        251,
+        10,
+        231,
+        76,
+        27,
+        11,
+        159,
+        96
+      ],
+      "accounts": [
+        {
+          "name": "market"
+        },
+        {
+          "name": "obligation",
+          "writable": true
+        },
+        {
+          "name": "owner",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "deposit_collateral",
+      "discriminator": [
+        156,
+        131,
+        142,
+        116,
+        146,
+        247,
+        162,
+        120
+      ],
+      "accounts": [
+        {
+          "name": "global"
+        },
+        {
+          "name": "obligation",
+          "writable": true
+        },
+        {
+          "name": "owner",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "reserve"
+        },
+        {
+          "name": "share_mint"
+        },
+        {
+          "name": "obligation_share_vault",
+          "writable": true
+        },
+        {
+          "name": "user_share",
+          "writable": true
+        },
+        {
+          "name": "share_token_program",
+          "docs": [
+            "Shares are Token-2022; collateral only ever moves share tokens."
+          ]
+        },
+        {
+          "name": "system_program"
+        }
+      ],
+      "args": [
+        {
+          "name": "share_amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "withdraw_collateral",
+      "discriminator": [
+        115,
+        135,
+        168,
+        106,
+        139,
+        214,
+        138,
+        150
+      ],
+      "accounts": [
+        {
+          "name": "global"
+        },
+        {
+          "name": "obligation",
+          "writable": true
+        },
+        {
+          "name": "owner",
+          "signer": true
+        },
+        {
+          "name": "reserve"
+        },
+        {
+          "name": "oracle"
+        },
+        {
+          "name": "share_mint"
+        },
+        {
+          "name": "obligation_share_vault",
+          "writable": true
+        },
+        {
+          "name": "user_share",
+          "writable": true
+        },
+        {
+          "name": "share_token_program",
+          "docs": [
+            "Shares are Token-2022; collateral only ever moves share tokens."
+          ]
+        }
+      ],
+      "args": [
+        {
+          "name": "share_amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "borrow",
+      "discriminator": [
+        228,
+        253,
+        131,
+        202,
+        207,
+        116,
+        89,
+        18
+      ],
+      "accounts": [
+        {
+          "name": "global"
+        },
+        {
+          "name": "obligation",
+          "writable": true
+        },
+        {
+          "name": "owner",
+          "signer": true
+        },
+        {
+          "name": "reserve",
+          "writable": true
+        },
+        {
+          "name": "oracle"
+        },
+        {
+          "name": "liquidity_mint"
+        },
+        {
+          "name": "liquidity_vault",
+          "writable": true
+        },
+        {
+          "name": "user_liquidity",
+          "writable": true
+        },
+        {
+          "name": "liquidity_token_program"
+        },
+        {
+          "name": "risk_config",
+          "docs": [
+            "",
+            "The reserve's risk limits, which may not exist.",
+            "",
+            "**Required, not `Option`.** An `Option<Account<..>>` is omittable by the",
+            "caller, so a borrower could evade the cap simply by not passing it. This",
+            "account must always be supplied; when the reserve has no limits the",
+            "caller passes the derived address of an account that was never created,",
+            "and the handler reads it as unlimited.",
+            "",
+            "It cannot be substituted either: the handler derives the expected address",
+            "from this reserve and refuses anything else, so a RiskConfig belonging to",
+            "a different reserve is rejected.",
+            "",
+            "It lives beside the reserve rather than inside it because `Reserve` could",
+            "not grow -- `migrate.rs:145` records that a longer `Reserve` leaves older",
+            "accounts undeserialisable, which breaks `accrue`, which breaks repayment",
+            "for the whole migration window."
+          ]
+        }
+      ],
+      "args": [
+        {
+          "name": "liquidity_amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "repay",
+      "discriminator": [
+        234,
+        103,
+        67,
+        82,
+        208,
+        234,
+        219,
+        166
+      ],
+      "accounts": [
+        {
+          "name": "obligation",
+          "writable": true
+        },
+        {
+          "name": "reserve",
+          "writable": true
+        },
+        {
+          "name": "liquidity_mint"
+        },
+        {
+          "name": "liquidity_vault",
+          "writable": true
+        },
+        {
+          "name": "user_liquidity",
+          "writable": true
+        },
+        {
+          "name": "repayer",
+          "signer": true
+        },
+        {
+          "name": "liquidity_token_program"
+        }
+      ],
+      "args": [
+        {
+          "name": "liquidity_amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "absorb_bad_debt",
+      "docs": [
+        "Recognise debt that no collateral stands behind.",
+        "",
+        "Permissionless, because the precondition is verifiable on chain and the",
+        "effect only ever reduces what the protocol claims to hold. See",
+        "`instructions::absorb_bad_debt` for who absorbs the loss."
+      ],
+      "discriminator": [
+        49,
+        38,
+        219,
+        23,
+        214,
+        120,
+        39,
+        143
+      ],
+      "accounts": [
+        {
+          "name": "market"
+        },
+        {
+          "name": "obligation",
+          "writable": true
+        },
+        {
+          "name": "reserve",
+          "writable": true
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "liquidate",
+      "discriminator": [
+        223,
+        179,
+        226,
+        125,
+        48,
+        46,
+        39,
+        74
+      ],
+      "accounts": [
+        {
+          "name": "global",
+          "docs": [
+            "Read only, and never a gate: liquidation ignores `paused` exactly as it",
+            "did before. It is here so Aera's share can be checked against",
+            "`fee_destination`."
+          ]
+        },
+        {
+          "name": "obligation",
+          "writable": true
+        },
+        {
+          "name": "liquidator",
+          "signer": true
+        },
+        {
+          "name": "repay_reserve",
+          "writable": true
+        },
+        {
+          "name": "collateral_reserve"
+        },
+        {
+          "name": "repay_oracle"
+        },
+        {
+          "name": "collateral_oracle"
+        },
+        {
+          "name": "repay_liquidity_mint"
+        },
+        {
+          "name": "collateral_share_mint"
+        },
+        {
+          "name": "repay_liquidity_vault",
+          "writable": true
+        },
+        {
+          "name": "obligation_collateral_vault",
+          "writable": true
+        },
+        {
+          "name": "liquidator_repay_source",
+          "writable": true
+        },
+        {
+          "name": "liquidator_collateral_dest",
+          "writable": true
+        },
+        {
+          "name": "liquidity_token_program"
+        },
+        {
+          "name": "collateral_risk_config",
+          "docs": [
+            "",
+            "The collateral reserve's risk limits, carrying Aera's share of the",
+            "liquidation bonus. Follows `borrow`'s pattern exactly: **required, not",
+            "`Option`**, because an `Option` is omittable and a liquidator could then",
+            "keep Aera's share simply by leaving it out. A reserve with no limits is",
+            "addressed by its derived-but-uncreated PDA and reads as a zero share."
+          ]
+        },
+        {
+          "name": "protocol_collateral_dest",
+          "docs": [
+            "",
+            "Where Aera's share goes: a token account for this collateral's share",
+            "mint, owned by `global.fee_destination`.",
+            "",
+            "Unchecked rather than typed on purpose. A typed account is deserialised",
+            "on every call, so a liquidation of a reserve that owes Aera nothing would",
+            "start depending on a fee account existing and being well-formed.",
+            "Liquidation is the last operation that should acquire a new way to fail.",
+            "",
+            "`mut` because it receives a transfer. That marks it writable and nothing",
+            "more -- who may be written to is decided entirely by the checks in the",
+            "handler, which pin both the mint and the authority."
+          ],
+          "writable": true
+        },
+        {
+          "name": "share_token_program",
+          "docs": [
+            "The seized collateral is a share token, so Token-2022."
+          ]
+        }
+      ],
+      "args": [
+        {
+          "name": "liquidity_amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "init_isolated_config",
+      "docs": [
+        "Aera's policy for creator markets: quote asset, allowed AMMs, creation",
+        "fee, on/off. Admin, once."
+      ],
+      "discriminator": [
+        88,
+        116,
+        216,
+        115,
+        47,
+        105,
+        47,
+        229
+      ],
+      "accounts": [
+        {
+          "name": "global"
+        },
+        {
+          "name": "admin",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "isolated_config",
+          "writable": true
+        },
+        {
+          "name": "quote_mint",
+          "docs": [
+            "The quote asset of every creator market (bridged SOL). Fixed forever."
+          ]
+        },
+        {
+          "name": "system_program"
+        }
+      ],
+      "args": [
+        {
+          "name": "args",
+          "type": {
+            "defined": {
+              "name": "IsolatedConfigArgs"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "set_isolated_config",
+      "docs": [
+        "Change the creation fee (bounded), the AMM allowlist, or switch new",
+        "creation off. Never touches an existing market."
+      ],
+      "discriminator": [
+        248,
+        98,
+        217,
+        5,
+        147,
+        152,
+        243,
+        204
+      ],
+      "accounts": [
+        {
+          "name": "global"
+        },
+        {
+          "name": "admin",
+          "signer": true
+        },
+        {
+          "name": "isolated_config",
+          "writable": true
+        }
+      ],
+      "args": [
+        {
+          "name": "args",
+          "type": {
+            "defined": {
+              "name": "IsolatedConfigArgs"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "apply_isolated_amms",
+      "docs": [
+        "Apply a queued AMM allowlist after its fixed delay. Permissionless."
+      ],
+      "discriminator": [
+        106,
+        147,
+        17,
+        129,
+        191,
+        96,
+        112,
+        104
+      ],
+      "accounts": [
+        {
+          "name": "isolated_config",
+          "writable": true
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "refresh_isolated_oracle",
+      "docs": [
+        "The creator-market oracle refresh. Permissionless. Records a sample only",
+        "from a transaction that does nothing else; see",
+        "`instructions::isolated::oracle`."
+      ],
+      "discriminator": [
+        81,
+        114,
+        154,
+        103,
+        220,
+        68,
+        72,
+        37
+      ],
+      "accounts": [
+        {
+          "name": "oracle",
+          "writable": true
+        },
+        {
+          "name": "isolated_oracle",
+          "writable": true
+        },
+        {
+          "name": "pool_a",
+          "docs": [
+            "`read_isolated_pool`: a wrong address is an error, a pinned account",
+            "that no longer reads as a pool is a degradation."
+          ]
+        },
+        {
+          "name": "pool_a_collateral_vault"
+        },
+        {
+          "name": "pool_a_quote_vault"
+        },
+        {
+          "name": "pool_b"
+        },
+        {
+          "name": "pool_b_collateral_vault"
+        },
+        {
+          "name": "pool_b_quote_vault"
+        },
+        {
+          "name": "pool_a_amm_program_data",
+          "docs": [
+            "degrades."
+          ]
+        },
+        {
+          "name": "pool_b_amm_program_data"
+        },
+        {
+          "name": "instructions"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "create_isolated_market",
+      "docs": [
+        "Create a market for any token. **Permissionless.** The creator picks a",
+        "tier, one or two pools on allowed AMMs, and a bond; the tier table picks",
+        "everything else."
+      ],
+      "discriminator": [
+        149,
+        18,
+        169,
+        63,
+        26,
+        210,
+        250,
+        124
+      ],
+      "accounts": [
+        {
+          "name": "creator",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "global"
+        },
+        {
+          "name": "isolated_config",
+          "writable": true
+        },
+        {
+          "name": "market",
+          "docs": [
+            "The id comes from the config's counter, so a creator cannot choose it,",
+            "and `init_market` refuses this range, so the admin cannot either."
+          ],
+          "writable": true
+        },
+        {
+          "name": "isolated_market",
+          "writable": true
+        },
+        {
+          "name": "token_mint",
+          "docs": [
+            "`validate_listing_mint` before anything is priced against it."
+          ]
+        },
+        {
+          "name": "quote_mint"
+        },
+        {
+          "name": "token_oracle",
+          "writable": true
+        },
+        {
+          "name": "quote_oracle",
+          "writable": true
+        },
+        {
+          "name": "isolated_oracle",
+          "docs": [
+            "At the address a `MarketOracle` would take, so no admin-market oracle",
+            "instruction can be pointed at a creator oracle. See `IsolatedOracle`."
+          ],
+          "writable": true
+        },
+        {
+          "name": "bond_vault",
+          "docs": [
+            "The bond. Owned by the isolated-market PDA, so only this program's",
+            "bond rules can move it."
+          ],
+          "writable": true
+        },
+        {
+          "name": "creator_quote",
+          "writable": true
+        },
+        {
+          "name": "fee_destination_quote",
+          "docs": [
+            "Aera's quote account: owned by `Global::fee_destination`, like every",
+            "other fee Aera takes."
+          ],
+          "writable": true
+        },
+        {
+          "name": "pool_a",
+          "docs": [
+            "allowlist; any failure refuses creation."
+          ]
+        },
+        {
+          "name": "pool_a_collateral_vault"
+        },
+        {
+          "name": "pool_a_quote_vault"
+        },
+        {
+          "name": "pool_a_amm_program_data"
+        },
+        {
+          "name": "pool_b"
+        },
+        {
+          "name": "pool_b_collateral_vault"
+        },
+        {
+          "name": "pool_b_quote_vault"
+        },
+        {
+          "name": "pool_b_amm_program_data"
+        },
+        {
+          "name": "quote_token_program"
+        },
+        {
+          "name": "system_program"
+        }
+      ],
+      "args": [
+        {
+          "name": "tier",
+          "type": "u8"
+        },
+        {
+          "name": "bond_amount",
+          "type": "u64"
+        },
+        {
+          "name": "pools",
+          "type": {
+            "array": [
+              {
+                "defined": {
+                  "name": "PoolChoice"
+                }
+              },
+              2
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "init_isolated_collateral_reserve",
+      "discriminator": [
+        32,
+        117,
+        100,
+        8,
+        119,
+        96,
+        147,
+        215
+      ],
+      "accounts": [
+        {
+          "name": "creator",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "isolated_market",
+          "writable": true
+        },
+        {
+          "name": "market"
+        },
+        {
+          "name": "reserve",
+          "writable": true
+        },
+        {
+          "name": "liquidity_mint"
+        },
+        {
+          "name": "liquidity_vault",
+          "writable": true
+        },
+        {
+          "name": "share_mint",
+          "writable": true
+        },
+        {
+          "name": "oracle"
+        },
+        {
+          "name": "liquidity_token_program"
+        },
+        {
+          "name": "share_token_program"
+        },
+        {
+          "name": "system_program"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "init_isolated_quote_reserve",
+      "discriminator": [
+        55,
+        192,
+        212,
+        34,
+        230,
+        62,
+        94,
+        23
+      ],
+      "accounts": [
+        {
+          "name": "creator",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "isolated_market",
+          "writable": true
+        },
+        {
+          "name": "market"
+        },
+        {
+          "name": "reserve",
+          "writable": true
+        },
+        {
+          "name": "liquidity_mint"
+        },
+        {
+          "name": "liquidity_vault",
+          "writable": true
+        },
+        {
+          "name": "share_mint",
+          "writable": true
+        },
+        {
+          "name": "oracle"
+        },
+        {
+          "name": "risk_config",
+          "docs": [
+            "The per-wallet borrow cap lives here, as on every reserve that has one,",
+            "so `borrow` enforces it with no change."
+          ],
+          "writable": true
+        },
+        {
+          "name": "liquidity_token_program"
+        },
+        {
+          "name": "share_token_program"
+        },
+        {
+          "name": "system_program"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "harvest_creator_fees",
+      "docs": [
+        "Mint the creator their cut of lender interest. Permissionless."
+      ],
+      "discriminator": [
+        41,
+        165,
+        15,
+        47,
+        52,
+        192,
+        122,
+        187
+      ],
+      "accounts": [
+        {
+          "name": "isolated_market",
+          "writable": true
+        },
+        {
+          "name": "quote_reserve",
+          "writable": true
+        },
+        {
+          "name": "share_mint",
+          "writable": true
+        },
+        {
+          "name": "creator_share",
+          "docs": [
+            "Only ever the creator's own account for this share mint."
+          ],
+          "writable": true
+        },
+        {
+          "name": "share_token_program"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "freeze_isolated_market",
+      "docs": [
+        "Aera's kill switch for one creator market: new borrowing only."
+      ],
+      "discriminator": [
+        0,
+        244,
+        49,
+        14,
+        137,
+        125,
+        7,
+        156
+      ],
+      "accounts": [
+        {
+          "name": "global"
+        },
+        {
+          "name": "admin",
+          "signer": true
+        },
+        {
+          "name": "isolated_market",
+          "writable": true
+        },
+        {
+          "name": "quote_reserve",
+          "writable": true
+        },
+        {
+          "name": "risk_config",
+          "writable": true
+        }
+      ],
+      "args": [
+        {
+          "name": "frozen",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "retire_isolated_market",
+      "docs": [
+        "The creator stops new borrowing for good."
+      ],
+      "discriminator": [
+        214,
+        14,
+        224,
+        61,
+        179,
+        233,
+        151,
+        234
+      ],
+      "accounts": [
+        {
+          "name": "creator",
+          "signer": true
+        },
+        {
+          "name": "isolated_market",
+          "writable": true
+        },
+        {
+          "name": "quote_reserve",
+          "writable": true
+        },
+        {
+          "name": "risk_config",
+          "writable": true
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "top_up_bond",
+      "discriminator": [
+        110,
+        37,
+        8,
+        119,
+        210,
+        231,
+        202,
+        197
+      ],
+      "accounts": [
+        {
+          "name": "global"
+        },
+        {
+          "name": "creator",
+          "signer": true
+        },
+        {
+          "name": "isolated_market",
+          "writable": true
+        },
+        {
+          "name": "quote_reserve",
+          "writable": true
+        },
+        {
+          "name": "risk_config",
+          "writable": true
+        },
+        {
+          "name": "quote_mint"
+        },
+        {
+          "name": "bond_vault",
+          "writable": true
+        },
+        {
+          "name": "creator_quote",
+          "writable": true
+        },
+        {
+          "name": "quote_token_program"
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "withdraw_bond",
+      "docs": [
+        "Only bond that outstanding debt does not need."
+      ],
+      "discriminator": [
+        222,
+        199,
+        141,
+        31,
+        188,
+        93,
+        155,
+        40
+      ],
+      "accounts": [
+        {
+          "name": "global"
+        },
+        {
+          "name": "creator",
+          "signer": true
+        },
+        {
+          "name": "isolated_market",
+          "writable": true
+        },
+        {
+          "name": "quote_reserve",
+          "writable": true
+        },
+        {
+          "name": "risk_config",
+          "writable": true
+        },
+        {
+          "name": "quote_mint"
+        },
+        {
+          "name": "bond_vault",
+          "writable": true
+        },
+        {
+          "name": "creator_quote",
+          "writable": true
+        },
+        {
+          "name": "quote_token_program"
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "sync_isolated_caps",
+      "docs": [
+        "Re-measure depth from the oracle's own history. Permissionless."
+      ],
+      "discriminator": [
+        68,
+        34,
+        93,
+        242,
+        88,
+        27,
+        197,
+        18
+      ],
+      "accounts": [
+        {
+          "name": "isolated_market",
+          "writable": true
+        },
+        {
+          "name": "isolated_oracle"
+        },
+        {
+          "name": "quote_reserve",
+          "writable": true
+        },
+        {
+          "name": "risk_config",
+          "writable": true
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "sync_isolated_amm_pins",
+      "docs": [
+        "Copy an admin-approved AMM re-pin into one market. Permissionless."
+      ],
+      "discriminator": [
+        243,
+        170,
+        158,
+        80,
+        217,
+        144,
+        93,
+        111
+      ],
+      "accounts": [
+        {
+          "name": "isolated_config"
+        },
+        {
+          "name": "isolated_market"
+        },
+        {
+          "name": "isolated_oracle",
+          "writable": true
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "cover_isolated_debt",
+      "docs": [
+        "The bond repays a loan nobody else will. Permissionless."
+      ],
+      "discriminator": [
+        197,
+        13,
+        54,
+        138,
+        220,
+        25,
+        63,
+        40
+      ],
+      "accounts": [
+        {
+          "name": "isolated_market",
+          "writable": true
+        },
+        {
+          "name": "market"
+        },
+        {
+          "name": "obligation",
+          "writable": true
+        },
+        {
+          "name": "quote_reserve",
+          "writable": true
+        },
+        {
+          "name": "token_reserve"
+        },
+        {
+          "name": "isolated_oracle"
+        },
+        {
+          "name": "risk_config",
+          "writable": true
+        },
+        {
+          "name": "quote_mint"
+        },
+        {
+          "name": "quote_vault",
+          "writable": true
+        },
+        {
+          "name": "bond_vault",
+          "writable": true
+        },
+        {
+          "name": "token_share_mint"
+        },
+        {
+          "name": "obligation_collateral_vault",
+          "docs": [
+            "address is derived and checked in the handler, and it is only touched",
+            "when the obligation holds collateral -- a borrower who never deposited",
+            "has no such account, and case A must still be callable for them."
+          ],
+          "writable": true
+        },
+        {
+          "name": "creator_collateral_dest",
+          "docs": [
+            "program are checked in the handler, and only when collateral moves."
+          ],
+          "writable": true
+        },
+        {
+          "name": "quote_token_program"
+        },
+        {
+          "name": "share_token_program"
+        }
+      ],
+      "args": []
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Global",
+      "discriminator": [
+        167,
+        232,
+        232,
+        177,
+        200,
+        108,
+        114,
+        127
+      ]
+    },
+    {
+      "name": "IsolatedConfig",
+      "discriminator": [
+        16,
+        248,
+        230,
+        49,
+        163,
+        147,
+        49,
+        214
+      ]
+    },
+    {
+      "name": "IsolatedMarket",
+      "discriminator": [
+        252,
+        62,
+        181,
+        26,
+        38,
+        165,
+        179,
+        160
+      ]
+    },
+    {
+      "name": "IsolatedOracle",
+      "discriminator": [
+        200,
+        121,
+        9,
+        187,
+        102,
+        169,
+        183,
+        40
+      ]
+    },
+    {
+      "name": "Market",
+      "discriminator": [
+        219,
+        190,
+        213,
+        55,
+        0,
+        227,
+        198,
+        154
+      ]
+    },
+    {
+      "name": "MarketOracle",
+      "discriminator": [
+        93,
+        61,
+        163,
+        40,
+        122,
+        52,
+        19,
+        1
+      ]
+    },
+    {
+      "name": "Obligation",
+      "discriminator": [
+        168,
+        206,
+        141,
+        106,
+        88,
+        76,
+        172,
+        167
+      ]
+    },
+    {
+      "name": "SupplyPosition",
+      "discriminator": [
+        248,
+        221,
+        250,
+        222,
+        37,
+        167,
+        64,
+        209
+      ]
+    },
+    {
+      "name": "OracleState",
+      "discriminator": [
+        97,
+        156,
+        157,
+        189,
+        194,
+        73,
+        8,
+        15
+      ]
+    },
+    {
+      "name": "Reserve",
+      "discriminator": [
+        43,
+        242,
+        204,
+        202,
+        26,
+        247,
+        59,
+        127
+      ]
+    },
+    {
+      "name": "RiskConfig",
+      "discriminator": [
+        201,
+        119,
+        245,
+        244,
+        40,
+        27,
+        0,
+        31
+      ]
+    }
+  ],
+  "types": [
+    {
+      "name": "OracleConfig",
+      "docs": [
+        "Everything an admin may choose about an oracle.",
+        "",
+        "A struct rather than a long argument list so adding a bound later is a",
+        "serialization change in one place, and so the timelock logic in `set_params`",
+        "can compare an old and a new configuration field by field."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "source_kind",
+            "docs": [
+              "[`crate::oracle::OracleSourceKind`] as `u8`."
+            ],
+            "type": "u8"
+          },
+          {
+            "name": "source_program",
+            "docs": [
+              "Program that must own `source_account`. Zero for `UnitOfAccount`."
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "source_account",
+            "docs": [
+              "The account the rate is derived from. Zero for `UnitOfAccount`."
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "max_withdrawal_fee_bps",
+            "docs": [
+              "Redemption fee past which observations are refused."
+            ],
+            "type": "u16"
+          },
+          {
+            "name": "rate_floor",
+            "type": "u128"
+          },
+          {
+            "name": "rate_ceiling",
+            "type": "u128"
+          },
+          {
+            "name": "expected_deploy_slot",
+            "docs": [
+              "The source program's `ProgramData` deploy slot at the moment this",
+              "configuration was authorised.",
+              "",
+              "An admin choosing this is not choosing a price: they are recording which",
+              "deployment of somebody else's program they reviewed. If that program is",
+              "redeployed the slot moves, every observation is refused, and borrowing",
+              "freezes until a human looks at the new code and re-authorises it."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "expected_upgrade_authority",
+            "docs": [
+              "The source program's upgrade authority at that moment, or all zeros if",
+              "it was already immutable."
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "breaker",
+            "type": {
+              "defined": {
+                "name": "BreakerConfig"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "ShareMetadata",
+      "docs": [
+        "Name, symbol and URI for a reserve's share token.",
+        "",
+        "Passed in rather than derived so the COOK reserve can mint \"Aera COOK\"",
+        "(`aCOOK`) and a second reserve can carry its own identity, without the",
+        "program shipping a table of strings it would have to be upgraded to change."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "symbol",
+            "type": "string"
+          },
+          {
+            "name": "uri",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "PoolChoice",
+      "docs": [
+        "A pool the creator names, and which allowed AMM it claims to be on.",
+        "",
+        "The AMM's program, `ProgramData` and deploy slot come from",
+        "`IsolatedConfig.amms[amm_index]`, never from the creator."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "pool",
+            "type": "pubkey"
+          },
+          {
+            "name": "collateral_vault",
+            "type": "pubkey"
+          },
+          {
+            "name": "quote_vault",
+            "type": "pubkey"
+          },
+          {
+            "name": "amm_index",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "BreakerConfig",
+      "docs": [
+        "Breaker bounds. Held in `OracleState` so a second market could be tuned",
+        "differently, and so tests can drive the boundaries directly."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "max_up_bps_per_epoch",
+            "docs": [
+              "Maximum upward move per elapsed pool epoch, in basis points."
+            ],
+            "type": "u16"
+          },
+          {
+            "name": "max_down_bps_per_epoch",
+            "docs": [
+              "Maximum downward move per elapsed pool epoch, in basis points."
+            ],
+            "type": "u16"
+          },
+          {
+            "name": "emergency_deviation_bps",
+            "docs": [
+              "Absolute move from the reference, in either direction, that goes",
+              "straight to `Emergency` regardless of how long has elapsed."
+            ],
+            "type": "u16"
+          },
+          {
+            "name": "max_epoch_allowance",
+            "docs": [
+              "Ceiling on how many epochs of allowance may accumulate. Without it, a",
+              "reference left un-refreshed for a year would permit an unbounded jump."
+            ],
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Reference",
+      "docs": [
+        "The last observation the breaker accepted. This is the protocol's anchor."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "gross_rate",
+            "type": "u128"
+          },
+          {
+            "name": "effective_rate",
+            "type": "u128"
+          },
+          {
+            "name": "withdrawal_fee_bps",
+            "type": "u16"
+          },
+          {
+            "name": "source_epoch",
+            "docs": [
+              "The source's own epoch marker at the moment of acceptance. Movement is",
+              "measured per elapsed epoch against this, not against wall clock."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "slot",
+            "type": "u64"
+          },
+          {
+            "name": "unix_timestamp",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Global",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "admin",
+            "docs": [
+              "The only key that may create markets/reserves, change parameters, or",
+              "pause. Rotating it is a deliberate, separate instruction."
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "fee_destination",
+            "docs": [
+              "Where the protocol's whole cut of interest is paid.",
+              "",
+              "One destination, not two: the reserve factor accrues 100% here. A split",
+              "would have to be reconciled at every accrual and every payout, and there",
+              "is no second beneficiary to reconcile it for."
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "paused",
+            "docs": [
+              "Blocks every state-changing user instruction except `repay`. Repay is",
+              "never blocked: refusing repayment while prices move would manufacture",
+              "liquidations the borrower could have avoided."
+            ],
+            "type": "bool"
+          },
+          {
+            "name": "borrow_paused",
+            "docs": [
+              "Blocks new borrows only. Supply, withdraw, repay and liquidate continue.",
+              "Set by the admin, and independently by the oracle circuit breaker."
+            ],
+            "type": "bool"
+          },
+          {
+            "name": "param_timelock_seconds",
+            "docs": [
+              "Delay applied to *loosening* parameter changes. Tightening changes and",
+              "pauses bypass it entirely."
+            ],
+            "type": "i64"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "version",
+            "docs": [
+              "Schema version. Absent in v0.1, so a v0.1 account is exactly one byte",
+              "shorter than this struct and reads as [`GLOBAL_VERSION_V1`] once",
+              "realloc'd and zero-filled.",
+              "",
+              "Declared last on purpose: appending keeps every preceding field at the",
+              "offset it already occupies, so the realloc adds a byte rather than",
+              "moving anything."
+            ],
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "AmmPin",
+      "docs": [
+        "One AMM creator markets may price from, as reviewed by Aera.",
+        "",
+        "A creator chooses which allowed AMM each of their pools is on, never the",
+        "AMM's identity: a creator who could name the AMM program could name one they",
+        "wrote, owning a fake pool that points at token accounts they control, and",
+        "the \"price\" would be whatever balances they set. The deploy slot pins the",
+        "reviewed implementation, exactly as `PoolRef` does for admin markets."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "amm_kind",
+            "docs": [
+              "`AmmKind` as a byte."
+            ],
+            "type": "u8"
+          },
+          {
+            "name": "amm_program",
+            "type": "pubkey"
+          },
+          {
+            "name": "amm_program_data",
+            "type": "pubkey"
+          },
+          {
+            "name": "expected_deploy_slot",
+            "type": "u64"
+          },
+          {
+            "name": "enabled",
+            "docs": [
+              "New markets may use this AMM. Existing markets keep their own pin and",
+              "are unaffected by this switch."
+            ],
+            "type": "bool"
+          }
+        ]
+      }
+    },
+    {
+      "name": "IsolatedConfig",
+      "docs": [
+        "Protocol-wide policy for creator markets. Seeded `[\"isolated_config\"]`."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "global",
+            "type": "pubkey"
+          },
+          {
+            "name": "quote_mint",
+            "docs": [
+              "The quote asset of every creator market: bridged SOL. Fixed at init."
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "quote_decimals",
+            "type": "u8"
+          },
+          {
+            "name": "creation_fee",
+            "docs": [
+              "Charged once, in quote base units, to `Global::fee_destination`."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "creation_enabled",
+            "docs": [
+              "Admin switch for *new* markets only. Turning it off touches nothing that",
+              "already exists."
+            ],
+            "type": "bool"
+          },
+          {
+            "name": "next_market_id",
+            "docs": [
+              "The id the next creator market will take. Starts at",
+              "`ISOLATED_MARKET_ID_BASE` and only increases."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "markets_created",
+            "type": "u64"
+          },
+          {
+            "name": "amms",
+            "type": {
+              "array": [
+                {
+                  "defined": {
+                    "name": "AmmPin"
+                  }
+                },
+                2
+              ]
+            }
+          },
+          {
+            "name": "pending_amms",
+            "docs": [
+              "A queued allowlist change and when it may be applied. `eta == 0` means",
+              "nothing is queued. Allowlist changes re-pin existing markets through",
+              "`sync_isolated_amm_pins`, so they wait out",
+              "`ISOLATED_ADMIN_TIMELOCK_SECONDS`."
+            ],
+            "type": {
+              "array": [
+                {
+                  "defined": {
+                    "name": "AmmPin"
+                  }
+                },
+                2
+              ]
+            }
+          },
+          {
+            "name": "pending_amms_eta",
+            "type": "i64"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "IsolatedConfigArgs",
+      "docs": [
+        "Everything the admin may set on `IsolatedConfig` after creation."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "creation_fee",
+            "type": "u64"
+          },
+          {
+            "name": "creation_enabled",
+            "type": "bool"
+          },
+          {
+            "name": "amms",
+            "type": {
+              "array": [
+                {
+                  "defined": {
+                    "name": "AmmPin"
+                  }
+                },
+                2
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "IsolatedMarket",
+      "docs": [
+        "One creator market. Seeded `[\"isolated_market\", market]`."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "market",
+            "type": "pubkey"
+          },
+          {
+            "name": "market_id",
+            "type": "u64"
+          },
+          {
+            "name": "creator",
+            "docs": [
+              "Receives the creator fee and owns the bond. Has no other power."
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "token_mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "token_decimals",
+            "type": "u8"
+          },
+          {
+            "name": "quote_mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "tier",
+            "type": "u8"
+          },
+          {
+            "name": "stage",
+            "type": "u8"
+          },
+          {
+            "name": "token_reserve",
+            "type": "pubkey"
+          },
+          {
+            "name": "quote_reserve",
+            "type": "pubkey"
+          },
+          {
+            "name": "token_oracle",
+            "type": "pubkey"
+          },
+          {
+            "name": "quote_oracle",
+            "type": "pubkey"
+          },
+          {
+            "name": "isolated_oracle",
+            "docs": [
+              "The token oracle's observation history (`IsolatedOracle`)."
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "single_pool",
+            "docs": [
+              "Both oracle slots name the same pool. Only the lowest tier allows it."
+            ],
+            "type": "bool"
+          },
+          {
+            "name": "bond_vault",
+            "docs": [
+              "First-loss insurance for the quote reserve's lenders, in quote base",
+              "units, held in `bond_vault`. Idle by design: it must be there, in full,",
+              "at the moment a loan goes bad."
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "bond_amount",
+            "type": "u64"
+          },
+          {
+            "name": "bond_used",
+            "docs": [
+              "Bond spent repaying loans that went bad. Never decreases."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "depth_borrow_cap",
+            "docs": [
+              "Caps implied by measured pool depth, before the bond is considered."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "depth_wallet_cap",
+            "type": "u64"
+          },
+          {
+            "name": "measured_quote_depth",
+            "docs": [
+              "The depth they were computed from."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "creator_fee_hwm",
+            "docs": [
+              "Share exchange rate at the last creator-fee harvest, 1e18-scaled. Fees",
+              "are charged only on gains above it, so a loss is recovered before the",
+              "creator earns again."
+            ],
+            "type": "u128"
+          },
+          {
+            "name": "creator_fee_shares",
+            "docs": [
+              "Shares ever minted to the creator as fees."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "frozen",
+            "docs": [
+              "Set by the admin. Stops new borrowing; nothing else."
+            ],
+            "type": "bool"
+          },
+          {
+            "name": "unfreeze_eta",
+            "docs": [
+              "When a requested unfreeze may take effect. Freezing is instant;",
+              "unfreezing waits `ISOLATED_ADMIN_TIMELOCK_SECONDS`. Zero when none is",
+              "queued."
+            ],
+            "type": "i64"
+          },
+          {
+            "name": "retired",
+            "docs": [
+              "Set by the creator, irreversibly. Stops new borrowing so the bond can be",
+              "released as loans close."
+            ],
+            "type": "bool"
+          },
+          {
+            "name": "created_at",
+            "type": "i64"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "bond_vault_bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "IsolatedOracle",
+      "docs": [
+        "The observation history behind a creator market's token oracle.",
+        "",
+        "# Why not `MarketOracle`",
+        "",
+        "Admin markets keep `MarketOracle` and `refresh_market_oracle` exactly as",
+        "they are. Creator markets are thinner and their creator controls the pools,",
+        "so their oracle needs rules the admin path does not have (see",
+        "`refresh_isolated_oracle`). Two things follow from giving them their own",
+        "account type **at the same address** `MarketOracle` would occupy,",
+        "`[\"market_oracle\", oracle]`:",
+        "",
+        "- `refresh_market_oracle` and `set_market_oracle_config` cannot run against",
+        "a creator oracle: the account at that address does not deserialize as a",
+        "`MarketOracle`;",
+        "- `init_market_oracle` cannot attach a `MarketOracle` to one either: the",
+        "address is taken.",
+        "",
+        "So the hardened refresh is the only way a creator oracle's price moves, with",
+        "no change to any existing instruction."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "oracle",
+            "docs": [
+              "The `OracleState` this history feeds."
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "isolated_market",
+            "type": "pubkey"
+          },
+          {
+            "name": "collateral_mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "quote_mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "collateral_decimals",
+            "type": "u8"
+          },
+          {
+            "name": "quote_decimals",
+            "type": "u8"
+          },
+          {
+            "name": "config",
+            "docs": [
+              "From the tier. Not changeable by anyone after creation."
+            ],
+            "type": {
+              "defined": {
+                "name": "MarketOracleConfig"
+              }
+            }
+          },
+          {
+            "name": "max_step_bps",
+            "type": "u16"
+          },
+          {
+            "name": "pools",
+            "type": {
+              "array": [
+                {
+                  "defined": {
+                    "name": "PoolRef"
+                  }
+                },
+                2
+              ]
+            }
+          },
+          {
+            "name": "observations",
+            "type": {
+              "vec": {
+                "defined": {
+                  "name": "Observation"
+                }
+              }
+            }
+          },
+          {
+            "name": "next_index",
+            "type": "u8"
+          },
+          {
+            "name": "last_good_read",
+            "docs": [
+              "The last time every pool read cleanly. Drives `cover_isolated_debt`'s",
+              "dead-oracle case; a degraded refresh does not move it."
+            ],
+            "type": "i64"
+          },
+          {
+            "name": "degraded_reads",
+            "docs": [
+              "Refreshes that found a pool unreadable, in total. For monitoring."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Market",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "global",
+            "docs": [
+              "The protocol instance this market belongs to."
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "market_id",
+            "docs": [
+              "Index this market's PDA is derived from (`[\"market\", market_id]`). The",
+              "market is identified by this id, never by an individual's address."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "quote_currency_mint",
+            "docs": [
+              "The mint every obligation value in this market is denominated in. For",
+              "Aera Core this is COOK itself, so a \"value\" in this program is a COOK",
+              "amount and the borrow reserve's own price is 1.0."
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "name",
+            "docs": [
+              "Human label, e.g. \"Aera Core\". Fixed width so the account size is known."
+            ],
+            "type": "string"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "MarketOracle",
+      "docs": [
+        "Verified observation history for one market-priced oracle.",
+        "",
+        "Seeded `[\"market_oracle\", oracle]`."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "oracle",
+            "docs": [
+              "The `OracleState` this history belongs to."
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "collateral_mint",
+            "docs": [
+              "The collateral asset being priced, and the asset it is priced in."
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "quote_mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "collateral_decimals",
+            "type": "u8"
+          },
+          {
+            "name": "quote_decimals",
+            "type": "u8"
+          },
+          {
+            "name": "config",
+            "type": {
+              "defined": {
+                "name": "MarketOracleConfig"
+              }
+            }
+          },
+          {
+            "name": "pools",
+            "docs": [
+              "The two pools this oracle may read. Both must be healthy."
+            ],
+            "type": {
+              "array": [
+                {
+                  "defined": {
+                    "name": "PoolRef"
+                  }
+                },
+                2
+              ]
+            }
+          },
+          {
+            "name": "observations",
+            "type": {
+              "vec": {
+                "defined": {
+                  "name": "Observation"
+                }
+              }
+            }
+          },
+          {
+            "name": "next_index",
+            "docs": [
+              "Where the next observation is written."
+            ],
+            "type": "u8"
+          },
+          {
+            "name": "pending_config",
+            "docs": [
+              "A queued loosening and when it may be applied."
+            ],
+            "type": {
+              "defined": {
+                "name": "MarketOracleConfig"
+              }
+            }
+          },
+          {
+            "name": "pending_eta",
+            "type": "i64"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "MarketOracleConfig",
+      "docs": [
+        "Thresholds a market price must satisfy before it may back a loan.",
+        "",
+        "Every one is configuration rather than a constant. Reusing bCOOK's breaker",
+        "bounds here would be wrong by orders of magnitude: those are 200 bps up and",
+        "100 bps down per *stake-pool epoch*, roughly 53 hours, and a memecoin moves",
+        "that much before lunch.",
+        "",
+        "Thresholds only. The AMM each pool belongs to is identity and lives in",
+        "`PoolRef`, so this struct holds nothing that changes what is being priced --",
+        "only how strictly."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "twap_window_seconds",
+            "docs": [
+              "Seconds the TWAP averages over."
+            ],
+            "type": "u32"
+          },
+          {
+            "name": "min_observations",
+            "docs": [
+              "Observations required before borrowing may be enabled."
+            ],
+            "type": "u8"
+          },
+          {
+            "name": "min_span_seconds",
+            "docs": [
+              "Seconds those observations must span. Ten samples in ten slots is one",
+              "sample, however many rows it writes."
+            ],
+            "type": "u32"
+          },
+          {
+            "name": "min_spacing_seconds",
+            "docs": [
+              "Minimum gap between accepted observations, which is what stops a caller",
+              "filling the window from one short manipulation."
+            ],
+            "type": "u32"
+          },
+          {
+            "name": "max_observation_age_seconds",
+            "docs": [
+              "Older than this and the reference stops being usable."
+            ],
+            "type": "u32"
+          },
+          {
+            "name": "warn_age_seconds",
+            "docs": [
+              "Age at which the oracle warns before it freezes."
+            ],
+            "type": "u32"
+          },
+          {
+            "name": "max_cross_pool_deviation_bps",
+            "docs": [
+              "Maximum tolerated disagreement between the two pools, in bps of their",
+              "midpoint. Live COOKHOUSE deviation was measured at ~88 bps, so this is",
+              "not a formality."
+            ],
+            "type": "u16"
+          },
+          {
+            "name": "min_pool_quote_depth",
+            "docs": [
+              "Minimum quote-side depth per pool, in quote base units."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "max_rise_bps_per_window",
+            "docs": [
+              "The most the reference may *rise* per TWAP window, in bps.",
+              "",
+              "There is deliberately no downward equivalent. See",
+              "`OracleSourceKind::falls_are_always_accepted`."
+            ],
+            "type": "u16"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Observation",
+      "docs": [
+        "One verified reading. Every field is derived by the program."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "price",
+            "docs": [
+              "Combined price, 1e18-scaled, in quote units per whole collateral token."
+            ],
+            "type": "u128"
+          },
+          {
+            "name": "slot",
+            "docs": [
+              "From the `Clock` sysvar, never from the caller."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "unix_timestamp",
+            "type": "i64"
+          },
+          {
+            "name": "quote_depth",
+            "docs": [
+              "Total quote-side depth across both pools when this was taken.",
+              "",
+              "Recorded so a later reader can tell whether a price was set against a",
+              "deep book or a thin one, which is the difference between a real move and",
+              "one somebody bought."
+            ],
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "PoolRef",
+      "docs": [
+        "The pools a market oracle may derive its price from.",
+        "",
+        "Per-oracle, not global. A second Tier 3 market has its own pools, and generic",
+        "code must never carry one asset's addresses.",
+        "",
+        "# Each pool pins its own AMM",
+        "",
+        "The AMM identity used to live once in `MarketOracleConfig`, which forced",
+        "both pools onto the same program. That is the weaker arrangement: two pools",
+        "on one AMM share one upgrade key and one implementation, so a single bug or a",
+        "single compromised key moves both readings at once and the cross-pool",
+        "deviation check never fires.",
+        "",
+        "Pinning per pool lets the two readings come from **different** AMMs with",
+        "different upgrade authorities -- Cookiebox's DAMM v2 and CookieSwap's CPAMM",
+        "are controlled by unrelated keys -- which is the point of having two pools at",
+        "all. Two pools on the same AMM remain allowed: both entries simply name it.",
+        "",
+        "Identity, so immutable after `init_market_oracle`. Repointing a pool at a",
+        "different AMM is not a parameter change, it is a different oracle."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "pool",
+            "type": "pubkey"
+          },
+          {
+            "name": "collateral_vault",
+            "docs": [
+              "The pool's vault for the collateral asset, as named by the pool account."
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "quote_vault",
+            "docs": [
+              "The pool's vault for the quote asset."
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "amm_kind",
+            "docs": [
+              "`AmmKind` as a byte. Selects the decoder."
+            ],
+            "type": "u8"
+          },
+          {
+            "name": "amm_program",
+            "docs": [
+              "The AMM whose pool this is. Checked as the owner of the pool account."
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "amm_program_data",
+            "docs": [
+              "The AMM's `ProgramData`, and the deploy slot it stood at when configured.",
+              "",
+              "The AMM is upgradeable by a key Aera does not control. Aera cannot stop",
+              "that; it can refuse to keep pricing against an implementation it has not",
+              "seen. Same mechanism as the stake-pool pin on `OracleState`."
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "expected_deploy_slot",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Obligation",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "market",
+            "type": "pubkey"
+          },
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "last_update_slot",
+            "type": "u64"
+          },
+          {
+            "name": "stale",
+            "docs": [
+              "Set whenever deposits/borrows change; cleared by `refresh_obligation`.",
+              "Health-dependent handlers reject a stale obligation so they never act on",
+              "cached values a prior instruction in the same transaction invalidated."
+            ],
+            "type": "bool"
+          },
+          {
+            "name": "prices_stressed",
+            "docs": [
+              "True when any feed this obligation depends on had its circuit breaker",
+              "latched at the last refresh — the collateral's feed as much as the",
+              "debt's. `borrow` refuses while this is set.",
+              "",
+              "The flag lives here rather than being read straight from a feed because",
+              "`borrow` only carries the *borrowed* asset's feed in its accounts; the",
+              "collateral's feed is seen by `refresh_obligation` alone, and a 25% move",
+              "in the collateral is precisely the case worth stopping."
+            ],
+            "type": "bool"
+          },
+          {
+            "name": "deposited_value",
+            "docs": [
+              "Σ every deposit's market value at face, FIXED_POINT_SCALE-scaled.",
+              "This is what the UI shows as \"collateral value\"; it is *not* what backs",
+              "the borrow limit — see `effective_collateral_value`."
+            ],
+            "type": "u128"
+          },
+          {
+            "name": "effective_collateral_value",
+            "docs": [
+              "Σ every deposit's value *after* its haircut. This is the spec's",
+              "`collateral_value`, and the basis for both limits below."
+            ],
+            "type": "u128"
+          },
+          {
+            "name": "borrowed_value",
+            "docs": [
+              "Σ every borrow's market value, FIXED_POINT_SCALE-scaled."
+            ],
+            "type": "u128"
+          },
+          {
+            "name": "allowed_borrow_value",
+            "docs": [
+              "Σ (effective deposit value * reserve LTV). Borrows may not exceed this."
+            ],
+            "type": "u128"
+          },
+          {
+            "name": "unhealthy_borrow_value",
+            "docs": [
+              "Σ (effective deposit value * reserve liquidation threshold). Above this",
+              "the obligation is liquidatable."
+            ],
+            "type": "u128"
+          },
+          {
+            "name": "deposits",
+            "type": {
+              "vec": {
+                "defined": {
+                  "name": "ObligationCollateral"
+                }
+              }
+            }
+          },
+          {
+            "name": "borrows",
+            "type": {
+              "vec": {
+                "defined": {
+                  "name": "ObligationLiquidity"
+                }
+              }
+            }
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ObligationCollateral",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "reserve",
+            "type": "pubkey"
+          },
+          {
+            "name": "deposited_shares",
+            "type": "u64"
+          },
+          {
+            "name": "market_value",
+            "docs": [
+              "Face value, before haircut."
+            ],
+            "type": "u128"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ObligationLiquidity",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "reserve",
+            "type": "pubkey"
+          },
+          {
+            "name": "borrowed_principal",
+            "docs": [
+              "Principal scaled by the reserve's index at borrow time, so live debt",
+              "grows automatically as that index advances."
+            ],
+            "type": "u128"
+          },
+          {
+            "name": "market_value",
+            "type": "u128"
+          }
+        ]
+      }
+    },
+    {
+      "name": "SupplyPosition",
+      "docs": [
+        "Per-(reserve, wallet) record of how much liquidity this wallet has supplied",
+        "through the program. Exists solely to enforce `per_wallet_supply_cap`.",
+        "",
+        "This tracks supply *through Aera*, not aCOOK held: a wallet that receives",
+        "aCOOK by transfer is not charged against its cap, and a wallet that sends",
+        "aCOOK away does not free cap until it withdraws. Nothing here can stop one",
+        "person using several wallets — the cap is a concentration brake on the",
+        "honest path, not a proof of identity, and PARAMS.md says so plainly."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "reserve",
+            "type": "pubkey"
+          },
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "supplied_liquidity",
+            "docs": [
+              "Net liquidity supplied: increased on supply, decreased on withdraw."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "OracleState",
+      "docs": [
+        "Everything Aera knows about one asset's price."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "market",
+            "docs": [
+              "The market this serves. Part of the PDA seeds, so one market can never",
+              "write another's oracle."
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "mint",
+            "docs": [
+              "The asset being priced. For the native source this must equal the mint",
+              "the stake pool issues."
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "source_kind",
+            "docs": [
+              "Which source implementation reads this. [`OracleSourceKind`] as `u8`."
+            ],
+            "type": "u8"
+          },
+          {
+            "name": "source_program",
+            "docs": [
+              "The program that must own `source_account`. Zero for",
+              "[`OracleSourceKind::UnitOfAccount`], which reads nothing."
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "source_account",
+            "docs": [
+              "The exact account the rate is derived from. Configuration, never",
+              "caller-supplied. Zero for `UnitOfAccount`."
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "max_withdrawal_fee_bps",
+            "docs": [
+              "Past this, an observation is refused and borrowing freezes. This is the",
+              "bound that stops the source's operator consuming Aera's risk margin by",
+              "raising their own redemption fee."
+            ],
+            "type": "u16"
+          },
+          {
+            "name": "rate_floor",
+            "docs": [
+              "Absolute bounds on the gross rate, outside which the number cannot be a",
+              "rate for this asset at all. Not the circuit breaker — these catch a",
+              "redefined or corrupted field, the breaker catches movement."
+            ],
+            "type": "u128"
+          },
+          {
+            "name": "rate_ceiling",
+            "type": "u128"
+          },
+          {
+            "name": "expected_deploy_slot",
+            "docs": [
+              "The source program's deploy slot at configuration time.",
+              "",
+              "Zero for [`OracleSourceKind::UnitOfAccount`], which reads no program."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "expected_upgrade_authority",
+            "docs": [
+              "The source program's upgrade authority at configuration time, or all",
+              "zeros if it was already immutable."
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "breaker",
+            "type": {
+              "defined": {
+                "name": "BreakerConfig"
+              }
+            }
+          },
+          {
+            "name": "reference",
+            "docs": [
+              "The last observation the breaker accepted. The protocol's anchor, and",
+              "the price liquidation falls back to during an incident."
+            ],
+            "type": {
+              "defined": {
+                "name": "Reference"
+              }
+            }
+          },
+          {
+            "name": "health",
+            "docs": [
+              "Where in the state machine this oracle sits. [`OracleHealth`] as `u8`."
+            ],
+            "type": "u8"
+          },
+          {
+            "name": "last_moved_bps",
+            "docs": [
+              "Movement of the last observation against the reference, in basis",
+              "points, whether or not it was accepted. Recorded so an operator can see",
+              "how close to a bound the source has been running."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "last_refresh_slot",
+            "docs": [
+              "Slot of the last refresh *attempt*. Risk-changing instructions require",
+              "this to be the current slot, which is what makes a stale-price attack",
+              "have no path: the price must have been re-derived in this same",
+              "transaction."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "last_source_epoch",
+            "docs": [
+              "The source's own freshness marker at the last attempt. For a stake pool",
+              "this is `last_update_epoch`, and it is recorded rather than enforced —",
+              "a stale pool understates bCOOK's value, which is the safe direction."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "PendingConfig",
+      "docs": [
+        "A queued loosening change. `eta == 0` means \"nothing pending\"."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "config",
+            "type": {
+              "defined": {
+                "name": "ReserveConfig"
+              }
+            }
+          },
+          {
+            "name": "eta",
+            "docs": [
+              "Unix timestamp from which `apply_pending_params` may execute."
+            ],
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Reserve",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "market",
+            "type": "pubkey"
+          },
+          {
+            "name": "liquidity_mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "liquidity_vault",
+            "docs": [
+              "Program-owned token account holding un-borrowed liquidity. Its authority",
+              "is this reserve PDA."
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "share_mint",
+            "docs": [
+              "Share-token mint (aCOOK / abCOOK). Mint authority is this reserve PDA."
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "oracle",
+            "docs": [
+              "The [`OracleState`] this reserve prices from.",
+              "",
+              "Renamed from `price_feed` in v0.2. Same offset, same width, so the",
+              "account layout is unchanged and existing reserves need no realloc --",
+              "migration repoints this at the new oracle account and closes the old",
+              "guardian feed."
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "liquidity_decimals",
+            "type": "u8"
+          },
+          {
+            "name": "available_liquidity",
+            "docs": [
+              "Base units sitting in `liquidity_vault`. This is the source of truth for",
+              "the pool size, not the vault's token balance, so a raw token donation",
+              "cannot move the exchange rate."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "share_mint_supply",
+            "docs": [
+              "Outstanding share supply, mirrored here so valuations need only the",
+              "reserve account. A holder burning shares directly via the token program",
+              "makes the real supply drift below this mirror; that drift only lowers",
+              "what the burner could redeem, so the pool never pays out more than it",
+              "holds."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "borrowed_principal",
+            "docs": [
+              "Total borrowed principal, scaled by the index at borrow time. Live debt",
+              "is `borrowed_principal * borrow_index / FIXED_POINT_SCALE`."
+            ],
+            "type": "u128"
+          },
+          {
+            "name": "borrow_index",
+            "docs": [
+              "Monotonically increasing borrow index, FIXED_POINT_SCALE-scaled. Starts",
+              "at 1.0 and only ever multiplies by factors >= 1. This is the spec's",
+              "`variableBorrowIndex`."
+            ],
+            "type": "u128"
+          },
+          {
+            "name": "last_update_slot",
+            "type": "u64"
+          },
+          {
+            "name": "accrued_fees",
+            "docs": [
+              "Interest owed to `Global::fee_destination`. Carved out of",
+              "`total_liquidity` so it never inflates the supplier exchange rate."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "config",
+            "type": {
+              "defined": {
+                "name": "ReserveConfig"
+              }
+            }
+          },
+          {
+            "name": "pending",
+            "docs": [
+              "A queued *loosening* config change, applied only after its timelock."
+            ],
+            "type": {
+              "defined": {
+                "name": "PendingConfig"
+              }
+            }
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ReserveConfig",
+      "docs": [
+        "Risk, interest and cap parameters. All ratios are basis points."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "loan_to_value_bps",
+            "docs": [
+              "Fraction of (post-haircut) collateral value a borrower may draw."
+            ],
+            "type": "u16"
+          },
+          {
+            "name": "liquidation_threshold_bps",
+            "docs": [
+              "Above this fraction the obligation may be liquidated."
+            ],
+            "type": "u16"
+          },
+          {
+            "name": "liquidation_bonus_bps",
+            "docs": [
+              "Extra collateral a liquidator receives, as a fraction of value repaid."
+            ],
+            "type": "u16"
+          },
+          {
+            "name": "close_factor_bps",
+            "docs": [
+              "Fraction of a borrow one liquidation may close while HF >= 0.95."
+            ],
+            "type": "u16"
+          },
+          {
+            "name": "collateral_haircut_bps",
+            "docs": [
+              "Discount applied to this asset's collateral value before LTV and LT.",
+              "500 (5%) for bCOOK; 0 for an asset marked at face value."
+            ],
+            "type": "u16"
+          },
+          {
+            "name": "optimal_utilization_bps",
+            "docs": [
+              "Utilization at which the borrow rate reaches `optimal_borrow_rate_bps`."
+            ],
+            "type": "u16"
+          },
+          {
+            "name": "min_borrow_rate_bps",
+            "docs": [
+              "Borrow APR at 0% utilization."
+            ],
+            "type": "u16"
+          },
+          {
+            "name": "optimal_borrow_rate_bps",
+            "docs": [
+              "Borrow APR at the kink."
+            ],
+            "type": "u16"
+          },
+          {
+            "name": "max_borrow_rate_bps",
+            "docs": [
+              "Borrow APR at 100% utilization."
+            ],
+            "type": "u16"
+          },
+          {
+            "name": "reserve_factor_bps",
+            "docs": [
+              "Share of interest kept by the protocol, all of it accruing to",
+              "`Global::fee_destination`. The rest lifts the supplier exchange rate."
+            ],
+            "type": "u16"
+          },
+          {
+            "name": "origination_fee_bps",
+            "docs": [
+              "One-off fee charged when liquidity is drawn, in basis points of the",
+              "amount borrowed. Ships at 0 and is capped at",
+              "`MAX_ADMIN_ORIGINATION_FEE_BPS`.",
+              "",
+              "The borrower owes the full amount and receives the amount minus this",
+              "fee, which is retained in the vault and recognised immediately as",
+              "protocol revenue. Suppliers' claim on the pool is unchanged by it — the",
+              "fee comes from the borrower, not from them."
+            ],
+            "type": "u16"
+          },
+          {
+            "name": "supply_cap",
+            "docs": [
+              "Maximum liquidity the reserve will hold. 0 means \"no cap\"."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "borrow_cap",
+            "docs": [
+              "Maximum liquidity that may be borrowed out. 0 means \"no cap\"."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "per_wallet_supply_cap",
+            "docs": [
+              "Maximum a single wallet may supply. 0 means \"no cap\"."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "borrow_enabled",
+            "docs": [
+              "May liquidity be borrowed from this reserve?"
+            ],
+            "type": "bool"
+          },
+          {
+            "name": "collateral_enabled",
+            "docs": [
+              "May this reserve's share token be posted as collateral?"
+            ],
+            "type": "bool"
+          },
+          {
+            "name": "isolated",
+            "docs": [
+              "Isolated assets may only be paired with other isolated-compatible",
+              "collateral. Reserved for a second collateral listing; enforced in",
+              "`risk::check_isolation`."
+            ],
+            "type": "bool"
+          },
+          {
+            "name": "slots_per_year",
+            "docs": [
+              "Slots in a year: the divisor turning the APR fields into a per-slot",
+              "rate. This is the cluster's slot time expressed as a count, so it is",
+              "configuration, not a constant — Cookie Chain's slot time can change, and",
+              "a stale value here charges borrowers at the wrong wall-clock rate while",
+              "every other number still reads correctly."
+            ],
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "RiskConfig",
+      "docs": [
+        "Risk limits for one reserve, added in v0.3.",
+        "",
+        "Seeded `[\"risk_config\", reserve]`. Created only for reserves that need one."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "reserve",
+            "docs": [
+              "The reserve these limits apply to. Checked against the passed account."
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "per_wallet_borrow_cap",
+            "docs": [
+              "The most one wallet may owe in this reserve. `0` is unlimited.",
+              "",
+              "Zero means unlimited to match every other cap in the protocol. Two caps",
+              "that meant opposite things by zero would be a configuration footgun of",
+              "exactly the kind found in production rather than in review.",
+              "",
+              "## What this is, and what it is not",
+              "",
+              "It is **not** Sybil resistance. One person can open a second wallet and",
+              "nothing here stops them. Any description of it as a per-person limit is",
+              "wrong.",
+              "",
+              "It bounds the size of a *single liquidation*, which matters because",
+              "liquidator economics depend on how the seized collateral is sold.",
+              "",
+              "Against COOKHOUSE's measured book, a liquidator routing across both",
+              "Meteora pools slips under 4% at every size the caps permit and profits",
+              "monotonically. One selling into the thinner pool alone slips 9.10% at",
+              "75,000 of debt closed, peaks in profit near 50,000, and is underwater",
+              "past roughly 90,000.",
+              "",
+              "The cap is sized against the second case, because a liquidator with one",
+              "venue integrated is a liquidator who exists and the protocol does not",
+              "choose which kind turns up. A market-wide borrow cap does not stop one",
+              "borrower reaching that size alone. This does.",
+              "",
+              "`tools/liquidation-economics.ts` computes both columns from the",
+              "observation log rather than from a figure copied forward.",
+              "",
+              "The obligation PDA is `[\"obligation\", market, owner]` opened with `init`,",
+              "so a wallet holds exactly one obligation per market and cannot split debt",
+              "across several to evade the check."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "protocol_liquidation_share_bps",
+            "docs": [
+              "Aera's share of the liquidation bonus, in basis points of value repaid.",
+              "",
+              "**Carved out of the existing bonus, never added to it.** With a 1200 bps",
+              "total bonus and this at 150, the borrower still loses exactly 12% and the",
+              "liquidator receives 10.5% instead of 12%. A borrower's penalty does not",
+              "depend on this field at all — `risk::split_seized_shares` divides an",
+              "already-computed seizure rather than enlarging it.",
+              "",
+              "Zero means Aera takes nothing, which is Core's setting and the default",
+              "for a reserve with no `RiskConfig` at all. Bounded by",
+              "[`crate::constants::MAX_PROTOCOL_LIQUIDATION_SHARE_BPS`] and separately",
+              "by the collateral reserve's own `liquidation_bonus_bps`, since a share",
+              "larger than the bonus would take from the liquidator's principal.",
+              "",
+              "Lives on the **collateral** reserve, beside the bonus it splits.",
+              "`liquidation_bonus_bps` is a property of the asset being seized, not of",
+              "the debt being repaid, and putting the two halves of one number in",
+              "different places would be a reliable source of misconfiguration."
+            ],
+            "type": "u16"
+          },
+          {
+            "name": "pending_per_wallet_borrow_cap",
+            "docs": [
+              "A queued loosening, and when it may be applied.",
+              "",
+              "Raising a cap is a loosening and waits out `Global::param_timelock_seconds`,",
+              "exactly as `ReserveConfig` loosenings do. Lowering one is a tightening and",
+              "lands immediately -- reducing what a wallet may owe can never make the",
+              "market less safe, and an operator responding to an incident should not",
+              "have to wait a day to do it.",
+              "",
+              "`eta == 0` means nothing is queued."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "pending_protocol_liquidation_share_bps",
+            "docs": [
+              "The queued share. Raising Aera's cut is a loosening and waits; lowering",
+              "it lands immediately, because a smaller protocol cut always leaves the",
+              "liquidator more and can never make the market less safe."
+            ],
+            "type": "u16"
+          },
+          {
+            "name": "pending_eta",
+            "type": "i64"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "BadDebtAbsorbed",
+      "type": {
+        "fields": [
+          {
+            "name": "market",
+            "type": "pubkey"
+          },
+          {
+            "name": "reserve",
+            "type": "pubkey"
+          },
+          {
+            "name": "obligation",
+            "type": "pubkey"
+          },
+          {
+            "docs": [
+              "The amount written off, in the reserve's base units, at the index",
+              "current when it was recognised.",
+              "",
+              "This event is the permanent record. There is no `Reserve::bad_debt`",
+              "field -- see the module docs for why -- so a reader wanting cumulative",
+              "bad debt sums these."
+            ],
+            "name": "amount",
+            "type": "u64"
+          },
+          {
+            "docs": [
+              "The scaled principal removed from `Reserve::borrowed_principal`."
+            ],
+            "name": "principal_removed",
+            "type": "u128"
+          },
+          {
+            "name": "slot",
+            "type": "u64"
+          }
+        ],
+        "kind": "struct"
+      }
+    },
+    {
+      "name": "ReserveCreated",
+      "type": {
+        "fields": [
+          {
+            "name": "reserve",
+            "type": "pubkey"
+          },
+          {
+            "name": "liquidity_mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "share_mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "symbol",
+            "type": "string"
+          }
+        ],
+        "kind": "struct"
+      }
+    },
+    {
+      "name": "ParamsApplied",
+      "type": {
+        "fields": [
+          {
+            "name": "reserve",
+            "type": "pubkey"
+          },
+          {
+            "name": "timelocked",
+            "type": "bool"
+          }
+        ],
+        "kind": "struct"
+      }
+    },
+    {
+      "name": "ParamsQueued",
+      "type": {
+        "fields": [
+          {
+            "name": "reserve",
+            "type": "pubkey"
+          },
+          {
+            "name": "eta",
+            "type": "i64"
+          }
+        ],
+        "kind": "struct"
+      }
+    },
+    {
+      "name": "ShareMetadataChanged",
+      "type": {
+        "fields": [
+          {
+            "name": "reserve",
+            "type": "pubkey"
+          },
+          {
+            "name": "share_mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "symbol",
+            "type": "string"
+          },
+          {
+            "name": "uri",
+            "type": "string"
+          }
+        ],
+        "kind": "struct"
+      }
+    },
+    {
+      "name": "IsolatedDebtCovered",
+      "type": {
+        "fields": [
+          {
+            "name": "market",
+            "type": "pubkey"
+          },
+          {
+            "name": "obligation",
+            "type": "pubkey"
+          },
+          {
+            "docs": [
+              "Which of the three cases applied."
+            ],
+            "name": "case",
+            "type": "u8"
+          },
+          {
+            "name": "owed",
+            "type": "u64"
+          },
+          {
+            "docs": [
+              "Paid from the bond into the lenders' vault."
+            ],
+            "name": "covered",
+            "type": "u64"
+          },
+          {
+            "docs": [
+              "Written off against lenders because the bond ran out. Zero unless the",
+              "coverage rule was overrun."
+            ],
+            "name": "written_off",
+            "type": "u64"
+          },
+          {
+            "docs": [
+              "Collateral shares transferred to the creator."
+            ],
+            "name": "collateral_shares",
+            "type": "u64"
+          },
+          {
+            "name": "bond_remaining",
+            "type": "u64"
+          }
+        ],
+        "kind": "struct"
+      }
+    },
+    {
+      "name": "IsolatedMarketCreated",
+      "type": {
+        "fields": [
+          {
+            "name": "market",
+            "type": "pubkey"
+          },
+          {
+            "name": "market_id",
+            "type": "u64"
+          },
+          {
+            "name": "creator",
+            "type": "pubkey"
+          },
+          {
+            "name": "token_mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "tier",
+            "type": "u8"
+          },
+          {
+            "name": "bond",
+            "type": "u64"
+          },
+          {
+            "name": "creation_fee",
+            "type": "u64"
+          },
+          {
+            "name": "quote_depth",
+            "type": "u64"
+          },
+          {
+            "name": "borrow_cap",
+            "type": "u64"
+          },
+          {
+            "name": "single_pool",
+            "type": "bool"
+          }
+        ],
+        "kind": "struct"
+      }
+    },
+    {
+      "name": "CreatorFeesHarvested",
+      "type": {
+        "fields": [
+          {
+            "name": "market",
+            "type": "pubkey"
+          },
+          {
+            "name": "fee_liquidity",
+            "type": "u64"
+          },
+          {
+            "name": "shares_minted",
+            "type": "u64"
+          },
+          {
+            "name": "rate_before",
+            "type": "u128"
+          },
+          {
+            "name": "rate_after",
+            "type": "u128"
+          }
+        ],
+        "kind": "struct"
+      }
+    },
+    {
+      "name": "IsolatedLimitsChanged",
+      "type": {
+        "fields": [
+          {
+            "name": "market",
+            "type": "pubkey"
+          },
+          {
+            "name": "bond",
+            "type": "u64"
+          },
+          {
+            "name": "borrow_cap",
+            "type": "u64"
+          },
+          {
+            "name": "wallet_cap",
+            "type": "u64"
+          },
+          {
+            "name": "borrowing_open",
+            "type": "bool"
+          }
+        ],
+        "kind": "struct"
+      }
+    },
+    {
+      "name": "IsolatedObservation",
+      "type": {
+        "fields": [
+          {
+            "name": "oracle",
+            "type": "pubkey"
+          },
+          {
+            "docs": [
+              "The reference after this refresh."
+            ],
+            "name": "reference",
+            "type": "u128"
+          },
+          {
+            "docs": [
+              "The spot reading, before clamping. Zero on a degraded refresh."
+            ],
+            "name": "spot",
+            "type": "u128"
+          },
+          {
+            "docs": [
+              "What was written to the history, after clamping. Zero if nothing was."
+            ],
+            "name": "recorded_price",
+            "type": "u128"
+          },
+          {
+            "name": "recorded",
+            "type": "bool"
+          },
+          {
+            "name": "standalone",
+            "type": "bool"
+          },
+          {
+            "name": "degraded",
+            "type": "bool"
+          },
+          {
+            "name": "pools_disagree",
+            "type": "bool"
+          },
+          {
+            "name": "shallow",
+            "type": "bool"
+          },
+          {
+            "name": "health",
+            "type": "u8"
+          },
+          {
+            "name": "slot",
+            "type": "u64"
+          }
+        ],
+        "kind": "struct"
+      }
+    },
+    {
+      "docs": [
+        "Emitted once per liquidation.",
+        "",
+        "`seized_shares` keeps its meaning exactly -- everything taken from the",
+        "borrower -- so an existing consumer reading it still gets the borrower's",
+        "total penalty and needs no change. The four fields after it are additive,",
+        "and `liquidator_shares + protocol_shares == seized_shares` always holds."
+      ],
+      "name": "Liquidated",
+      "type": {
+        "fields": [
+          {
+            "name": "obligation",
+            "type": "pubkey"
+          },
+          {
+            "name": "liquidator",
+            "type": "pubkey"
+          },
+          {
+            "name": "repaid",
+            "type": "u64"
+          },
+          {
+            "docs": [
+              "Everything removed from the borrower. Unchanged by the protocol share."
+            ],
+            "name": "seized_shares",
+            "type": "u64"
+          },
+          {
+            "docs": [
+              "What the liquidator actually received."
+            ],
+            "name": "liquidator_shares",
+            "type": "u64"
+          },
+          {
+            "docs": [
+              "What Aera received. Zero for Core, and zero whenever the share rounds",
+              "away on a small liquidation."
+            ],
+            "name": "protocol_shares",
+            "type": "u64"
+          },
+          {
+            "docs": [
+              "The collateral reserve's total bonus, for context on the split."
+            ],
+            "name": "total_bonus_bps",
+            "type": "u16"
+          },
+          {
+            "docs": [
+              "The configured share, before rounding. `protocol_shares` may be zero",
+              "while this is not."
+            ],
+            "name": "protocol_share_bps",
+            "type": "u16"
+          }
+        ],
+        "kind": "struct"
+      }
+    },
+    {
+      "name": "MarketObservationRecorded",
+      "type": {
+        "fields": [
+          {
+            "name": "oracle",
+            "type": "pubkey"
+          },
+          {
+            "docs": [
+              "The combined price recorded, which is the lower of the two pools."
+            ],
+            "name": "price",
+            "type": "u128"
+          },
+          {
+            "docs": [
+              "The time-weighted reference after this observation."
+            ],
+            "name": "reference",
+            "type": "u128"
+          },
+          {
+            "name": "pool_a_price",
+            "type": "u128"
+          },
+          {
+            "name": "pool_b_price",
+            "type": "u128"
+          },
+          {
+            "name": "deviation_bps",
+            "type": "u16"
+          },
+          {
+            "name": "quote_depth",
+            "type": "u64"
+          },
+          {
+            "name": "slot",
+            "type": "u64"
+          },
+          {
+            "docs": [
+              "The health the oracle is in after this observation."
+            ],
+            "name": "health",
+            "type": "u8"
+          },
+          {
+            "docs": [
+              "A rise was admitted only as far as the configured bound."
+            ],
+            "name": "rise_capped",
+            "type": "bool"
+          },
+          {
+            "name": "pools_disagree",
+            "type": "bool"
+          },
+          {
+            "name": "shallow",
+            "type": "bool"
+          },
+          {
+            "docs": [
+              "Whether this refresh appended to the observation history, or only",
+              "re-priced and restated freshness because it fell inside the spacing",
+              "window. A keeper uses this to tell a useful crank from a no-op."
+            ],
+            "name": "recorded",
+            "type": "bool"
+          }
+        ],
+        "kind": "struct"
+      }
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "MathOverflow",
+      "msg": "Arithmetic operation overflowed"
+    },
+    {
+      "code": 6001,
+      "name": "ZeroAmount",
+      "msg": "Amount must be greater than zero"
+    },
+    {
+      "code": 6002,
+      "name": "DepositTooSmall",
+      "msg": "Deposit is too small to mint any share tokens"
+    },
+    {
+      "code": 6003,
+      "name": "InvalidConfig",
+      "msg": "Reserve config has an invalid value"
+    },
+    {
+      "code": 6004,
+      "name": "LtvAboveHardMax",
+      "msg": "Loan-to-value above the protocol hard maximum of 75%"
+    },
+    {
+      "code": 6005,
+      "name": "BonusAboveHardMax",
+      "msg": "Liquidation bonus above the protocol hard maximum of 15%"
+    },
+    {
+      "code": 6006,
+      "name": "ReserveFactorAboveHardMax",
+      "msg": "Reserve factor above the protocol hard maximum of 30%"
+    },
+    {
+      "code": 6007,
+      "name": "OriginationFeeAboveHardMax",
+      "msg": "Origination fee above the protocol hard maximum of 50 bps"
+    },
+    {
+      "code": 6008,
+      "name": "HaircutBelowHardMin",
+      "msg": "Collateral haircut below the protocol hard minimum of 1%"
+    },
+    {
+      "code": 6009,
+      "name": "InvalidTimelock",
+      "msg": "Timelock outside the permitted 0..48h range"
+    },
+    {
+      "code": 6010,
+      "name": "NoPendingConfig",
+      "msg": "No parameter change is pending for this reserve"
+    },
+    {
+      "code": 6011,
+      "name": "TimelockNotElapsed",
+      "msg": "Pending parameter change is still inside its timelock"
+    },
+    {
+      "code": 6012,
+      "name": "ReserveStale",
+      "msg": "Reserve must be accrued in this same transaction before use"
+    },
+    {
+      "code": 6013,
+      "name": "ObligationStale",
+      "msg": "Obligation must be refreshed in this same transaction before use"
+    },
+    {
+      "code": 6014,
+      "name": "InvalidOraclePrice",
+      "msg": "Price source reported a non-positive price"
+    },
+    {
+      "code": 6015,
+      "name": "CircuitBreakerTripped",
+      "msg": "Circuit breaker is tripped: new borrowing is refused"
+    },
+    {
+      "code": 6016,
+      "name": "OracleAccountMismatch",
+      "msg": "Oracle source account is not the one this reserve is configured against"
+    },
+    {
+      "code": 6017,
+      "name": "OracleOwnerMismatch",
+      "msg": "Oracle source account is not owned by the configured price program"
+    },
+    {
+      "code": 6018,
+      "name": "OracleAccountMalformed",
+      "msg": "Oracle source account is malformed, the wrong length, or the wrong type"
+    },
+    {
+      "code": 6019,
+      "name": "OracleMintMismatch",
+      "msg": "Oracle source issues a different mint than this reserve prices"
+    },
+    {
+      "code": 6020,
+      "name": "OracleZeroSupply",
+      "msg": "Oracle source reports no shares outstanding, so no rate exists"
+    },
+    {
+      "code": 6021,
+      "name": "OracleZeroBacking",
+      "msg": "Oracle source reports no backing assets, so no rate exists"
+    },
+    {
+      "code": 6022,
+      "name": "OracleWithdrawalFeeTooHigh",
+      "msg": "Oracle source redemption fee is above the bound this reserve accepts"
+    },
+    {
+      "code": 6023,
+      "name": "OracleRateBelowFloor",
+      "msg": "Derived exchange rate is below the absolute floor for this asset"
+    },
+    {
+      "code": 6024,
+      "name": "OracleRateAboveCeiling",
+      "msg": "Derived exchange rate is above the absolute ceiling for this asset"
+    },
+    {
+      "code": 6025,
+      "name": "UnknownOracleSource",
+      "msg": "Oracle source kind is not one this program implements"
+    },
+    {
+      "code": 6026,
+      "name": "OracleStale",
+      "msg": "Oracle must be refreshed in this same transaction before use"
+    },
+    {
+      "code": 6027,
+      "name": "OracleBorrowFrozen",
+      "msg": "Oracle is frozen for risk-increasing actions; repayment remains open"
+    },
+    {
+      "code": 6028,
+      "name": "OracleEmergency",
+      "msg": "Oracle is in an emergency state; only risk-reducing actions are permitted"
+    },
+    {
+      "code": 6029,
+      "name": "InvalidOracleConfig",
+      "msg": "Oracle configuration is invalid"
+    },
+    {
+      "code": 6030,
+      "name": "OracleProgramDataMismatch",
+      "msg": "Oracle source ProgramData account is not the one this program derives to"
+    },
+    {
+      "code": 6031,
+      "name": "OracleProgramUpgraded",
+      "msg": "Oracle source program has been redeployed since it was pinned"
+    },
+    {
+      "code": 6032,
+      "name": "OracleAuthorityChanged",
+      "msg": "Oracle source program's upgrade authority has changed"
+    },
+    {
+      "code": 6033,
+      "name": "OracleBootstrapInconsistent",
+      "msg": "Bootstrap rate is inconsistent with the source's own previous epoch"
+    },
+    {
+      "code": 6034,
+      "name": "OracleBootstrapping",
+      "msg": "Oracle is still bootstrapping; new borrowing is not yet permitted"
+    },
+    {
+      "code": 6035,
+      "name": "BorrowPaused",
+      "msg": "Borrowing is paused"
+    },
+    {
+      "code": 6036,
+      "name": "ProtocolPaused",
+      "msg": "The protocol is paused"
+    },
+    {
+      "code": 6037,
+      "name": "BorrowNotEnabled",
+      "msg": "This reserve does not allow borrowing"
+    },
+    {
+      "code": 6038,
+      "name": "CollateralNotEnabled",
+      "msg": "This reserve may not be used as collateral"
+    },
+    {
+      "code": 6039,
+      "name": "SupplyCapExceeded",
+      "msg": "Deposit would exceed the reserve supply cap"
+    },
+    {
+      "code": 6040,
+      "name": "BorrowCapExceeded",
+      "msg": "Borrow would exceed the reserve borrow cap"
+    },
+    {
+      "code": 6041,
+      "name": "PerWalletCapExceeded",
+      "msg": "Deposit would exceed this wallet's supply cap"
+    },
+    {
+      "code": 6042,
+      "name": "PerWalletBorrowCapExceeded",
+      "msg": "This wallet's debt in this reserve would exceed the per-wallet borrow cap"
+    },
+    {
+      "code": 6043,
+      "name": "UnexpectedAmmProgram",
+      "msg": "Pool account is not owned by the configured AMM program"
+    },
+    {
+      "code": 6044,
+      "name": "UnexpectedPoolPair",
+      "msg": "Pool does not hold the expected collateral/quote pair"
+    },
+    {
+      "code": 6045,
+      "name": "InsufficientPoolDepth",
+      "msg": "Pool quote-side depth is below the configured minimum"
+    },
+    {
+      "code": 6046,
+      "name": "PoolsDisagree",
+      "msg": "The two pools disagree by more than the configured deviation"
+    },
+    {
+      "code": 6047,
+      "name": "ObservationTooSoon",
+      "msg": "An observation was submitted too soon after the previous one"
+    },
+    {
+      "code": 6048,
+      "name": "AmmDeploymentChanged",
+      "msg": "The AMM program has been redeployed since this oracle was configured"
+    },
+    {
+      "code": 6049,
+      "name": "BorrowTooLarge",
+      "msg": "Borrow would exceed the obligation's allowed borrow value"
+    },
+    {
+      "code": 6050,
+      "name": "WithdrawTooLarge",
+      "msg": "Withdraw would leave the obligation undercollateralized"
+    },
+    {
+      "code": 6051,
+      "name": "ObligationHealthy",
+      "msg": "Obligation is healthy and cannot be liquidated"
+    },
+    {
+      "code": 6052,
+      "name": "ObligationHasCollateral",
+      "msg": "Obligation still holds collateral; liquidate it before writing anything off"
+    },
+    {
+      "code": 6053,
+      "name": "NoBadDebt",
+      "msg": "Obligation has no debt in this reserve to write off"
+    },
+    {
+      "code": 6054,
+      "name": "InsufficientReserveLiquidity",
+      "msg": "Reserve does not have enough available liquidity"
+    },
+    {
+      "code": 6055,
+      "name": "LiquidationTooLarge",
+      "msg": "Repay amount would seize more collateral than the obligation holds"
+    },
+    {
+      "code": 6056,
+      "name": "TooManyReserves",
+      "msg": "Obligation already uses the maximum number of reserves"
+    },
+    {
+      "code": 6057,
+      "name": "ReserveNotFound",
+      "msg": "Reserve is not part of this obligation"
+    },
+    {
+      "code": 6058,
+      "name": "InvalidObligationAccount",
+      "msg": "A refresh account did not match the obligation's stored reserves"
+    },
+    {
+      "code": 6059,
+      "name": "MarketMismatch",
+      "msg": "Reserve belongs to a different market than the obligation"
+    },
+    {
+      "code": 6060,
+      "name": "GlobalMismatch",
+      "msg": "Account does not belong to this protocol instance"
+    },
+    {
+      "code": 6061,
+      "name": "NotAdmin",
+      "msg": "Signer is not the protocol admin"
+    },
+    {
+      "code": 6062,
+      "name": "WrongFeeDestination",
+      "msg": "Fee destination account does not match the configured destination"
+    },
+    {
+      "code": 6063,
+      "name": "NothingToCollect",
+      "msg": "No protocol fees are available to collect"
+    },
+    {
+      "code": 6064,
+      "name": "AlreadyMigrated",
+      "msg": "This account has already been migrated to v0.2"
+    },
+    {
+      "code": 6065,
+      "name": "NotMigratable",
+      "msg": "This account is not in a migratable v0.1 state"
+    },
+    {
+      "code": 6066,
+      "name": "MigrationChangedState",
+      "msg": "Migration altered economic state and was rolled back"
+    },
+    {
+      "code": 6067,
+      "name": "UnsupportedAmmKind",
+      "msg": "The pool names an AMM layout this oracle cannot decode, or is not a constant-product pool"
+    },
+    {
+      "code": 6068,
+      "name": "OracleFeedEmpty",
+      "msg": "The relayed feed has never received a rate"
+    },
+    {
+      "code": 6069,
+      "name": "OracleRelayStale",
+      "msg": "The relayed rate is older than the oracle accepts"
+    },
+    {
+      "code": 6070,
+      "name": "OracleSourceLocked",
+      "msg": "A configured oracle's source cannot be changed in place; it needs a program upgrade"
+    },
+    {
+      "code": 6071,
+      "name": "UnitOfAccountNotQuote",
+      "msg": "Only the market's quote currency can be priced as the unit of account"
+    },
+    {
+      "code": 6072,
+      "name": "CreatorMarketLocked",
+      "msg": "Creator markets are configured only by the isolated-market instructions"
+    },
+    {
+      "code": 6073,
+      "name": "ReservedMarketId",
+      "msg": "Market ids in the creator range can only be created permissionlessly"
+    },
+    {
+      "code": 6074,
+      "name": "CreationDisabled",
+      "msg": "Permissionless market creation is switched off"
+    },
+    {
+      "code": 6075,
+      "name": "UnsafeMint",
+      "msg": "The token mint is not acceptable as creator-market collateral"
+    },
+    {
+      "code": 6076,
+      "name": "UnknownTier",
+      "msg": "Unknown risk tier"
+    },
+    {
+      "code": 6077,
+      "name": "TierNeedsTwoPools",
+      "msg": "This tier needs two distinct oracle pools"
+    },
+    {
+      "code": 6078,
+      "name": "PoolTooShallow",
+      "msg": "An oracle pool is shallower than the tier requires"
+    },
+    {
+      "code": 6079,
+      "name": "AmmNotAllowed",
+      "msg": "The pool's AMM is not one Aera allows creator markets to price from"
+    },
+    {
+      "code": 6080,
+      "name": "BondTooSmall",
+      "msg": "Bond is below the minimum"
+    },
+    {
+      "code": 6081,
+      "name": "BondWouldUndercover",
+      "msg": "Withdrawing this much bond would leave outstanding debt uncovered"
+    },
+    {
+      "code": 6082,
+      "name": "NotCreator",
+      "msg": "Signer is not this market's creator"
+    },
+    {
+      "code": 6083,
+      "name": "WrongMarketStage",
+      "msg": "The market's reserves are not both initialised yet, or are already"
+    },
+    {
+      "code": 6084,
+      "name": "MarketRetired",
+      "msg": "The market has been retired by its creator"
+    },
+    {
+      "code": 6085,
+      "name": "DebtNotCoverable",
+      "msg": "This loan is neither without collateral, underwater, nor priced by a dead oracle"
+    },
+    {
+      "code": 6086,
+      "name": "NothingToHarvest",
+      "msg": "No creator fee has accrued since the last harvest"
+    },
+    {
+      "code": 6087,
+      "name": "NotEnoughDepthHistory",
+      "msg": "Not enough oracle history to re-measure pool depth"
+    }
+  ],
+  "events": [
+    {
+      "discriminator": [
+        79,
+        7,
+        46,
+        220,
+        149,
+        148,
+        250,
+        170
+      ],
+      "name": "BadDebtAbsorbed"
+    },
+    {
+      "discriminator": [
+        120,
+        8,
+        71,
+        243,
+        135,
+        170,
+        20,
+        99
+      ],
+      "name": "ReserveCreated"
+    },
+    {
+      "discriminator": [
+        79,
+        221,
+        60,
+        141,
+        244,
+        69,
+        47,
+        209
+      ],
+      "name": "ParamsApplied"
+    },
+    {
+      "discriminator": [
+        154,
+        201,
+        187,
+        11,
+        75,
+        245,
+        205,
+        20
+      ],
+      "name": "ParamsQueued"
+    },
+    {
+      "discriminator": [
+        87,
+        251,
+        85,
+        84,
+        113,
+        63,
+        139,
+        115
+      ],
+      "name": "ShareMetadataChanged"
+    },
+    {
+      "discriminator": [
+        230,
+        186,
+        238,
+        175,
+        232,
+        34,
+        129,
+        239
+      ],
+      "name": "IsolatedDebtCovered"
+    },
+    {
+      "discriminator": [
+        246,
+        199,
+        58,
+        176,
+        35,
+        28,
+        147,
+        173
+      ],
+      "name": "IsolatedMarketCreated"
+    },
+    {
+      "discriminator": [
+        168,
+        156,
+        33,
+        208,
+        69,
+        100,
+        34,
+        246
+      ],
+      "name": "CreatorFeesHarvested"
+    },
+    {
+      "discriminator": [
+        0,
+        238,
+        176,
+        12,
+        4,
+        49,
+        179,
+        17
+      ],
+      "name": "IsolatedLimitsChanged"
+    },
+    {
+      "discriminator": [
+        231,
+        31,
+        50,
+        213,
+        72,
+        205,
+        244,
+        246
+      ],
+      "name": "IsolatedObservation"
+    },
+    {
+      "discriminator": [
+        231,
+        57,
+        55,
+        75,
+        0,
+        170,
+        246,
+        68
+      ],
+      "name": "Liquidated"
+    },
+    {
+      "discriminator": [
+        13,
+        226,
+        4,
+        45,
+        225,
+        254,
+        44,
+        39
+      ],
+      "name": "MarketObservationRecorded"
+    }
+  ]
+}

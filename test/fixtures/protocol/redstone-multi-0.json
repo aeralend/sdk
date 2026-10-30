@@ -1,0 +1,133 @@
+{
+ "source": "oracle-gateway-1.a.redstone.finance, redstone-primary-prod, captured 2026-10-12T19:29:55.483Z",
+ "feeds": {
+  "SOL": [
+   {
+    "signer": "0x8bb8f32df04c8b654987daaed53d6b6091e3b774",
+    "value": "10804256063",
+    "timestampMs": 1791833380000,
+    "signature": "3c2f1f19d9edf535b38b0ba0025306a62e6821b1ee86f5df2946bbf01120bd69495890f2714ad918cdb9222cf1c88094d6cf9e7a24827781a70ee8bb381d43561c"
+   },
+   {
+    "signer": "0xdd682daec5a90dd295d14da4b0bec9281017b5be",
+    "value": "10804256063",
+    "timestampMs": 1791833380000,
+    "signature": "438f3a9ec831fa5367c57b25567958f65480dd2b5f33302b364cced3aa10483c60002df9c1c0c533be028ea5549f99d32260103744fd51a29d2d166b72b3221c1c"
+   },
+   {
+    "signer": "0x9c5ae89c4af6aa32ce58588dbaf90d18a855b6de",
+    "value": "10804256063",
+    "timestampMs": 1791833380000,
+    "signature": "69ee45ec61204d5b7c93702adf57dcdb75f2ef048c946bca8b742287c4976a4d047324234539e94d734abebff26574627ec7977f3084e6196e7bd62d2cfec2921c"
+   },
+   {
+    "signer": "0xdeb22f54738d54976c4c0fe5ce6d408e40d88499",
+    "value": "10804256063",
+    "timestampMs": 1791833380000,
+    "signature": "12b76cc268474832275663f12f1524bcbd073ed1cb5b045e0ab1c22c7cf0a2387faf9d1f33effc7c5bc80a44fb6db431de29bef0bce742f8c1de06e3bf6262761b"
+   },
+   {
+    "signer": "0x51ce04be4b3e32572c4ec9135221d0691ba7d202",
+    "value": "10804256063",
+    "timestampMs": 1791833380000,
+    "signature": "94bb915d81c9167e78df1052c1e3931fe1635ef96313433ecd344644eb1622ee4844c6f3b81f8dbdbce1f95617a94bd0df0a035c8fd4655f901cb286413fcd981b"
+   }
+  ],
+  "BTC": [
+   {
+    "signer": "0x8bb8f32df04c8b654987daaed53d6b6091e3b774",
+    "value": "8261233143609",
+    "timestampMs": 1791833380000,
+    "signature": "bd39825e3baf308cc5921b55fcb667ae7b980eb26714bcc46fc6621cca337fd2686bed03abca7d492ad8461dac11b423bff06f88682fac83430fc177422e12aa1b"
+   },
+   {
+    "signer": "0xdd682daec5a90dd295d14da4b0bec9281017b5be",
+    "value": "8261200255650",
+    "timestampMs": 1791833380000,
+    "signature": "4e4bd89cb1f8348bc9dfb2471442f7b375066a5a56f0c80c28587371b6ea65f5368a216ce9a184ad95bde865cbc03a11181facfb90e22591af8dd6d8bbd651bd1c"
+   },
+   {
+    "signer": "0x9c5ae89c4af6aa32ce58588dbaf90d18a855b6de",
+    "value": "8261200255650",
+    "timestampMs": 1791833380000,
+    "signature": "ee1cee7390e05e8e28d27b738020c9c91b25373a9b5ca756d33ab4f38415efc17b35bb217ba605d5b55b6c39b7977d21db6fe5279dd40586e21568a9166a7c4f1c"
+   },
+   {
+    "signer": "0xdeb22f54738d54976c4c0fe5ce6d408e40d88499",
+    "value": "8261233143609",
+    "timestampMs": 1791833380000,
+    "signature": "3f638d6cb3a6fa4588fbfd64f67b14727397d3605d66ea0bbfeb53dc7d90603b6d859d2d4de563813e6e91819c2d42bf151a3474399baa063395958115854cb61c"
+   },
+   {
+    "signer": "0x51ce04be4b3e32572c4ec9135221d0691ba7d202",
+    "value": "8261233143609",
+    "timestampMs": 1791833380000,
+    "signature": "0f568cbe42bf4ce57a2360d5e3560cba2c2014910b230908593fe1d51e07ceae3028dbb384a4af8b6ad50490651b311911259e51413ceb5857cae44e52a332661c"
+   }
+  ],
+  "ETH": [
+   {
+    "signer": "0x8bb8f32df04c8b654987daaed53d6b6091e3b774",
+    "value": "251661753860",
+    "timestampMs": 1791833380000,
+    "signature": "bd787bbcaf3fda61fb2102ff2eed5a4db990d60a6df2a498c65ba4239f61987a4d6aef56ef0f99ed9917735b1708814590c5269f28d2466f0f204e9bc02fa6e81b"
+   },
+   {
+    "signer": "0xdd682daec5a90dd295d14da4b0bec9281017b5be",
+    "value": "251661753860",
+    "timestampMs": 1791833380000,
+    "signature": "efb30bed298e1ee96900ee782e3bb23f4d1375b4532faab2ec544881668b74342157c0877949dbcce29d1b4911049b11d460269d24ac5c620e66de129e5b30d01b"
+   },
+   {
+    "signer": "0x9c5ae89c4af6aa32ce58588dbaf90d18a855b6de",
+    "value": "251661753860",
+    "timestampMs": 1791833380000,
+    "signature": "838983182fcd29f1b5fa52dab8c860387a5787fd7de5da5b90d9cc5707cb0a4a146c75b6fac66c2b4cbab036198283f89a6963742c99089d009e24fe3242bba81b"
+   },
+   {
+    "signer": "0xdeb22f54738d54976c4c0fe5ce6d408e40d88499",
+    "value": "251661753860",
+    "timestampMs": 1791833380000,
+    "signature": "2c7c5a4b57142bdd03c8cd9987d10eaa889e50cde2622f4f01f8fbac9f81c0135ac1e5721610fc55bc9ac52cd5894658b8a05e99a91712582a6d230cb29b7a821c"
+   },
+   {
+    "signer": "0x51ce04be4b3e32572c4ec9135221d0691ba7d202",
+    "value": "251661753860",
+    "timestampMs": 1791833380000,
+    "signature": "0ec79ff4f3a1d4e796f24393209993cfc5999ad9720427c33ecbb9ef7d2252247716153530bb5fc3a10a57ef331cfd93321608fd1bc698f859d083ca979c06cf1c"
+   }
+  ],
+  "HYPE": [
+   {
+    "signer": "0xdeb22f54738d54976c4c0fe5ce6d408e40d88499",
+    "value": "8347651312",
+    "timestampMs": 1791833380000,
+    "signature": "b7627c952f0f9e0c7bc77d728ab4bc149d983cc0076cbea6ee383ab8983ab5892ed88fae0220d7124a600117800e0524eef3ea01d1ba0acdaebee135636f5fea1b"
+   },
+   {
+    "signer": "0x51ce04be4b3e32572c4ec9135221d0691ba7d202",
+    "value": "8347575656",
+    "timestampMs": 1791833380000,
+    "signature": "1685f70809cf437734936a6f90fb9667cba22c11fa19a09dbc4879a0f563024d3fa8e92818fc915d2c455d900f4525afe1e63b07db8f615e534da0294e9672671b"
+   },
+   {
+    "signer": "0x9c5ae89c4af6aa32ce58588dbaf90d18a855b6de",
+    "value": "8347575656",
+    "timestampMs": 1791833380000,
+    "signature": "88687ceafb485a1d8bb11e82446396fb8728b811c2dee915d40c0a92c18665741d472fc326409eb6b0836d82793ed477138d16cfaa7135a4b1a8fd96178ed97a1c"
+   },
+   {
+    "signer": "0xdd682daec5a90dd295d14da4b0bec9281017b5be",
+    "value": "8347651312",
+    "timestampMs": 1791833380000,
+    "signature": "d06faaefbf6698c3ed0a8a59585ca879123a1bfe655ba51b2547027ea6728c907eb12fc6d4520742dba01aead501a83cbbd1f4513d7dc50c1cf7457526efce8a1b"
+   },
+   {
+    "signer": "0x8bb8f32df04c8b654987daaed53d6b6091e3b774",
+    "value": "8347651312",
+    "timestampMs": 1791833380000,
+    "signature": "03ab905ddd3888d17b28549183b0e5ca5b7d6757048e10dbdf6a07698302b0f93198425a5af152b42dadd75def94fca66a86b86fa4006420a6d8e4beb96fde021c"
+   }
+  ]
+ }
+}
